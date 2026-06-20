@@ -1,3 +1,125 @@
 [gd_scene format=3 uid="uid://dgvt3ud7ubm0k"]
 
+[ext_resource type="Texture2D" uid="uid://beb6pk7vuipxv" path="res://Assets/box.png" id="1_ig7tw"]
+[ext_resource type="Texture2D" uid="uid://dfr8jiumbwxv0" path="res://Assets/box-border.png" id="2_0xm2m"]
+[ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="3_h2yge"]
+[ext_resource type="Texture2D" uid="uid://crt7cm15ut6b4" path="res://Assets/WheelShadow.png" id="4_1bvp3"]
+[ext_resource type="Texture2D" uid="uid://cxtwstoyfdlhq" path="res://Assets/hay.png" id="5_lquwl"]
+[ext_resource type="Texture2D" uid="uid://bdvqsdoagl1ii" path="res://Assets/texture_bar_base.png" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://co3cmh27mie1p" path="res://Assets/hpbar.png" id="7_272bh"]
+
 [node name="Main" type="Node2D" unique_id=1585207466]
+
+[node name="Box" type="Node2D" parent="." unique_id=114894614]
+position = Vector2(240, 135)
+
+[node name="BoxSprite2D" type="Sprite2D" parent="Box" unique_id=1233536077]
+texture = ExtResource("1_ig7tw")
+
+[node name="BorderSprite2D" type="Sprite2D" parent="Box" unique_id=2031004534]
+texture = ExtResource("2_0xm2m")
+
+[node name="Interior" type="Node2D" parent="." unique_id=1927714804]
+
+[node name="Wheel" type="Node2D" parent="Interior" unique_id=477201562]
+position = Vector2(209, 138)
+
+[node name="WheelShadowSprite2D" type="Sprite2D" parent="Interior/Wheel" unique_id=132449696]
+position = Vector2(0, 82)
+texture = ExtResource("4_1bvp3")
+
+[node name="WheelSprite2D" type="Sprite2D" parent="Interior/Wheel" unique_id=565735496]
+texture = ExtResource("3_h2yge")
+
+[node name="Hay" type="Node2D" parent="Interior" unique_id=1948476970]
+position = Vector2(354, 198)
+
+[node name="HaySprite2D" type="Sprite2D" parent="Interior/Hay" unique_id=345526951]
+texture = ExtResource("5_lquwl")
+
+[node name="UI" type="CanvasLayer" parent="." unique_id=1517068233]
+
+[node name="Full" type="Control" parent="UI" unique_id=783024457]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BottomRight" type="Control" parent="UI/Full" unique_id=913768737]
+layout_mode = 1
+anchor_left = 0.7
+anchor_top = 0.7
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="UI/Full/BottomRight" unique_id=1874617329]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HPBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1911947194]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 62.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_7mycd")
+texture_over = ExtResource("6_7mycd")
+texture_progress = ExtResource("7_272bh")
+tint_progress = Color(1, 0.24705882, 0.2901961, 1)
+
+[node name="EnergyBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1972222192]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 87.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_7mycd")
+texture_over = ExtResource("6_7mycd")
+texture_progress = ExtResource("7_272bh")
+tint_progress = Color(1, 1, 0.19215687, 1)
+
+[node name="WaterBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=505580735]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 66.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_7mycd")
+texture_over = ExtResource("6_7mycd")
+texture_progress = ExtResource("7_272bh")
+tint_progress = Color(0.30588236, 0.61960787, 1, 1)
+
+[node name="FoodBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=2093754336]
+custom_minimum_size = Vector2(0, 16)
+layout_mode = 2
+value = 75.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("6_7mycd")
+texture_over = ExtResource("6_7mycd")
+texture_progress = ExtResource("7_272bh")
+tint_progress = Color(0.23137255, 0.5568628, 0.21176471, 1)
