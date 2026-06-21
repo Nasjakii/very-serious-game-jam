@@ -13,6 +13,8 @@
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dn2i0csms6cjk" path="res://UI/Shop/shop_offer.tscn" id="12_dg77c"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="13_ycdy4"]
+[ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
+[ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
 
 [node name="Main" type="Node2D" unique_id=1585207466]
 
@@ -57,8 +59,8 @@ grow_vertical = 2
 
 [node name="BottomRight" type="Control" parent="UI/Full" unique_id=913768737]
 layout_mode = 1
-anchor_left = 0.7
-anchor_top = 0.7
+anchor_left = 0.8
+anchor_top = 0.8
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 0
@@ -74,7 +76,7 @@ grow_vertical = 2
 alignment = 2
 
 [node name="HPBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1911947194]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 value = 62.0
 fill_mode = 1
@@ -89,7 +91,7 @@ texture_progress = ExtResource("7_272bh")
 tint_progress = Color(1, 0.24705882, 0.2901961, 1)
 
 [node name="EnergyBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1972222192]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 value = 87.0
 fill_mode = 1
@@ -104,7 +106,7 @@ texture_progress = ExtResource("7_272bh")
 tint_progress = Color(1, 1, 0.19215687, 1)
 
 [node name="WaterBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=505580735]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 value = 66.0
 fill_mode = 1
@@ -119,7 +121,7 @@ texture_progress = ExtResource("7_272bh")
 tint_progress = Color(0.30588236, 0.61960787, 1, 1)
 
 [node name="FoodBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=2093754336]
-custom_minimum_size = Vector2(0, 16)
+custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 value = 75.0
 fill_mode = 1
@@ -150,13 +152,13 @@ script = ExtResource("9_4c57u")
 toggle_shop_button = NodePath("ToggleShopButton")
 
 [node name="ToggleShopButton" type="TextureButton" parent="UI/Full/Left/Shop" unique_id=1976999534]
-custom_minimum_size = Vector2(32, 32)
+custom_minimum_size = Vector2(24, 24)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_right = 32.0
-offset_bottom = 32.0
+offset_right = 24.0
+offset_bottom = 24.0
 grow_horizontal = 0
 texture_normal = ExtResource("10_4c57u")
 ignore_texture_size = true
@@ -216,6 +218,7 @@ anchor_right = 0.95
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 0
 
 [node name="StatHBoxContainer" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=155621428]
 custom_minimum_size = Vector2(0, 20)
@@ -230,11 +233,77 @@ scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer" unique_id=797929066]
-custom_minimum_size = Vector2(60, 0)
+[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer" unique_id=2088572900]
 layout_mode = 2
-theme_override_fonts/normal_font = ExtResource("13_ycdy4")
-text = ": Stat Name"
-scroll_active = false
-autowrap_mode = 0
+theme_override_fonts/font = ExtResource("13_ycdy4")
+text = ": HamBucks"
 vertical_alignment = 1
+
+[node name="StatHBoxContainer2" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer2" unique_id=1168495587]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("13_ycdy4")
+text = "20"
+scroll_active = false
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer2" unique_id=1959247420]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+text = ": Stat"
+vertical_alignment = 1
+
+[node name="BottomCenter" type="Control" parent="UI/Full" unique_id=1201079568]
+layout_mode = 1
+anchor_left = 0.15
+anchor_top = 0.79
+anchor_right = 0.7
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Dialog" type="Control" parent="UI/Full/BottomCenter" unique_id=1345030421]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="UI/Full/BottomCenter/Dialog" unique_id=1666039561]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("14_w48qg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="DialogPicture" type="TextureRect" parent="UI/Full/BottomCenter/Dialog" unique_id=1946855582]
+layout_mode = 0
+offset_left = 23.0
+offset_top = 13.699997
+offset_right = 59.0
+offset_bottom = 36.699997
+texture = ExtResource("15_vivmo")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/BottomCenter/Dialog" unique_id=2018011561]
+layout_mode = 0
+offset_left = 62.0
+offset_top = 11.699997
+offset_right = 243.0
+offset_bottom = 41.699997
+theme_override_colors/default_color = Color(0.41598046, 0.41598043, 0.4159804, 1)
+theme_override_fonts/normal_font = ExtResource("13_ycdy4")
+theme_override_font_sizes/normal_font_size = 12
+text = "Very long example text as example you know or some latin shit if you feel extra fancy, like deus vult or something :)"
+scroll_active = false
