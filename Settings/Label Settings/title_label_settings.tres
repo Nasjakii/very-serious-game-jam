@@ -1,0 +1,7 @@
+[gd_resource type="LabelSettings" format=3 uid="uid://dx7tsokkpufn7"]
+
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_nrnfa"]
+
+[resource]
+font = ExtResource("1_nrnfa")
+font_size = 30
