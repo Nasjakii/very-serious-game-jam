@@ -1,0 +1,62 @@
+[gd_scene format=3 uid="uid://b0k413t7a7hr4"]
+
+[ext_resource type="Script" uid="uid://bfb34gs8ux2mp" path="res://GameObjects/wheel.gd" id="1_bx1x2"]
+[ext_resource type="Texture2D" uid="uid://crt7cm15ut6b4" path="res://Assets/WheelShadow.png" id="2_a4pml"]
+[ext_resource type="Texture2D" uid="uid://bi0277xlx3r3m" path="res://Assets/workout_display.png" id="3_6eiq6"]
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="4_a4pml"]
+[ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="4_r2pkp"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("4_r2pkp")
+region = Rect2(0, 0, 148, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("4_r2pkp")
+region = Rect2(148, 0, 148, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("4_r2pkp")
+region = Rect2(296, 0, 148, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_074og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
+[node name="Wheel" type="Node2D" unique_id=1378031939]
+script = ExtResource("1_bx1x2")
+
+[node name="WheelShadowSprite2D" type="Sprite2D" parent="." unique_id=1878873601]
+position = Vector2(0, 82)
+texture = ExtResource("2_a4pml")
+
+[node name="WheelDisplay" type="Sprite2D" parent="." unique_id=51203027]
+position = Vector2(-1, -17)
+texture = ExtResource("3_6eiq6")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="WheelDisplay" unique_id=101253372]
+offset_left = -47.0
+offset_top = -29.0
+offset_right = 47.0
+offset_bottom = 29.0
+theme_override_fonts/normal_font = ExtResource("4_a4pml")
+text = "Speed: 0 cm/s
+Distance: 0 m
+Energy: 0 W
+Production: 0 KWh"
+
+[node name="WheelSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730781370]
+sprite_frames = SubResource("SpriteFrames_074og")
+frame_progress = 0.60752857

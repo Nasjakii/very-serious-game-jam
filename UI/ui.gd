@@ -2,7 +2,7 @@ extends CanvasLayer
 
 @export var shop: Control
 
-var shop_open = true 
+var shop_open = false 
 
 
 func _input(event: InputEvent) -> void:
