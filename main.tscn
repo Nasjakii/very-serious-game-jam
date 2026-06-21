@@ -16,6 +16,35 @@
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
+atlas = ExtResource("3_h2yge")
+region = Rect2(0, 0, 148, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
+atlas = ExtResource("3_h2yge")
+region = Rect2(148, 0, 148, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+atlas = ExtResource("3_h2yge")
+region = Rect2(296, 0, 148, 180)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_074og"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vivmo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2cqfq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yaehf")
+}],
+"loop": true,
+"name": &"default",
+"speed": 15.0
+}]
+
 [node name="Main" type="Node2D" unique_id=1585207466]
 
 [node name="Box" type="Node2D" parent="." unique_id=114894614]
@@ -36,8 +65,9 @@ position = Vector2(209, 138)
 position = Vector2(0, 82)
 texture = ExtResource("4_1bvp3")
 
-[node name="WheelSprite2D" type="Sprite2D" parent="Interior/Wheel" unique_id=565735496]
-texture = ExtResource("3_h2yge")
+[node name="WheelSprite2D" type="AnimatedSprite2D" parent="Interior/Wheel" unique_id=1205432542]
+sprite_frames = SubResource("SpriteFrames_074og")
+frame_progress = 0.9658752
 
 [node name="Hay" type="Node2D" parent="Interior" unique_id=1948476970]
 position = Vector2(354, 198)
