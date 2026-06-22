@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://beb6pk7vuipxv" path="res://Assets/box.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dfr8jiumbwxv0" path="res://Assets/box-border.png" id="2_0xm2m"]
+[ext_resource type="Script" uid="uid://b8rwxlriv2ur8" path="res://game_manager.gd" id="2_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://b0k413t7a7hr4" path="res://GameObjects/wheel.tscn" id="3_w48qg"]
 [ext_resource type="Texture2D" uid="uid://cxtwstoyfdlhq" path="res://Assets/hay.png" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://ci32r4dmbrow6" path="res://UI/ui.gd" id="6_5vw27"]
@@ -11,11 +12,16 @@
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="10_4c57u"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dn2i0csms6cjk" path="res://UI/Shop/shop_offer.tscn" id="12_dg77c"]
+[ext_resource type="Script" uid="uid://bv85icdpo83co" path="res://UI/time_h_box.gd" id="13_2cqfq"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="13_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
+[ext_resource type="Script" uid="uid://dgl3tp237m05k" path="res://black_screen.gd" id="17_yaehf"]
 
 [node name="Main" type="Node2D" unique_id=1585207466]
+
+[node name="GameManager" type="Node" parent="." unique_id=185952480]
+script = ExtResource("2_2cqfq")
 
 [node name="Box" type="Node2D" parent="." unique_id=114894614]
 position = Vector2(240, 135)
@@ -37,9 +43,12 @@ position = Vector2(354, 198)
 [node name="HaySprite2D" type="Sprite2D" parent="Interior/Hay" unique_id=345526951]
 texture = ExtResource("5_lquwl")
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop") groups=["UI"]]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop", "energy_bar", "water_bar", "food_bar") groups=["UI"]]
 script = ExtResource("6_5vw27")
 shop = NodePath("Full/Left/Shop")
+energy_bar = NodePath("Full/BottomRight/VBoxContainer/EnergyBar")
+water_bar = NodePath("Full/BottomRight/VBoxContainer/WaterBar")
+food_bar = NodePath("Full/BottomRight/VBoxContainer/FoodBar")
 
 [node name="Full" type="Control" parent="UI" unique_id=783024457]
 layout_mode = 3
@@ -48,6 +57,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="BottomRight" type="Control" parent="UI/Full" unique_id=913768737]
 layout_mode = 1
@@ -67,7 +77,7 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 2
 
-[node name="HPBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1911947194]
+[node name="SocialBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1911947194]
 custom_minimum_size = Vector2(0, 10)
 layout_mode = 2
 value = 62.0
@@ -133,7 +143,7 @@ anchor_right = 0.25
 anchor_bottom = 1.0
 grow_vertical = 2
 
-[node name="Shop" type="Control" parent="UI/Full/Left" unique_id=1779804796 node_paths=PackedStringArray("toggle_shop_button")]
+[node name="Shop" type="Control" parent="UI/Full/Left" unique_id=1779804796 node_paths=PackedStringArray("toggle_shop_button", "shop_offer_vbox")]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -144,6 +154,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("9_4c57u")
 toggle_shop_button = NodePath("ToggleShopButton")
+shop_offer_vbox = NodePath("ShopVBox")
 
 [node name="ToggleShopButton" type="TextureButton" parent="UI/Full/Left/Shop" unique_id=1976999534]
 custom_minimum_size = Vector2(24, 24)
@@ -189,11 +200,32 @@ grow_vertical = 2
 [node name="ShopOffer" parent="UI/Full/Left/Shop/ShopVBox" unique_id=729491621 instance=ExtResource("12_dg77c")]
 layout_mode = 2
 
+[node name="ShopOffer2" parent="UI/Full/Left/Shop/ShopVBox" unique_id=1837544603 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer3" parent="UI/Full/Left/Shop/ShopVBox" unique_id=32341987 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer4" parent="UI/Full/Left/Shop/ShopVBox" unique_id=1959783515 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer5" parent="UI/Full/Left/Shop/ShopVBox" unique_id=584587738 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer6" parent="UI/Full/Left/Shop/ShopVBox" unique_id=308407045 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer7" parent="UI/Full/Left/Shop/ShopVBox" unique_id=370922171 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
+[node name="ShopOffer8" parent="UI/Full/Left/Shop/ShopVBox" unique_id=423073255 instance=ExtResource("12_dg77c")]
+layout_mode = 2
+
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1
 anchor_left = 0.8
 anchor_right = 1.0
-anchor_bottom = 0.15
+anchor_bottom = 0.22
 grow_horizontal = 0
 
 [node name="Panel" type="Panel" parent="UI/Full/TopRight" unique_id=1235399119]
@@ -214,6 +246,35 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
+[node name="TimeHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058 node_paths=PackedStringArray("hour_rich_text_label", "minute_label")]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+theme_override_constants/separation = 0
+script = ExtResource("13_2cqfq")
+hour_rich_text_label = NodePath("DayRichTextLabel")
+minute_label = NodePath("MinuteLabel")
+
+[node name="DayRichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/TimeHBox" unique_id=1168495587]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/normal_font = ExtResource("13_ycdy4")
+text = "Day: 0"
+scroll_active = false
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HourLabel" type="Label" parent="UI/Full/TopRight/VBoxContainer/TimeHBox" unique_id=1432004163]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+text = "10"
+vertical_alignment = 1
+
+[node name="MinuteLabel" type="Label" parent="UI/Full/TopRight/VBoxContainer/TimeHBox" unique_id=1959247420]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+text = ":15"
+vertical_alignment = 1
+
 [node name="StatHBoxContainer" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=155621428]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -233,23 +294,23 @@ theme_override_fonts/font = ExtResource("13_ycdy4")
 text = ": HamBucks"
 vertical_alignment = 1
 
-[node name="StatHBoxContainer2" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058]
+[node name="StatHBoxContainer3" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1279932819]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer2" unique_id=1168495587]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer3" unique_id=543224011]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("13_ycdy4")
-text = "20"
+text = "0,5"
 scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer2" unique_id=1959247420]
+[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer3" unique_id=125677457]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
-text = ": Stat"
+text = ": HB/KWh"
 vertical_alignment = 1
 
 [node name="BottomCenter" type="Control" parent="UI/Full" unique_id=1201079568]
@@ -301,3 +362,33 @@ theme_override_fonts/normal_font = ExtResource("13_ycdy4")
 theme_override_font_sizes/normal_font_size = 12
 text = "Very long example text as example you know or some latin shit if you feel extra fancy, like deus vult or something :)"
 scroll_active = false
+
+[node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label") groups=["BlackScreen"]]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+script = ExtResource("17_yaehf")
+day_label = NodePath("DayLabel")
+
+[node name="DayLabel" type="Label" parent="UI/BlackScreen" unique_id=255642141]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+theme_override_font_sizes/font_size = 40
+text = "Day: 0"
+horizontal_alignment = 1
+vertical_alignment = 1

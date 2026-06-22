@@ -5,6 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://bi0277xlx3r3m" path="res://Assets/workout_display.png" id="3_6eiq6"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="4_a4pml"]
 [ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="4_r2pkp"]
+[ext_resource type="Texture2D" uid="uid://bj02jneehe67b" path="res://Assets/run-button.png" id="6_6eiq6"]
+[ext_resource type="Texture2D" uid="uid://bibbjmhia5pdi" path="res://Assets/hamster/hamster-running-bare.png" id="7_r2pkp"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
 atlas = ExtResource("4_r2pkp")
@@ -32,11 +34,64 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 15.0
+"speed": 10.0
 }]
 
-[node name="Wheel" type="Node2D" unique_id=1378031939]
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcown"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(0, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrrtj"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(96, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auioi"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(192, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnkd0"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(288, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg4rd"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(384, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s007c"]
+atlas = ExtResource("7_r2pkp")
+region = Rect2(480, 0, 96, 58)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_0jg24"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcown")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrrtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnkd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg4rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s007c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("run_texture_button", "wheel_sprite_2d", "hamster_animated_sprite_2d")]
 script = ExtResource("1_bx1x2")
+run_texture_button = NodePath("RunTextureButton")
+wheel_sprite_2d = NodePath("WheelSprite2D")
+hamster_animated_sprite_2d = NodePath("HamsterAnimatedSprite2D")
 
 [node name="WheelShadowSprite2D" type="Sprite2D" parent="." unique_id=1878873601]
 position = Vector2(0, 82)
@@ -59,4 +114,17 @@ Production: 0 KWh"
 
 [node name="WheelSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730781370]
 sprite_frames = SubResource("SpriteFrames_074og")
-frame_progress = 0.60752857
+frame_progress = 0.643322
+
+[node name="RunTextureButton" type="TextureButton" parent="." unique_id=302899402]
+offset_left = -31.0
+offset_top = -83.0
+offset_right = 32.0
+offset_bottom = -52.0
+texture_normal = ExtResource("6_6eiq6")
+
+[node name="HamsterAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1747238296]
+visible = false
+position = Vector2(-9, 35)
+sprite_frames = SubResource("SpriteFrames_0jg24")
+frame_progress = 0.32549453
