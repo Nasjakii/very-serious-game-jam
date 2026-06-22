@@ -5,32 +5,44 @@
 [ext_resource type="Texture2D" uid="uid://bi0277xlx3r3m" path="res://Assets/workout_display.png" id="3_6eiq6"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="4_a4pml"]
 [ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="4_r2pkp"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="5_qcown"]
 [ext_resource type="Texture2D" uid="uid://bj02jneehe67b" path="res://Assets/run-button.png" id="6_6eiq6"]
 [ext_resource type="Texture2D" uid="uid://bibbjmhia5pdi" path="res://Assets/hamster/hamster-running-bare.png" id="7_r2pkp"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_vivmo"]
-atlas = ExtResource("4_r2pkp")
-region = Rect2(0, 0, 148, 180)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qcown"]
+size = Vector2(95, 58)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_2cqfq"]
-atlas = ExtResource("4_r2pkp")
-region = Rect2(148, 0, 148, 180)
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xrrtj"]
+shader = ExtResource("5_qcown")
+shader_parameter/color = Color(1, 1, 1, 1)
+shader_parameter/width = 0.50000002375
+shader_parameter/pattern = 1
+shader_parameter/inside = true
+shader_parameter/add_margins = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_yaehf"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jg24"]
 atlas = ExtResource("4_r2pkp")
-region = Rect2(296, 0, 148, 180)
+region = Rect2(0, 0, 154, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w10ud"]
+atlas = ExtResource("4_r2pkp")
+region = Rect2(154, 0, 154, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eai6e"]
+atlas = ExtResource("4_r2pkp")
+region = Rect2(308, 0, 154, 180)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_074og"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_vivmo")
+"texture": SubResource("AtlasTexture_0jg24")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_2cqfq")
+"texture": SubResource("AtlasTexture_w10ud")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_yaehf")
+"texture": SubResource("AtlasTexture_eai6e")
 }],
 "loop": true,
 "name": &"default",
@@ -87,11 +99,26 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("run_texture_button", "wheel_sprite_2d", "hamster_animated_sprite_2d")]
+[node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("run_texture_button", "wheel_sprite_2d", "hamster_animated_sprite_2d", "rich_text_label", "wheel_area_2d", "display_area_2d")]
 script = ExtResource("1_bx1x2")
 run_texture_button = NodePath("RunTextureButton")
 wheel_sprite_2d = NodePath("WheelSprite2D")
 hamster_animated_sprite_2d = NodePath("HamsterAnimatedSprite2D")
+rich_text_label = NodePath("WheelDisplay/RichTextLabel")
+wheel_area_2d = NodePath("WheelArea2D")
+display_area_2d = NodePath("DisplayArea2D")
+
+[node name="WheelArea2D" type="Area2D" parent="." unique_id=1660286627]
+
+[node name="WheelCollision" type="CollisionPolygon2D" parent="WheelArea2D" unique_id=1097247254]
+position = Vector2(0, -65)
+polygon = PackedVector2Array(0, -1, 35, 9, 55, 27, 70, 67, 60, 92, 37, 111, 7, 121, -27, 114, -56, 94, -69, 63, -55, 27, -34, 10, -2, 1, 1, -25, -30, -18, -58, 5, -71, 34, -75, 73, -67, 104, -41, 132, -15, 144, 20, 143, 43, 130, 62, 111, 74, 83, 74, 37, 58, 3, 32, -18, -3, -25)
+
+[node name="DisplayArea2D" type="Area2D" parent="." unique_id=134031655]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DisplayArea2D" unique_id=829330583]
+position = Vector2(-1.5, -16)
+shape = SubResource("RectangleShape2D_qcown")
 
 [node name="WheelShadowSprite2D" type="Sprite2D" parent="." unique_id=1878873601]
 position = Vector2(0, 82)
@@ -107,16 +134,21 @@ offset_top = -29.0
 offset_right = 47.0
 offset_bottom = 29.0
 theme_override_fonts/normal_font = ExtResource("4_a4pml")
+theme_override_font_sizes/normal_font_size = 14
 text = "Speed: 0 cm/s
 Distance: 0 m
+Production: 0 KWh
 Energy: 0 W
-Production: 0 KWh"
+"
 
 [node name="WheelSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730781370]
+material = SubResource("ShaderMaterial_xrrtj")
 sprite_frames = SubResource("SpriteFrames_074og")
-frame_progress = 0.643322
+frame = 1
+frame_progress = 0.81932634
 
 [node name="RunTextureButton" type="TextureButton" parent="." unique_id=302899402]
+visible = false
 offset_left = -31.0
 offset_top = -83.0
 offset_right = 32.0
@@ -127,4 +159,4 @@ texture_normal = ExtResource("6_6eiq6")
 visible = false
 position = Vector2(-9, 35)
 sprite_frames = SubResource("SpriteFrames_0jg24")
-frame_progress = 0.32549453
+frame_progress = 0.19472912

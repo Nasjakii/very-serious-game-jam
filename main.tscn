@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cxtwstoyfdlhq" path="res://Assets/hay.png" id="5_lquwl"]
 [ext_resource type="Script" uid="uid://ci32r4dmbrow6" path="res://UI/ui.gd" id="6_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bdvqsdoagl1ii" path="res://Assets/texture_bar_base.png" id="6_7mycd"]
+[ext_resource type="Texture2D" uid="uid://dhecjk3yvo35r" path="res://Assets/drink_dispenser.png" id="6_074og"]
 [ext_resource type="Texture2D" uid="uid://co3cmh27mie1p" path="res://Assets/hpbar.png" id="7_272bh"]
 [ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="9_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="10_4c57u"]
@@ -42,6 +43,12 @@ position = Vector2(354, 198)
 
 [node name="HaySprite2D" type="Sprite2D" parent="Interior/Hay" unique_id=345526951]
 texture = ExtResource("5_lquwl")
+
+[node name="Dispenser" type="Node2D" parent="Interior" unique_id=1468998656]
+position = Vector2(83, 122)
+
+[node name="Sprite2D" type="Sprite2D" parent="Interior/Dispenser" unique_id=1325439200]
+texture = ExtResource("6_074og")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop", "energy_bar", "water_bar", "food_bar") groups=["UI"]]
 script = ExtResource("6_5vw27")
