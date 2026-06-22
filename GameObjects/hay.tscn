@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://c3vphvin2g5ux"]
+
+[ext_resource type="Script" uid="uid://1ut8lnpvap52" path="res://GameObjects/hay.gd" id="1_8to3i"]
+[ext_resource type="Texture2D" uid="uid://cxtwstoyfdlhq" path="res://Assets/hay.png" id="1_akyhn"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="1_c0fus"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_8to3i"]
+shader = ExtResource("1_c0fus")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_akyhn"]
+radius = 39.051247
+
+[node name="Hay" type="Node2D" unique_id=1409678038 node_paths=PackedStringArray("hay_sprite_2d", "hay_area_2d")]
+script = ExtResource("1_8to3i")
+hay_sprite_2d = NodePath("HaySprite2D")
+hay_area_2d = NodePath("HayArea2D")
+
+[node name="HaySprite2D" type="Sprite2D" parent="." unique_id=2134993649]
+material = SubResource("ShaderMaterial_8to3i")
+texture = ExtResource("1_akyhn")
+
+[node name="HayArea2D" type="Area2D" parent="." unique_id=1145029855]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HayArea2D" unique_id=145786879]
+shape = SubResource("CircleShape2D_akyhn")

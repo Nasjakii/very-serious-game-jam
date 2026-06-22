@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c6gaqb6f5xiuw"]
+
+[ext_resource type="Script" uid="uid://vbndxtiquuor" path="res://GameObjects/dispenser.gd" id="1_0fhxe"]
+[ext_resource type="Texture2D" uid="uid://dhecjk3yvo35r" path="res://Assets/drink_dispenser.png" id="1_273y3"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="2_1f82u"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_5e66e"]
+shader = ExtResource("2_1f82u")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 2
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_273y3"]
+size = Vector2(43, 82)
+
+[node name="Dispenser" type="Node2D" unique_id=1644741414 node_paths=PackedStringArray("dispenser_sprite_2d", "dispenser_area_2d")]
+script = ExtResource("1_0fhxe")
+dispenser_sprite_2d = NodePath("DispenserSprite2D")
+dispenser_area_2d = NodePath("DispenserArea2D")
+
+[node name="DispenserSprite2D" type="Sprite2D" parent="." unique_id=892049412]
+material = SubResource("ShaderMaterial_5e66e")
+texture = ExtResource("1_273y3")
+
+[node name="DispenserArea2D" type="Area2D" parent="." unique_id=1050333817]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DispenserArea2D" unique_id=1514281838]
+position = Vector2(-1.5, -12)
+shape = SubResource("RectangleShape2D_273y3")

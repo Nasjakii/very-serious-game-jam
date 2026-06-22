@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://dini80j8s7k8x"]
+
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_hwe3c"]
+[ext_resource type="Script" uid="uid://illkm8bm8dsl" path="res://UI/stock_progress_bar.gd" id="2_sqihi"]
+
+[node name="StockProgressBar" type="ProgressBar" unique_id=879288012 node_paths=PackedStringArray("stock_label")]
+custom_minimum_size = Vector2(16, 90)
+theme_override_fonts/font = ExtResource("1_hwe3c")
+fill_mode = 3
+show_percentage = false
+script = ExtResource("2_sqihi")
+stock_label = NodePath("StockLabel")
+
+[node name="StockLabel" type="Label" parent="." unique_id=1370390149]
+layout_mode = 0
+offset_right = 16.679993
+offset_bottom = 10.0
+theme_override_fonts/font = ExtResource("1_hwe3c")
+theme_override_font_sizes/font_size = 12
+text = "999"
+horizontal_alignment = 1
+
+[connection signal="value_changed" from="." to="." method="_on_value_changed"]

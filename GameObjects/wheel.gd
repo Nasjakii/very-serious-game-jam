@@ -12,7 +12,7 @@ const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 @export var display_area_2d: Area2D
 @export var wheel_display: Sprite2D
 
-
+var energy_selling : Control
 
 var running = false
 
@@ -30,6 +30,8 @@ var wheel_hovered = false
 var display_hovered = false
 
 func _ready() -> void:
+	energy_selling = get_tree().get_first_node_in_group("EnergySelling")
+	
 	wheel_area_2d.mouse_entered.connect(func(): 
 		wheel_hovered = true
 		wheel_sprite_2d.material.set("shader_parameter/color", Color.WHITE)
@@ -42,7 +44,6 @@ func _ready() -> void:
 	display_area_2d.mouse_entered.connect(func(): 
 		display_hovered = true
 		wheel_display.material.set("shader_parameter/color", Color.WHITE)
-		print("test")
 		)
 	display_area_2d.mouse_exited.connect(func(): 
 		display_hovered = false
@@ -98,3 +99,5 @@ func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed():
 		if wheel_hovered:
 			run_pressed()
+		if display_hovered:
+			energy_selling.show()

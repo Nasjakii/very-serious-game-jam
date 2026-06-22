@@ -4,10 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://dfr8jiumbwxv0" path="res://Assets/box-border.png" id="2_0xm2m"]
 [ext_resource type="Script" uid="uid://b8rwxlriv2ur8" path="res://game_manager.gd" id="2_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://b0k413t7a7hr4" path="res://GameObjects/wheel.tscn" id="3_w48qg"]
-[ext_resource type="Texture2D" uid="uid://cxtwstoyfdlhq" path="res://Assets/hay.png" id="5_lquwl"]
+[ext_resource type="PackedScene" uid="uid://c3vphvin2g5ux" path="res://GameObjects/hay.tscn" id="5_074og"]
 [ext_resource type="Script" uid="uid://ci32r4dmbrow6" path="res://UI/ui.gd" id="6_5vw27"]
 [ext_resource type="Texture2D" uid="uid://bdvqsdoagl1ii" path="res://Assets/texture_bar_base.png" id="6_7mycd"]
-[ext_resource type="Texture2D" uid="uid://dhecjk3yvo35r" path="res://Assets/drink_dispenser.png" id="6_074og"]
+[ext_resource type="PackedScene" uid="uid://c6gaqb6f5xiuw" path="res://GameObjects/dispenser.tscn" id="6_074og"]
 [ext_resource type="Texture2D" uid="uid://co3cmh27mie1p" path="res://Assets/hpbar.png" id="7_272bh"]
 [ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="9_4c57u"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="10_4c57u"]
@@ -18,6 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dgl3tp237m05k" path="res://black_screen.gd" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://hagolqhi6ejl" path="res://energy_selling.gd" id="18_cegan"]
+[ext_resource type="PackedScene" uid="uid://dini80j8s7k8x" path="res://UI/stock_progress_bar.tscn" id="19_82xsv"]
+[ext_resource type="Texture2D" uid="uid://bj02jneehe67b" path="res://Assets/run-button.png" id="20_getpj"]
+[ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="21_ryguw"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 
 [node name="Main" type="Node2D" unique_id=1585207466]
 
@@ -38,17 +45,11 @@ texture = ExtResource("2_0xm2m")
 [node name="Wheel" parent="Interior" unique_id=1378031939 instance=ExtResource("3_w48qg")]
 position = Vector2(209, 138)
 
-[node name="Hay" type="Node2D" parent="Interior" unique_id=1948476970]
+[node name="Hay" parent="Interior" unique_id=1409678038 instance=ExtResource("5_074og")]
 position = Vector2(354, 198)
 
-[node name="HaySprite2D" type="Sprite2D" parent="Interior/Hay" unique_id=345526951]
-texture = ExtResource("5_lquwl")
-
-[node name="Dispenser" type="Node2D" parent="Interior" unique_id=1468998656]
+[node name="Dispenser" parent="Interior" unique_id=1644741414 instance=ExtResource("6_074og")]
 position = Vector2(83, 122)
-
-[node name="Sprite2D" type="Sprite2D" parent="Interior/Dispenser" unique_id=1325439200]
-texture = ExtResource("6_074og")
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop", "energy_bar", "water_bar", "food_bar") groups=["UI"]]
 script = ExtResource("6_5vw27")
@@ -149,6 +150,7 @@ layout_mode = 1
 anchor_right = 0.25
 anchor_bottom = 1.0
 grow_vertical = 2
+mouse_filter = 2
 
 [node name="Shop" type="Control" parent="UI/Full/Left" unique_id=1779804796 node_paths=PackedStringArray("toggle_shop_button", "shop_offer_vbox")]
 layout_mode = 1
@@ -370,6 +372,140 @@ theme_override_fonts/normal_font = ExtResource("13_ycdy4")
 theme_override_font_sizes/normal_font_size = 12
 text = "Very long example text as example you know or some latin shit if you feel extra fancy, like deus vult or something :)"
 scroll_active = false
+
+[node name="Center" type="Control" parent="UI/Full" unique_id=1752152912]
+layout_mode = 1
+anchor_left = 0.2
+anchor_top = 0.2
+anchor_right = 0.8
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="EnergySelling" type="Control" parent="UI/Full/Center" unique_id=242093124 node_paths=PackedStringArray("h_box_container", "exit_button", "sell_label") groups=["EnergySelling"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("18_cegan")
+h_box_container = NodePath("MarketCurve/HBoxContainer")
+exit_button = NodePath("ExitButton")
+sell_label = NodePath("HBoxContainer/SellLabel")
+
+[node name="Panel" type="Panel" parent="UI/Full/Center/EnergySelling" unique_id=140301286]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+
+[node name="Label" type="Label" parent="UI/Full/Center/EnergySelling" unique_id=1854163369]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_right = 59.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Power Market"
+label_settings = ExtResource("11_efxa6")
+
+[node name="MarketCurve" type="Panel" parent="UI/Full/Center/EnergySelling" unique_id=1046681440]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.9
+anchor_bottom = 0.8
+mouse_filter = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Full/Center/EnergySelling/MarketCurve" unique_id=1548360532]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StockProgressBar" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=879288012 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar2" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=622894199 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar3" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=226978864 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar4" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1495457266 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar5" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=2103660505 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar6" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=218743977 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar7" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1189535147 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar8" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1196229113 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar9" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1282805180 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar10" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=30407768 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="StockProgressBar11" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=549760385 instance=ExtResource("19_82xsv")]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="UI/Full/Center/EnergySelling" unique_id=838111457]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.3
+anchor_top = 0.85
+anchor_right = 0.7
+anchor_bottom = 0.975
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+alignment = 1
+
+[node name="SellButton" type="TextureButton" parent="UI/Full/Center/EnergySelling/HBoxContainer" unique_id=1602551490]
+layout_mode = 2
+size_flags_horizontal = 3
+texture_normal = ExtResource("20_getpj")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="SellLabel" type="Label" parent="UI/Full/Center/EnergySelling/HBoxContainer" unique_id=1722308135]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_fonts/font = ExtResource("13_ycdy4")
+theme_override_font_sizes/font_size = 16
+text = ": 200 HB/KWh"
+vertical_alignment = 1
+
+[node name="ExitButton" type="TextureButton" parent="UI/Full/Center/EnergySelling" unique_id=867620097]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.02
+grow_horizontal = 0
+texture_normal = ExtResource("21_ryguw")
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label") groups=["BlackScreen"]]
 visible = false
