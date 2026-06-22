@@ -1,5 +1,6 @@
 extends Node
 
+@export var money_rich_text_label : RichTextLabel = null
 
 var food_amount = 1
 var food_amount_max = 1
@@ -17,7 +18,13 @@ var social_amount = 1
 var social_amount_max = 1
 var social_loss = 0.0
 
-var money = 0
+var money : int = 0 : 
+	get: 
+		return money 
+	set(value): 
+		money = value
+		money_rich_text_label.text = str(value)
+
 
 var day = 0
 

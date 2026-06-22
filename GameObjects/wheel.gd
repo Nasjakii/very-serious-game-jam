@@ -54,7 +54,6 @@ func _ready() -> void:
 	update_screen()
 	
 func run_pressed():
-	print(can_be_pressed)
 	if not can_be_pressed: return
 	
 	if running:
@@ -62,14 +61,12 @@ func run_pressed():
 		
 		var tween = get_tree().create_tween()
 		var slow_down_time = time_until_max_speed * (speed/speed_max)
-		print(slow_down_time)
 		tween.tween_property(self, "speed", 0, slow_down_time)
 		tween.tween_callback(finished_running)
 		var tween2 = get_tree().create_tween()
 		tween2.tween_property(hamster_animated_sprite_2d, "speed_scale", 0.0, slow_down_time)
 		var tween3 = get_tree().create_tween()
 		tween3.tween_property(wheel_sprite_2d, "speed_scale", 0.0, slow_down_time)
-		print("stop")
 		
 	else:
 		wheel_sprite_2d.play("default")
@@ -128,5 +125,6 @@ func _input(event: InputEvent) -> void:
 func reset_wattage():
 	var temp_val = wattage
 	wattage = 0
+	update_screen()
 	return temp_val
 	

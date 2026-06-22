@@ -23,7 +23,7 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_rnbj1")
-exit_button = NodePath("SleepButton")
+exit_button = NodePath("ExitButton")
 spin_box = NodePath("Panel2/HBoxContainer/SpinBox")
 
 [node name="Panel" type="Panel" parent="." unique_id=153445910]

@@ -6,10 +6,8 @@ extends Control
 
 
 func _ready() -> void:
-	for child in bar_container_below.get_children():
-		child.value = 0
-	for child in bar_container_above.get_children():
-		child.value = 0
+	set_above_values(-100,-100,-100,-100)
+	set_below_values(-100,-100,-100,-100)
 
 
 func set_above_values(social_bar_value : float, energy_bar_value : float, water_bar_value : float, food_bar_value : float):

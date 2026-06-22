@@ -10,8 +10,8 @@ var wheel : Node2D
 var game_manager : Node
 var sell_price = 0
 
-var max_value = 150
-var min_value = 50
+var max_value = 0.5
+var min_value = 0.25
 
 func _ready() -> void:
 	wheel = get_tree().get_first_node_in_group("Wheel")
@@ -40,7 +40,8 @@ func change_prices():
 	for bar_index in range(progress_bars.size() - 1):
 		progress_bars[bar_index].value = progress_bars[bar_index].value
 		
-	sell_price= randi_range(min_value, max_value)
+	sell_price= randf_range(min_value, max_value)
 	progress_bars[-1].value = sell_price
 
-	sell_label.text = str(int(sell_price)) + "HB/W"
+func _process(delta: float) -> void:
+	sell_label.text = str(floor(sell_price*100)/100) + "HB/W = " + str(int(floor(sell_price * wheel.wattage))) + "HB"

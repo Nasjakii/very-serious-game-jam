@@ -24,8 +24,9 @@
 
 [node name="Main" type="Node2D" unique_id=1585207466]
 
-[node name="GameManager" type="Node" parent="." unique_id=185952480 groups=["GameManager"]]
+[node name="GameManager" type="Node" parent="." unique_id=185952480 node_paths=PackedStringArray("money_rich_text_label") groups=["GameManager"]]
 script = ExtResource("2_2cqfq")
+money_rich_text_label = NodePath("../UI/Full/TopRight/VBoxContainer/MoneyHBox/RichTextLabel")
 
 [node name="Box" type="Node2D" parent="." unique_id=114894614]
 position = Vector2(240, 135)
@@ -230,11 +231,11 @@ theme_override_fonts/font = ExtResource("13_ycdy4")
 text = ":15"
 vertical_alignment = 1
 
-[node name="StatHBoxContainer" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=155621428]
+[node name="MoneyHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=155621428]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer" unique_id=1872103324]
+[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/MoneyHBox" unique_id=1872103324]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("13_ycdy4")
@@ -243,7 +244,7 @@ scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 1
 
-[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer" unique_id=2088572900]
+[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/MoneyHBox" unique_id=2088572900]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
 text = ": HamBucks"
