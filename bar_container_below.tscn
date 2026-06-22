@@ -1,0 +1,78 @@
+[gd_scene format=3 uid="uid://cf1145lyjxai0"]
+
+[ext_resource type="Script" uid="uid://dslmnuttccfvx" path="res://UI/bar_container.gd" id="1_wv73x"]
+[ext_resource type="Texture2D" uid="uid://bdvqsdoagl1ii" path="res://Assets/texture_bar_base.png" id="2_dnlwl"]
+[ext_resource type="Texture2D" uid="uid://co3cmh27mie1p" path="res://Assets/hpbar.png" id="3_7rsbg"]
+
+[node name="BarContainerBelow" type="VBoxContainer" unique_id=1220646809 node_paths=PackedStringArray("social_bar", "energy_bar", "water_bar", "food_bar")]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 2
+script = ExtResource("1_wv73x")
+social_bar = NodePath("SocialBar")
+energy_bar = NodePath("EnergyBar")
+water_bar = NodePath("WaterBar")
+food_bar = NodePath("FoodBar")
+
+[node name="SocialBar" type="TextureProgressBar" parent="." unique_id=1622614246]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+value = 78.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_dnlwl")
+texture_over = ExtResource("2_dnlwl")
+texture_progress = ExtResource("3_7rsbg")
+tint_progress = Color(1, 0.24705882, 0.2901961, 1)
+
+[node name="EnergyBar" type="TextureProgressBar" parent="." unique_id=50907008]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+value = 92.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_dnlwl")
+texture_over = ExtResource("2_dnlwl")
+texture_progress = ExtResource("3_7rsbg")
+tint_progress = Color(1, 1, 0.19215687, 1)
+
+[node name="WaterBar" type="TextureProgressBar" parent="." unique_id=1806769096]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+value = 75.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_dnlwl")
+texture_over = ExtResource("2_dnlwl")
+texture_progress = ExtResource("3_7rsbg")
+tint_progress = Color(0.30588236, 0.61960787, 1, 1)
+
+[node name="FoodBar" type="TextureProgressBar" parent="." unique_id=1426553887]
+custom_minimum_size = Vector2(0, 10)
+layout_mode = 2
+value = 85.0
+fill_mode = 1
+nine_patch_stretch = true
+stretch_margin_left = 10
+stretch_margin_top = 4
+stretch_margin_right = 4
+stretch_margin_bottom = 4
+texture_under = ExtResource("2_dnlwl")
+texture_over = ExtResource("2_dnlwl")
+texture_progress = ExtResource("3_7rsbg")
+tint_progress = Color(0.23137255, 0.5568628, 0.21176471, 1)

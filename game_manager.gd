@@ -23,8 +23,10 @@ var day = 0
 
 var black_screen : ColorRect
 var time_hbox : HBoxContainer
+var energy_selling : Control
 
 func _ready() -> void:
+	energy_selling = get_tree().get_first_node_in_group("EnergySelling")
 	time_hbox = get_tree().get_first_node_in_group("TimeHBox")
 	time_hbox.day_end.connect(_on_day_end)
 	black_screen = get_tree().get_first_node_in_group("BlackScreen")
@@ -34,6 +36,10 @@ func _ready() -> void:
 	
 func _on_day_end():
 	day += 1
+	
+	energy_selling.change_prices()
+	
+	
 	black_screen.set_day(day)
 	black_screen.fade_in(1)
 	await black_screen.finished

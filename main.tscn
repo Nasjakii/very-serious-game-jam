@@ -6,10 +6,10 @@
 [ext_resource type="PackedScene" uid="uid://b0k413t7a7hr4" path="res://GameObjects/wheel.tscn" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c3vphvin2g5ux" path="res://GameObjects/hay.tscn" id="5_074og"]
 [ext_resource type="Script" uid="uid://ci32r4dmbrow6" path="res://UI/ui.gd" id="6_5vw27"]
-[ext_resource type="Texture2D" uid="uid://bdvqsdoagl1ii" path="res://Assets/texture_bar_base.png" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c6gaqb6f5xiuw" path="res://GameObjects/dispenser.tscn" id="6_074og"]
-[ext_resource type="Texture2D" uid="uid://co3cmh27mie1p" path="res://Assets/hpbar.png" id="7_272bh"]
+[ext_resource type="Script" uid="uid://d01shy2avocvc" path="res://UI/bar_container_manager.gd" id="8_ryguw"]
 [ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="9_4c57u"]
+[ext_resource type="PackedScene" uid="uid://cf1145lyjxai0" path="res://bar_container_below.tscn" id="9_d13ii"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="10_4c57u"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="11_efxa6"]
 [ext_resource type="PackedScene" uid="uid://dn2i0csms6cjk" path="res://UI/Shop/shop_offer.tscn" id="12_dg77c"]
@@ -18,17 +18,13 @@
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dgl3tp237m05k" path="res://black_screen.gd" id="17_yaehf"]
-[ext_resource type="Script" uid="uid://hagolqhi6ejl" path="res://energy_selling.gd" id="18_cegan"]
-[ext_resource type="PackedScene" uid="uid://dini80j8s7k8x" path="res://UI/stock_progress_bar.tscn" id="19_82xsv"]
-[ext_resource type="Texture2D" uid="uid://bj02jneehe67b" path="res://Assets/run-button.png" id="20_getpj"]
-[ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="21_ryguw"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
-bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
+[ext_resource type="PackedScene" uid="uid://ct1050nepvi66" path="res://UI/energy_selling.tscn" id="18_82xsv"]
+[ext_resource type="PackedScene" uid="uid://cp16riawxb10f" path="res://UI/drink_selection.tscn" id="19_getpj"]
+[ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
 
 [node name="Main" type="Node2D" unique_id=1585207466]
 
-[node name="GameManager" type="Node" parent="." unique_id=185952480]
+[node name="GameManager" type="Node" parent="." unique_id=185952480 groups=["GameManager"]]
 script = ExtResource("2_2cqfq")
 
 [node name="Box" type="Node2D" parent="." unique_id=114894614]
@@ -42,7 +38,7 @@ texture = ExtResource("2_0xm2m")
 
 [node name="Interior" type="Node2D" parent="." unique_id=1927714804]
 
-[node name="Wheel" parent="Interior" unique_id=1378031939 instance=ExtResource("3_w48qg")]
+[node name="Wheel" parent="Interior" unique_id=1378031939 groups=["Wheel"] instance=ExtResource("3_w48qg")]
 position = Vector2(209, 138)
 
 [node name="Hay" parent="Interior" unique_id=1409678038 instance=ExtResource("5_074og")]
@@ -51,12 +47,9 @@ position = Vector2(354, 198)
 [node name="Dispenser" parent="Interior" unique_id=1644741414 instance=ExtResource("6_074og")]
 position = Vector2(83, 122)
 
-[node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop", "energy_bar", "water_bar", "food_bar") groups=["UI"]]
+[node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop") groups=["UI"]]
 script = ExtResource("6_5vw27")
 shop = NodePath("Full/Left/Shop")
-energy_bar = NodePath("Full/BottomRight/VBoxContainer/EnergyBar")
-water_bar = NodePath("Full/BottomRight/VBoxContainer/WaterBar")
-food_bar = NodePath("Full/BottomRight/VBoxContainer/FoodBar")
 
 [node name="Full" type="Control" parent="UI" unique_id=783024457]
 layout_mode = 3
@@ -76,74 +69,26 @@ anchor_bottom = 1.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="VBoxContainer" type="VBoxContainer" parent="UI/Full/BottomRight" unique_id=1874617329]
+[node name="BarContainerManager" type="Control" parent="UI/Full/BottomRight" unique_id=2075984742 node_paths=PackedStringArray("bar_container_below", "bar_container", "bar_container_above") groups=["BarContainerManager"]]
 layout_mode = 1
-anchors_preset = -1
 anchor_right = 0.95
 anchor_bottom = 0.95
 grow_horizontal = 2
 grow_vertical = 2
-alignment = 2
+script = ExtResource("8_ryguw")
+bar_container_below = NodePath("BarContainerBelow")
+bar_container = NodePath("BarContainer")
+bar_container_above = NodePath("BarContainerAbove")
 
-[node name="SocialBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1911947194]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-value = 62.0
-fill_mode = 1
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("6_7mycd")
-texture_over = ExtResource("6_7mycd")
-texture_progress = ExtResource("7_272bh")
-tint_progress = Color(1, 0.24705882, 0.2901961, 1)
+[node name="BarContainerBelow" parent="UI/Full/BottomRight/BarContainerManager" unique_id=1220646809 instance=ExtResource("9_d13ii")]
+layout_mode = 1
 
-[node name="EnergyBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=1972222192]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-value = 87.0
-fill_mode = 1
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("6_7mycd")
-texture_over = ExtResource("6_7mycd")
-texture_progress = ExtResource("7_272bh")
-tint_progress = Color(1, 1, 0.19215687, 1)
+[node name="BarContainer" parent="UI/Full/BottomRight/BarContainerManager" unique_id=2138290385 instance=ExtResource("9_d13ii")]
+modulate = Color(0.7919991, 0.79199916, 0.7919991, 1)
+layout_mode = 1
 
-[node name="WaterBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=505580735]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-value = 66.0
-fill_mode = 1
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("6_7mycd")
-texture_over = ExtResource("6_7mycd")
-texture_progress = ExtResource("7_272bh")
-tint_progress = Color(0.30588236, 0.61960787, 1, 1)
-
-[node name="FoodBar" type="TextureProgressBar" parent="UI/Full/BottomRight/VBoxContainer" unique_id=2093754336]
-custom_minimum_size = Vector2(0, 10)
-layout_mode = 2
-value = 75.0
-fill_mode = 1
-nine_patch_stretch = true
-stretch_margin_left = 10
-stretch_margin_top = 4
-stretch_margin_right = 4
-stretch_margin_bottom = 4
-texture_under = ExtResource("6_7mycd")
-texture_over = ExtResource("6_7mycd")
-texture_progress = ExtResource("7_272bh")
-tint_progress = Color(0.23137255, 0.5568628, 0.21176471, 1)
+[node name="BarContainerAbove" parent="UI/Full/BottomRight/BarContainerManager" unique_id=616858326 instance=ExtResource("9_d13ii")]
+layout_mode = 1
 
 [node name="Left" type="Control" parent="UI/Full" unique_id=1008049252]
 layout_mode = 1
@@ -383,129 +328,16 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="EnergySelling" type="Control" parent="UI/Full/Center" unique_id=242093124 node_paths=PackedStringArray("h_box_container", "exit_button", "sell_label") groups=["EnergySelling"]]
+[node name="EnergySelling" parent="UI/Full/Center" unique_id=273429697 instance=ExtResource("18_82xsv")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-script = ExtResource("18_cegan")
-h_box_container = NodePath("MarketCurve/HBoxContainer")
-exit_button = NodePath("ExitButton")
-sell_label = NodePath("HBoxContainer/SellLabel")
 
-[node name="Panel" type="Panel" parent="UI/Full/Center/EnergySelling" unique_id=140301286]
+[node name="DrinkSelection" parent="UI/Full/Center" unique_id=128030173 instance=ExtResource("19_getpj")]
+visible = false
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
 
-[node name="Label" type="Label" parent="UI/Full/Center/EnergySelling" unique_id=1854163369]
+[node name="SleepController" parent="UI/Full/Center" unique_id=1306210895 groups=["SleepController"] instance=ExtResource("20_getpj")]
+visible = false
 layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -59.0
-offset_right = 59.0
-offset_bottom = 23.0
-grow_horizontal = 2
-text = "Power Market"
-label_settings = ExtResource("11_efxa6")
-
-[node name="MarketCurve" type="Panel" parent="UI/Full/Center/EnergySelling" unique_id=1046681440]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.1
-anchor_top = 0.2
-anchor_right = 0.9
-anchor_bottom = 0.8
-mouse_filter = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Full/Center/EnergySelling/MarketCurve" unique_id=1548360532]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.05
-anchor_top = 0.05
-anchor_right = 0.95
-anchor_bottom = 0.95
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="StockProgressBar" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=879288012 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar2" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=622894199 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar3" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=226978864 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar4" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1495457266 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar5" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=2103660505 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar6" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=218743977 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar7" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1189535147 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar8" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1196229113 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar9" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=1282805180 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar10" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=30407768 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="StockProgressBar11" parent="UI/Full/Center/EnergySelling/MarketCurve/HBoxContainer" unique_id=549760385 instance=ExtResource("19_82xsv")]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="UI/Full/Center/EnergySelling" unique_id=838111457]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.3
-anchor_top = 0.85
-anchor_right = 0.7
-anchor_bottom = 0.975
-grow_horizontal = 2
-grow_vertical = 0
-mouse_filter = 2
-alignment = 1
-
-[node name="SellButton" type="TextureButton" parent="UI/Full/Center/EnergySelling/HBoxContainer" unique_id=1602551490]
-layout_mode = 2
-size_flags_horizontal = 3
-texture_normal = ExtResource("20_getpj")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="SellLabel" type="Label" parent="UI/Full/Center/EnergySelling/HBoxContainer" unique_id=1722308135]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/font = ExtResource("13_ycdy4")
-theme_override_font_sizes/font_size = 16
-text = ": 200 HB/KWh"
-vertical_alignment = 1
-
-[node name="ExitButton" type="TextureButton" parent="UI/Full/Center/EnergySelling" unique_id=867620097]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.98
-anchor_top = 0.02
-anchor_right = 0.98
-anchor_bottom = 0.02
-grow_horizontal = 0
-texture_normal = ExtResource("21_ryguw")
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label") groups=["BlackScreen"]]
 visible = false

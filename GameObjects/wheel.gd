@@ -15,6 +15,7 @@ const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 var energy_selling : Control
 
 var running = false
+var can_be_pressed = true
 
 var speed = 0.0
 var speed_max = 1.0
@@ -31,6 +32,7 @@ var display_hovered = false
 
 func _ready() -> void:
 	energy_selling = get_tree().get_first_node_in_group("EnergySelling")
+	
 	
 	wheel_area_2d.mouse_entered.connect(func(): 
 		wheel_hovered = true
@@ -52,12 +54,22 @@ func _ready() -> void:
 	update_screen()
 	
 func run_pressed():
+	print(can_be_pressed)
+	if not can_be_pressed: return
 	
 	if running:
-		wheel_sprite_2d.stop()
-		hamster_animated_sprite_2d.hide()
+		can_be_pressed = false
 		
-		speed = 0
+		var tween = get_tree().create_tween()
+		var slow_down_time = time_until_max_speed * (speed/speed_max)
+		print(slow_down_time)
+		tween.tween_property(self, "speed", 0, slow_down_time)
+		tween.tween_callback(finished_running)
+		var tween2 = get_tree().create_tween()
+		tween2.tween_property(hamster_animated_sprite_2d, "speed_scale", 0.0, slow_down_time)
+		var tween3 = get_tree().create_tween()
+		tween3.tween_property(wheel_sprite_2d, "speed_scale", 0.0, slow_down_time)
+		print("stop")
 		
 	else:
 		wheel_sprite_2d.play("default")
@@ -70,8 +82,18 @@ func run_pressed():
 		tween2.tween_property(hamster_animated_sprite_2d, "speed_scale", 1.0, time_until_max_speed).from(0.0)
 		var tween3 = get_tree().create_tween()
 		tween3.tween_property(wheel_sprite_2d, "speed_scale", 1.0, time_until_max_speed).from(0.0)
+		
+		running = true
 	
-	running = not running
+	
+	
+func finished_running():
+	speed = 0
+	update_screen()
+	wheel_sprite_2d.stop()
+	hamster_animated_sprite_2d.hide()
+	running = false
+	can_be_pressed = true
 	
 func _process(delta: float) -> void:
 	
@@ -101,3 +123,10 @@ func _input(event: InputEvent) -> void:
 			run_pressed()
 		if display_hovered:
 			energy_selling.show()
+
+
+func reset_wattage():
+	var temp_val = wattage
+	wattage = 0
+	return temp_val
+	
