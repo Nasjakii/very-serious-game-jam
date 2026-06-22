@@ -246,12 +246,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="TimeHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058 node_paths=PackedStringArray("hour_rich_text_label", "minute_label")]
+[node name="TimeHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058 node_paths=PackedStringArray("day_rich_text_label", "hour_label", "minute_label") groups=["TimeHBox"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_constants/separation = 0
 script = ExtResource("13_2cqfq")
-hour_rich_text_label = NodePath("DayRichTextLabel")
+day_rich_text_label = NodePath("DayRichTextLabel")
+hour_label = NodePath("HourLabel")
 minute_label = NodePath("MinuteLabel")
 
 [node name="DayRichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/TimeHBox" unique_id=1168495587]
@@ -364,6 +365,7 @@ text = "Very long example text as example you know or some latin shit if you fee
 scroll_active = false
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label") groups=["BlackScreen"]]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

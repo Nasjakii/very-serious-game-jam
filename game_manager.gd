@@ -12,11 +12,22 @@ var social_amount_max = 1
 
 var money = 0
 
+var day = 0
+
 var black_screen : ColorRect
+var time_hbox : HBoxContainer
 
 func _ready() -> void:
+	time_hbox = get_tree().get_first_node_in_group("TimeHBox")
+	time_hbox.day_end.connect(_on_day_end)
 	black_screen = get_tree().get_first_node_in_group("BlackScreen")
 	#black_screen.fade_in(3)
 	#await black_screen.finished
 	black_screen.fade_out(5)
 	
+func _on_day_end():
+	day += 1
+	black_screen.set_day(day)
+	black_screen.fade_in(1)
+	await black_screen.finished
+	black_screen.fade_out(5)

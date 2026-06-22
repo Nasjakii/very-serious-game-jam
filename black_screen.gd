@@ -22,3 +22,6 @@ func fade_out(duration_secocnds : float):
 		hide()
 	)
 	
+func set_day(day : int):
+	day_label.text = "Day: " + str(day)
+	
