@@ -5,12 +5,12 @@ const RUN_BUTTON = preload("uid://bj02jneehe67b")
 const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 
 
-@export var run_texture_button: TextureButton
 @export var wheel_sprite_2d: AnimatedSprite2D
 @export var hamster_animated_sprite_2d: AnimatedSprite2D
 @export var rich_text_label: RichTextLabel
 @export var wheel_area_2d: Area2D
 @export var display_area_2d: Area2D
+@export var wheel_display: Sprite2D
 
 
 
@@ -30,24 +30,35 @@ var wheel_hovered = false
 var display_hovered = false
 
 func _ready() -> void:
-	run_texture_button.pressed.connect(run_pressed)
-	wheel_area_2d.mouse_entered.connect(func(): wheel_hovered = true)
-	wheel_area_2d.mouse_entered.connect(func(): wheel_hovered = false)
-	display_area_2d.mouse_entered.connect(func(): display_hovered = true)
-	display_area_2d.mouse_entered.connect(func(): display_hovered = false)
+	wheel_area_2d.mouse_entered.connect(func(): 
+		wheel_hovered = true
+		wheel_sprite_2d.material.set("shader_parameter/color", Color.WHITE)
+		
+		)
+	wheel_area_2d.mouse_exited.connect(func(): 
+		wheel_hovered = false
+		wheel_sprite_2d.material.set("shader_parameter/color", Color.TRANSPARENT)
+		)
+	display_area_2d.mouse_entered.connect(func(): 
+		display_hovered = true
+		wheel_display.material.set("shader_parameter/color", Color.WHITE)
+		print("test")
+		)
+	display_area_2d.mouse_exited.connect(func(): 
+		display_hovered = false
+		wheel_display.material.set("shader_parameter/color", Color.TRANSPARENT)
+		)
 	update_screen()
 	
 func run_pressed():
 	
 	if running:
-		run_texture_button.texture_normal = RUN_BUTTON
 		wheel_sprite_2d.stop()
 		hamster_animated_sprite_2d.hide()
 		
 		speed = 0
 		
 	else:
-		run_texture_button.texture_normal = STOP_BUTTON
 		wheel_sprite_2d.play("default")
 		hamster_animated_sprite_2d.play()
 		hamster_animated_sprite_2d.show()
@@ -83,4 +94,7 @@ func update_screen():
 	rich_text_label.text += "Production: " + str(floor(wattage_per_second * 100) / 100) + "KWh"  + "\n"
 	rich_text_label.text += "Energy: " + str(floor(wattage*100)/100) + "W"
 
-		
+func _input(event: InputEvent) -> void:
+	if event is InputEventMouseButton and event.is_pressed():
+		if wheel_hovered:
+			run_pressed()
