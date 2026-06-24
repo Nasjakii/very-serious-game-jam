@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://byjuqlk6dwomm"]
+
+[ext_resource type="Script" uid="uid://drpsog5jvwyjv" path="res://UI/fridge_selection.gd" id="1_lfgoe"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="2_6nudp"]
+[ext_resource type="Texture2D" uid="uid://cy1pyxdfbfp0r" path="res://Assets/food_item_0.png" id="3_xmfty"]
+[ext_resource type="Texture2D" uid="uid://0bfychtv351r" path="res://Assets/food_item_1.png" id="4_a0eaj"]
+[ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="5_a0eaj"]
+[ext_resource type="Texture2D" uid="uid://dg2qfho0ibc40" path="res://Assets/food_item_2.png" id="5_gcj6t"]
+[ext_resource type="Texture2D" uid="uid://df2r5ku71kwnp" path="res://Assets/eat_button.png" id="6_lfgoe"]
+[ext_resource type="Texture2D" uid="uid://bybw32jv0cr6b" path="res://Assets/food_item_3.png" id="6_t4l7c"]
+[ext_resource type="Texture2D" uid="uid://bgcr2k7nyur7s" path="res://Assets/food_item_4.png" id="7_4eaio"]
+[ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="7_t4l7c"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_66yiu"]
+shader = ExtResource("2_6nudp")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 2
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_xmfty"]
+shader = ExtResource("2_6nudp")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_t4l7c"]
+shader = ExtResource("2_6nudp")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_a0eaj"]
+shader = ExtResource("2_6nudp")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_gcj6t"]
+shader = ExtResource("2_6nudp")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="FridgeSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("food_h_box_container", "exit_button", "eat_action_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_lfgoe")
+food_h_box_container = NodePath("Panel2/FoodHBoxContainer")
+exit_button = NodePath("ExitButton")
+eat_action_button = NodePath("EatButton")
+
+[node name="Panel" type="Panel" parent="." unique_id=153445910]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+
+[node name="Panel2" type="Panel" parent="." unique_id=409617117]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.2
+anchor_right = 0.9
+anchor_bottom = 0.8
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FoodHBoxContainer" type="HBoxContainer" parent="Panel2" unique_id=1836402349]
+custom_minimum_size = Vector2(0, 64)
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="TextureButton" type="TextureButton" parent="Panel2/FoodHBoxContainer" unique_id=938213294]
+material = SubResource("ShaderMaterial_66yiu")
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture_normal = ExtResource("3_xmfty")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton2" type="TextureButton" parent="Panel2/FoodHBoxContainer" unique_id=97058358]
+material = SubResource("ShaderMaterial_xmfty")
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture_normal = ExtResource("4_a0eaj")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton3" type="TextureButton" parent="Panel2/FoodHBoxContainer" unique_id=266808120]
+material = SubResource("ShaderMaterial_t4l7c")
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture_normal = ExtResource("5_gcj6t")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton4" type="TextureButton" parent="Panel2/FoodHBoxContainer" unique_id=964430348]
+material = SubResource("ShaderMaterial_a0eaj")
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture_normal = ExtResource("6_t4l7c")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="TextureButton5" type="TextureButton" parent="Panel2/FoodHBoxContainer" unique_id=1289408101]
+material = SubResource("ShaderMaterial_gcj6t")
+custom_minimum_size = Vector2(32, 0)
+layout_mode = 2
+texture_normal = ExtResource("7_4eaio")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="." unique_id=787763082]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_right = 59.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Fridge"
+label_settings = ExtResource("5_a0eaj")
+horizontal_alignment = 1
+
+[node name="EatButton" type="TextureButton" parent="." unique_id=2026320655]
+custom_minimum_size = Vector2(64, 32)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.95
+anchor_right = 0.5
+anchor_bottom = 0.95
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 3
+texture_normal = ExtResource("6_lfgoe")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=2045289007]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.02
+grow_horizontal = 0
+texture_normal = ExtResource("7_t4l7c")

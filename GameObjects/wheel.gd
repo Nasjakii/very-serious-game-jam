@@ -15,7 +15,6 @@ const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 var energy_selling : Control
 
 var running = false
-var can_be_pressed = true
 
 var speed = 0.0
 var speed_max = 1.0
@@ -54,10 +53,9 @@ func _ready() -> void:
 	update_screen()
 	
 func run_pressed():
-	if not can_be_pressed: return
+	if GameManager.hamster_busy and not running: return
 	
 	if running:
-		can_be_pressed = false
 		
 		var tween = get_tree().create_tween()
 		var slow_down_time = time_until_max_speed * (speed/speed_max)
@@ -69,6 +67,7 @@ func run_pressed():
 		tween3.tween_property(wheel_sprite_2d, "speed_scale", 0.0, slow_down_time)
 		
 	else:
+		GameManager.hamster_busy = true
 		wheel_sprite_2d.play("default")
 		hamster_animated_sprite_2d.play()
 		hamster_animated_sprite_2d.show()
@@ -85,12 +84,12 @@ func run_pressed():
 	
 	
 func finished_running():
+	GameManager.hamster_busy = false
 	speed = 0
 	update_screen()
 	wheel_sprite_2d.stop()
 	hamster_animated_sprite_2d.hide()
 	running = false
-	can_be_pressed = true
 	
 func _process(delta: float) -> void:
 	
@@ -115,7 +114,7 @@ func update_screen():
 	rich_text_label.text += "Energy: " + str(floor(wattage*100)/100) + "W"
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
 		if wheel_hovered:
 			run_pressed()
 		if display_hovered:

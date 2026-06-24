@@ -2,16 +2,8 @@ extends CanvasLayer
 
 @export var shop: Control
 
-@export var social_bar: TextureProgressBar
-@export var energy_bar: TextureProgressBar
-@export var water_bar: TextureProgressBar
-@export var food_bar: TextureProgressBar
-
-
 
 var shop_open = false 
-
-
 
 
 func _input(event: InputEvent) -> void:

@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dxsx6b17w186e"]
+
+[ext_resource type="Script" uid="uid://b8rwxlriv2ur8" path="res://game_manager.gd" id="1_70yv6"]
+
+[node name="GameManager" type="Node" unique_id=1781593561 node_paths=PackedStringArray("money_rich_text_label") groups=["GameManager"]]
+script = ExtResource("1_70yv6")
+money_rich_text_label = NodePath("")

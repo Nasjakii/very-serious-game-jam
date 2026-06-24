@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cbubvkpnr2fht"]
+
+[ext_resource type="Script" uid="uid://0hnkgddsxyxq" path="res://UI/mini_cage_window.gd" id="1_7c7jr"]
+[ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="2_8ubmv"]
+[ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="6_v0jeo"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
+bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
+
+[node name="MiniCageWindow" type="Control" unique_id=273429697 node_paths=PackedStringArray("exit_button")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_7c7jr")
+exit_button = NodePath("ExitButton")
+
+[node name="Panel" type="Panel" parent="." unique_id=1768292391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_074og")
+
+[node name="Label" type="Label" parent="." unique_id=1530668558]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -59.0
+offset_right = 59.0
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "Employees"
+label_settings = ExtResource("2_8ubmv")
+horizontal_alignment = 1
+
+[node name="EmployeePanel" type="Panel" parent="." unique_id=1439488893]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.1
+anchor_top = 0.15
+anchor_right = 0.9
+anchor_bottom = 0.9
+mouse_filter = 2
+
+[node name="ScrollContainer" type="ScrollContainer" parent="EmployeePanel" unique_id=1713961167]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EmployeePanel/ScrollContainer" unique_id=814820030]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ExitButton" type="TextureButton" parent="." unique_id=1538763749]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.98
+anchor_top = 0.02
+anchor_right = 0.98
+anchor_bottom = 0.02
+grow_horizontal = 0
+texture_normal = ExtResource("6_v0jeo")

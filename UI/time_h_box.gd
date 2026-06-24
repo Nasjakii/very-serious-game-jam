@@ -8,13 +8,16 @@ signal day_end
 
 var timer : float = 0
 var half_day_length : float = 150
+var stop_timer : bool = false
 
 var day : int = 0
 var hour : float = 0
 var minute : float = 0
 
 func _process(delta: float) -> void:
-	timer += delta
+	if not stop_timer:
+		timer += delta
+		
 	hour = floor(timer / half_day_length * 12)  
 	if hour < 10 || (hour >= 12 and hour < 22):
 		hour_label.text = "0"

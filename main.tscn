@@ -2,31 +2,29 @@
 
 [ext_resource type="Texture2D" uid="uid://beb6pk7vuipxv" path="res://Assets/box.png" id="1_ig7tw"]
 [ext_resource type="Texture2D" uid="uid://dfr8jiumbwxv0" path="res://Assets/box-border.png" id="2_0xm2m"]
-[ext_resource type="Script" uid="uid://b8rwxlriv2ur8" path="res://game_manager.gd" id="2_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://b0k413t7a7hr4" path="res://GameObjects/wheel.tscn" id="3_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c3vphvin2g5ux" path="res://GameObjects/hay.tscn" id="5_074og"]
 [ext_resource type="Script" uid="uid://ci32r4dmbrow6" path="res://UI/ui.gd" id="6_5vw27"]
 [ext_resource type="PackedScene" uid="uid://c6gaqb6f5xiuw" path="res://GameObjects/dispenser.tscn" id="6_074og"]
+[ext_resource type="PackedScene" uid="uid://bpe2rxeag1he7" path="res://GameObjects/mini_cage.tscn" id="6_82xsv"]
+[ext_resource type="PackedScene" uid="uid://bpgcjwmhrpnkv" path="res://GameObjects/water_plant.tscn" id="7_getpj"]
+[ext_resource type="PackedScene" uid="uid://cn4m7yt5nurj2" path="res://GameObjects/fridge.tscn" id="8_d13ii"]
 [ext_resource type="Script" uid="uid://d01shy2avocvc" path="res://UI/bar_container_manager.gd" id="8_ryguw"]
-[ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="9_4c57u"]
 [ext_resource type="PackedScene" uid="uid://cf1145lyjxai0" path="res://bar_container_below.tscn" id="9_d13ii"]
-[ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="10_4c57u"]
-[ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="11_efxa6"]
-[ext_resource type="PackedScene" uid="uid://dn2i0csms6cjk" path="res://UI/Shop/shop_offer.tscn" id="12_dg77c"]
+[ext_resource type="PackedScene" uid="uid://cl0536lvrph6h" path="res://UI/Shop/shop.tscn" id="10_074og"]
 [ext_resource type="Script" uid="uid://bv85icdpo83co" path="res://UI/time_h_box.gd" id="13_2cqfq"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="13_ycdy4"]
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
 [ext_resource type="Script" uid="uid://dgl3tp237m05k" path="res://black_screen.gd" id="17_yaehf"]
+[ext_resource type="Script" uid="uid://cj6g2g5iqoyic" path="res://Debug/hamster_busy.gd" id="18_074og"]
 [ext_resource type="PackedScene" uid="uid://ct1050nepvi66" path="res://UI/energy_selling.tscn" id="18_82xsv"]
+[ext_resource type="PackedScene" uid="uid://cbubvkpnr2fht" path="res://UI/mini_cage_window.tscn" id="18_getpj"]
 [ext_resource type="PackedScene" uid="uid://cp16riawxb10f" path="res://UI/drink_selection.tscn" id="19_getpj"]
 [ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
+[ext_resource type="PackedScene" uid="uid://byjuqlk6dwomm" path="res://UI/fridge_selection.tscn" id="21_d13ii"]
 
 [node name="Main" type="Node2D" unique_id=1585207466]
-
-[node name="GameManager" type="Node" parent="." unique_id=185952480 node_paths=PackedStringArray("money_rich_text_label") groups=["GameManager"]]
-script = ExtResource("2_2cqfq")
-money_rich_text_label = NodePath("../UI/Full/TopRight/VBoxContainer/MoneyHBox/RichTextLabel")
 
 [node name="Box" type="Node2D" parent="." unique_id=114894614]
 position = Vector2(240, 135)
@@ -40,13 +38,22 @@ texture = ExtResource("2_0xm2m")
 [node name="Interior" type="Node2D" parent="." unique_id=1927714804]
 
 [node name="Wheel" parent="Interior" unique_id=1378031939 groups=["Wheel"] instance=ExtResource("3_w48qg")]
-position = Vector2(209, 138)
+position = Vector2(194, 138)
 
 [node name="Hay" parent="Interior" unique_id=1409678038 instance=ExtResource("5_074og")]
-position = Vector2(354, 198)
+position = Vector2(376, 209)
 
 [node name="Dispenser" parent="Interior" unique_id=1644741414 instance=ExtResource("6_074og")]
 position = Vector2(83, 122)
+
+[node name="MiniCage" parent="Interior" unique_id=1052430426 instance=ExtResource("6_82xsv")]
+position = Vector2(336, 106)
+
+[node name="WaterPlant" parent="Interior" unique_id=1463094653 instance=ExtResource("7_getpj")]
+position = Vector2(70, 215)
+
+[node name="Fridge" parent="Interior" unique_id=15518538 instance=ExtResource("8_d13ii")]
+position = Vector2(303, 170)
 
 [node name="UI" type="CanvasLayer" parent="." unique_id=1517068233 node_paths=PackedStringArray("shop") groups=["UI"]]
 script = ExtResource("6_5vw27")
@@ -98,83 +105,8 @@ anchor_bottom = 1.0
 grow_vertical = 2
 mouse_filter = 2
 
-[node name="Shop" type="Control" parent="UI/Full/Left" unique_id=1779804796 node_paths=PackedStringArray("toggle_shop_button", "shop_offer_vbox")]
+[node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -120.0
-offset_right = -120.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("9_4c57u")
-toggle_shop_button = NodePath("ToggleShopButton")
-shop_offer_vbox = NodePath("ShopVBox")
-
-[node name="ToggleShopButton" type="TextureButton" parent="UI/Full/Left/Shop" unique_id=1976999534]
-custom_minimum_size = Vector2(24, 24)
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_right = 24.0
-offset_bottom = 24.0
-grow_horizontal = 0
-texture_normal = ExtResource("10_4c57u")
-ignore_texture_size = true
-stretch_mode = 4
-
-[node name="Panel" type="Panel" parent="UI/Full/Left/Shop" unique_id=788764974]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TitleLabel" type="Label" parent="UI/Full/Left/Shop" unique_id=678758606]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 0.1
-grow_horizontal = 2
-text = "Shop"
-label_settings = ExtResource("11_efxa6")
-horizontal_alignment = 1
-vertical_alignment = 1
-
-[node name="ShopVBox" type="VBoxContainer" parent="UI/Full/Left/Shop" unique_id=489063292]
-layout_mode = 1
-anchors_preset = -1
-anchor_top = 0.1
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="ShopOffer" parent="UI/Full/Left/Shop/ShopVBox" unique_id=729491621 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer2" parent="UI/Full/Left/Shop/ShopVBox" unique_id=1837544603 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer3" parent="UI/Full/Left/Shop/ShopVBox" unique_id=32341987 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer4" parent="UI/Full/Left/Shop/ShopVBox" unique_id=1959783515 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer5" parent="UI/Full/Left/Shop/ShopVBox" unique_id=584587738 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer6" parent="UI/Full/Left/Shop/ShopVBox" unique_id=308407045 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer7" parent="UI/Full/Left/Shop/ShopVBox" unique_id=370922171 instance=ExtResource("12_dg77c")]
-layout_mode = 2
-
-[node name="ShopOffer8" parent="UI/Full/Left/Shop/ShopVBox" unique_id=423073255 instance=ExtResource("12_dg77c")]
-layout_mode = 2
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1
@@ -188,6 +120,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_left = 5.0
+offset_bottom = -17.400002
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -197,6 +131,7 @@ anchors_preset = -1
 anchor_left = 0.05
 anchor_right = 0.95
 anchor_bottom = 1.0
+offset_bottom = -19.400002
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
@@ -235,7 +170,7 @@ vertical_alignment = 1
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/MoneyHBox" unique_id=1872103324]
+[node name="MoneyRichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/MoneyHBox" unique_id=1872103324 groups=["MoneyRichTextLabel"]]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("13_ycdy4")
@@ -250,25 +185,6 @@ theme_override_fonts/font = ExtResource("13_ycdy4")
 text = ": HamBucks"
 vertical_alignment = 1
 
-[node name="StatHBoxContainer3" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1279932819]
-custom_minimum_size = Vector2(0, 20)
-layout_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer3" unique_id=543224011]
-layout_mode = 2
-size_flags_horizontal = 3
-theme_override_fonts/normal_font = ExtResource("13_ycdy4")
-text = "0,5"
-scroll_active = false
-horizontal_alignment = 2
-vertical_alignment = 1
-
-[node name="RichTextLabel2" type="Label" parent="UI/Full/TopRight/VBoxContainer/StatHBoxContainer3" unique_id=125677457]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_ycdy4")
-text = ": HB/KWh"
-vertical_alignment = 1
-
 [node name="BottomCenter" type="Control" parent="UI/Full" unique_id=1201079568]
 layout_mode = 1
 anchor_left = 0.15
@@ -279,6 +195,7 @@ grow_horizontal = 2
 grow_vertical = 0
 
 [node name="Dialog" type="Control" parent="UI/Full/BottomCenter" unique_id=1345030421]
+visible = false
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -330,6 +247,7 @@ grow_vertical = 2
 mouse_filter = 2
 
 [node name="EnergySelling" parent="UI/Full/Center" unique_id=273429697 instance=ExtResource("18_82xsv")]
+visible = false
 layout_mode = 1
 
 [node name="DrinkSelection" parent="UI/Full/Center" unique_id=128030173 instance=ExtResource("19_getpj")]
@@ -340,8 +258,15 @@ layout_mode = 1
 visible = false
 layout_mode = 1
 
-[node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label") groups=["BlackScreen"]]
+[node name="MiniCageWindow" parent="UI/Full/Center" unique_id=441376529 groups=["MiniCageWindow"] instance=ExtResource("18_getpj")]
 visible = false
+layout_mode = 1
+
+[node name="FridgeSelection" parent="UI/Full/Center" unique_id=46207959 groups=["FridgeSelection"] instance=ExtResource("21_d13ii")]
+visible = false
+layout_mode = 1
+
+[node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button") groups=["BlackScreen"]]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -351,6 +276,7 @@ mouse_filter = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("17_yaehf")
 day_label = NodePath("DayLabel")
+start_day_button = NodePath("StartDayButton")
 
 [node name="DayLabel" type="Label" parent="UI/BlackScreen" unique_id=255642141]
 layout_mode = 1
@@ -370,3 +296,34 @@ theme_override_font_sizes/font_size = 40
 text = "Day: 0"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="StartDayButton" type="Button" parent="UI/BlackScreen" unique_id=594889096]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.8
+anchor_right = 0.5
+anchor_bottom = 0.9
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+theme_override_font_sizes/font_size = 20
+text = "Start Day"
+
+[node name="Debug" type="CanvasLayer" parent="." unique_id=1727502898]
+visible = false
+
+[node name="Control" type="Control" parent="Debug" unique_id=1392101369]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="HamsterBusy" type="Label" parent="Debug/Control" unique_id=1167371084]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("18_074og")

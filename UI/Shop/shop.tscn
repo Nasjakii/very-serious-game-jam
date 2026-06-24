@@ -1,0 +1,71 @@
+[gd_scene format=3 uid="uid://cl0536lvrph6h"]
+
+[ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="1_l6lbb"]
+[ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/offer.gd" id="2_4qhf5"]
+[ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="2_vfljs"]
+[ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_4qhf5"]
+[ext_resource type="Resource" uid="uid://c3fjtdeydfrp5" path="res://UI/Shop/Offers/offer_test.tres" id="3_eeyqd"]
+[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/food_offer_test.tres" id="4_sar1i"]
+[ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/drink_offer_test.tres" id="5_l4q0s"]
+[ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/employee_offer_test.tres" id="6_pagdw"]
+
+[node name="Shop" type="Control" unique_id=1195036153 node_paths=PackedStringArray("toggle_shop_button", "shop_offer_vbox")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -120.0
+offset_right = -120.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_force_pass_scroll_events = false
+script = ExtResource("1_l6lbb")
+toggle_shop_button = NodePath("ToggleShopButton")
+shop_offer_vbox = NodePath("ScrollContainer/ShopVBox")
+offer_list = Array[ExtResource("2_4qhf5")]([ExtResource("3_eeyqd"), ExtResource("4_sar1i"), ExtResource("5_l4q0s"), ExtResource("6_pagdw")])
+
+[node name="ToggleShopButton" type="TextureButton" parent="." unique_id=1024432911]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 24.0
+offset_bottom = 24.0
+grow_horizontal = 0
+texture_normal = ExtResource("2_vfljs")
+ignore_texture_size = true
+stretch_mode = 4
+
+[node name="Panel" type="Panel" parent="." unique_id=479554362]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="." unique_id=1388907049]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.1
+grow_horizontal = 2
+text = "Shop"
+label_settings = ExtResource("3_4qhf5")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="." unique_id=704518763]
+layout_mode = 1
+anchors_preset = -1
+anchor_top = 0.1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ShopVBox" type="VBoxContainer" parent="ScrollContainer" unique_id=1688464487]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3

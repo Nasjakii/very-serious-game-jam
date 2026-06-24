@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://bpe2rxeag1he7"]
+
+[ext_resource type="Script" uid="uid://d107t2vqjva68" path="res://GameObjects/mini_cage.gd" id="1_dcfox"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="1_noq5t"]
+[ext_resource type="Texture2D" uid="uid://udu06dvtqc6" path="res://Assets/mini_cage.png" id="1_t3au1"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_dcfox"]
+shader = ExtResource("1_noq5t")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 0
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t3au1"]
+size = Vector2(46, 38)
+
+[node name="MiniCage" type="Node2D" unique_id=1052430426 node_paths=PackedStringArray("mini_cage_sprite_2d", "mini_cage_area_2d")]
+script = ExtResource("1_dcfox")
+mini_cage_sprite_2d = NodePath("MiniCageSprite2D")
+mini_cage_area_2d = NodePath("MiniCageArea2D")
+
+[node name="MiniCageSprite2D" type="Sprite2D" parent="." unique_id=1108436570]
+material = SubResource("ShaderMaterial_dcfox")
+texture = ExtResource("1_t3au1")
+
+[node name="MiniCageArea2D" type="Area2D" parent="." unique_id=281421943]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="MiniCageArea2D" unique_id=74971051]
+shape = SubResource("RectangleShape2D_t3au1")

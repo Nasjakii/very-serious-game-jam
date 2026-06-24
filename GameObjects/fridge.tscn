@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://cn4m7yt5nurj2"]
+
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="1_k0xne"]
+[ext_resource type="Script" uid="uid://gxflmnyah4xu" path="res://GameObjects/fridge.gd" id="1_v05dv"]
+[ext_resource type="Texture2D" uid="uid://d8063njluh1g" path="res://Assets/fridge.png" id="2_v05dv"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_0odxb"]
+shader = ExtResource("1_k0xne")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 2
+shader_parameter/inside = true
+shader_parameter/add_margins = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1u8w0"]
+size = Vector2(38, 64)
+
+[node name="Fridge" type="Node2D" unique_id=15518538 node_paths=PackedStringArray("fridge_sprite_2d", "fridge_area_2d")]
+script = ExtResource("1_v05dv")
+fridge_sprite_2d = NodePath("FridgeSprite2D")
+fridge_area_2d = NodePath("Area2D")
+
+[node name="FridgeSprite2D" type="Sprite2D" parent="." unique_id=563391154]
+material = SubResource("ShaderMaterial_0odxb")
+texture = ExtResource("2_v05dv")
+
+[node name="Area2D" type="Area2D" parent="." unique_id=736652179]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1622381237]
+shape = SubResource("RectangleShape2D_1u8w0")

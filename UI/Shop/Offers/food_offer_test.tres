@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FoodOffer" format=3 uid="uid://caddvjovjdwsf"]
+
+[ext_resource type="Script" uid="uid://cbjvy6nxdenx5" path="res://UI/Shop/Offers/food_offer.gd" id="1_gortv"]
+
+[resource]
+script = ExtResource("1_gortv")
+food_name = "Food Test"
+offer_name = "Food Offer Name Test"
+metadata/_custom_type_script = "uid://cbjvy6nxdenx5"

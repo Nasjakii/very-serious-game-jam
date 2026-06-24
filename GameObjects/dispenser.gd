@@ -22,6 +22,7 @@ func _ready() -> void:
 	
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventMouseButton and event.is_pressed():
-		if dispenser_hovered:
+	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
+		if dispenser_hovered and not GameManager.hamster_busy:
 			drink_selection.show()
+			GameManager.hamster_busy = true

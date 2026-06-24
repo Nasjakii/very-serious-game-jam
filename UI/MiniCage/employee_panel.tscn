@@ -1,0 +1,46 @@
+[gd_scene format=3 uid="uid://b8ab4tuporgcw"]
+
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_xt4x6"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3nog"]
+content_margin_left = 4.0
+content_margin_top = 2.0
+content_margin_right = 4.0
+content_margin_bottom = 2.0
+bg_color = Color(0.5391554, 0.65066594, 0.27906117, 1)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+
+[node name="EmployeePanel" type="Panel" unique_id=1845382871]
+custom_minimum_size = Vector2(0, 32)
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=46560276]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.025
+anchor_right = 0.975
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EmployeeName" type="Label" parent="HBoxContainer" unique_id=1387049231]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xt4x6")
+theme_override_font_sizes/font_size = 24
+text = "Bob"
+
+[node name="EmployeeProduction" type="Label" parent="HBoxContainer" unique_id=455675057]
+layout_mode = 2
+size_flags_horizontal = 6
+theme_override_fonts/font = ExtResource("1_xt4x6")
+theme_override_font_sizes/font_size = 24
+text = "12W/h"
+
+[node name="Button" type="Button" parent="HBoxContainer" unique_id=2131278483]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_xt4x6")
+theme_override_font_sizes/font_size = 24
+theme_override_styles/normal = SubResource("StyleBoxFlat_w3nog")
+text = "Motivate"

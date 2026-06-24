@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EmployeeOffer" format=3 uid="uid://bsksc02uqerlk"]
+
+[ext_resource type="Script" uid="uid://bc3frjgdojjbd" path="res://UI/Shop/Offers/employee_offer.gd" id="1_cethu"]
+
+[resource]
+script = ExtResource("1_cethu")
+employee_name = "Test Employee"
+offer_name = "Employee Offer Test"
+metadata/_custom_type_script = "uid://bc3frjgdojjbd"

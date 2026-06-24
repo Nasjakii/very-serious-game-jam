@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://bpgcjwmhrpnkv"]
+
+[ext_resource type="Script" uid="uid://duqkjeyn2e2xi" path="res://GameObjects/water_plant.gd" id="1_f6f4e"]
+[ext_resource type="Texture2D" uid="uid://csyl7fshv51e0" path="res://Assets/water_plant.png" id="1_p33mm"]
+[ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="2_mbpav"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_pdgow"]
+shader = ExtResource("2_mbpav")
+shader_parameter/color = Color(0, 0, 0, 0)
+shader_parameter/width = 1.0
+shader_parameter/pattern = 2
+shader_parameter/inside = false
+shader_parameter/add_margins = true
+
+[node name="WaterPlant" type="Node2D" unique_id=1463094653 node_paths=PackedStringArray("water_plant_sprite_2d", "water_plant_area_2d")]
+script = ExtResource("1_f6f4e")
+water_plant_sprite_2d = NodePath("WaterPlantSprite2D")
+water_plant_area_2d = NodePath("WaterPlantArea2D")
+
+[node name="WaterPlantSprite2D" type="Sprite2D" parent="." unique_id=1299396095]
+material = SubResource("ShaderMaterial_pdgow")
+texture = ExtResource("1_p33mm")
+
+[node name="WaterPlantArea2D" type="Area2D" parent="." unique_id=661643918]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterPlantArea2D" unique_id=1353311332]
+polygon = PackedVector2Array(2, -8, -3, -22, -14, -26, -24, -12, -23, 17, -12, 22, 0, 19, 9, 27, 19, 24, 19, 16, 28, 4, 23, -2, 4, 0)

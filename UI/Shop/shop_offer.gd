@@ -1,8 +1,45 @@
 extends Control
 
 
-@export var rich_text_label: RichTextLabel
+@export var offer_name_label: RichTextLabel
 @export var price_rich_text_label: RichTextLabel
+@export var texture_button: TextureButton
+
+@export var offer : Offer
+
+var fridge_control : Control
+var drink_control : Control
+var employee_control : Control
 
 
- 
+func _ready() -> void:
+	fridge_control = get_tree().get_first_node_in_group("FridgeSelection")
+	drink_control = get_tree().get_first_node_in_group("DrinkSelection")
+	employee_control = get_tree().get_first_node_in_group("MiniCageWindow")
+	
+	price_rich_text_label.text = str(offer.offer_price) + "HB"
+	texture_button.pressed.connect(_on_buy_button_pressed) 
+	offer_name_label.text = offer.offer_name
+
+func _on_buy_button_pressed():
+	if offer.offer_price <= GameManager.money:
+		GameManager.money -= offer.offer_price
+		effect()
+		queue_free()
+
+
+
+func effect():
+	
+	if offer is FoodOffer:
+		fridge_control.add_food(offer.food_name)
+	elif offer is DrinkOffer:
+		drink_control.add_drink(offer.drink_name)
+	elif offer is EmployeeOffer:
+		employee_control.add_employee(offer.employee_name)
+	else:
+		match offer.offer_name:
+			"Test":
+				print("test")
+			_:
+				print("No offer effect defined, ", offer.offer_name)

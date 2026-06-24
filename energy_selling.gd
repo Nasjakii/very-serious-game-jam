@@ -7,7 +7,6 @@ extends Control
 
 var progress_bars : Array[ProgressBar]
 var wheel : Node2D
-var game_manager : Node
 var sell_price = 0
 
 var max_value = 0.5
@@ -15,7 +14,6 @@ var min_value = 0.25
 
 func _ready() -> void:
 	wheel = get_tree().get_first_node_in_group("Wheel")
-	game_manager = get_tree().get_first_node_in_group("GameManager")
 	hide()
 	
 	for child in h_box_container.get_children():
@@ -32,7 +30,7 @@ func _on_exit_button_pressed():
 
 func _on_sell_button_pressed():
 	var wattage = wheel.reset_wattage()
-	game_manager.money += sell_price * wattage
+	GameManager.money += sell_price * wattage
 
 
 func change_prices():
