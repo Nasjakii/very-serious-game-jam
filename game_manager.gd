@@ -130,5 +130,7 @@ func sleep(duration : int):
 	var hour = time_hbox.half_day_length/12
 	sleep_duration = duration * hour
 	
+func suit():
+	print("here, have a suit")
 	
 	

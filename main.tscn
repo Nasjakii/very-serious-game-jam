@@ -13,21 +13,14 @@
 [ext_resource type="PackedScene" uid="uid://cf1145lyjxai0" path="res://bar_container_below.tscn" id="9_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cl0536lvrph6h" path="res://UI/Shop/shop.tscn" id="10_074og"]
 [ext_resource type="Script" uid="uid://bv85icdpo83co" path="res://UI/time_h_box.gd" id="13_2cqfq"]
-[ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/Scripts/offer.gd" id="13_xuqvo"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="13_ycdy4"]
-[ext_resource type="Resource" uid="uid://c3fjtdeydfrp5" path="res://UI/Shop/Offers/offer_test.tres" id="14_qsp4k"]
 [ext_resource type="Texture2D" uid="uid://ccpyjscm1w25e" path="res://Assets/dialog_banner.png" id="14_w48qg"]
-[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/cabbage_offer.tres" id="15_kq58d"]
 [ext_resource type="Texture2D" uid="uid://snxbbmisfd3a" path="res://Assets/icon.svg" id="15_vivmo"]
-[ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/Resources/energy_drink_offer.tres" id="16_seu75"]
-[ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/employee_offer_test.tres" id="17_htxhm"]
 [ext_resource type="Script" uid="uid://dgl3tp237m05k" path="res://black_screen.gd" id="17_yaehf"]
 [ext_resource type="Script" uid="uid://cj6g2g5iqoyic" path="res://Debug/hamster_busy.gd" id="18_074og"]
 [ext_resource type="PackedScene" uid="uid://ct1050nepvi66" path="res://UI/energy_selling.tscn" id="18_82xsv"]
 [ext_resource type="PackedScene" uid="uid://cbubvkpnr2fht" path="res://UI/mini_cage_window.tscn" id="18_getpj"]
-[ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="18_kq58d"]
 [ext_resource type="PackedScene" uid="uid://cp16riawxb10f" path="res://UI/drink_selection.tscn" id="19_getpj"]
-[ext_resource type="Resource" uid="uid://bvyavnpx4fsie" path="res://UI/Shop/Offers/Resources/pumpkin_offer.tres" id="19_seu75"]
 [ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
 [ext_resource type="PackedScene" uid="uid://byjuqlk6dwomm" path="res://UI/fridge_selection.tscn" id="21_d13ii"]
 
@@ -114,7 +107,6 @@ mouse_filter = 2
 
 [node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("15_kq58d"), ExtResource("16_seu75"), ExtResource("17_htxhm"), ExtResource("18_kq58d"), ExtResource("19_seu75")])
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1

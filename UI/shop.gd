@@ -32,3 +32,5 @@ func create_offer(offer : Offer):
 		employee_offer_vbox.add_child(offer_inst)
 	if offer is UpgradeOffer:
 		upgrade_offer_vbox.add_child(offer_inst)
+	
+	print(offer.offer_name)

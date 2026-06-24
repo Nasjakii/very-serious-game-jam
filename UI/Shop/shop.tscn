@@ -4,10 +4,10 @@
 [ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/Scripts/offer.gd" id="2_4qhf5"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="2_vfljs"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_4qhf5"]
-[ext_resource type="Resource" uid="uid://c3fjtdeydfrp5" path="res://UI/Shop/Offers/offer_test.tres" id="3_eeyqd"]
 [ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/cabbage_offer.tres" id="4_sar1i"]
 [ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/Resources/energy_drink_offer.tres" id="5_l4q0s"]
-[ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/employee_offer_test.tres" id="6_pagdw"]
+[ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="6_pagdw"]
+[ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/suit_upgrade_offer.tres" id="7_pagdw"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="9_l4q0s"]
 
 [node name="Shop" type="Control" unique_id=1195036153 node_paths=PackedStringArray("toggle_shop_button", "food_offer_vbox", "drink_offer_vbox", "employee_offer_vbox", "upgrade_offer_vbox")]
@@ -26,7 +26,7 @@ food_offer_vbox = NodePath("ScrollContainer/ShopVBox/Foods/FoodsContainer")
 drink_offer_vbox = NodePath("ScrollContainer/ShopVBox/Drinks/DrinksContainer")
 employee_offer_vbox = NodePath("ScrollContainer/ShopVBox/Employees/EmployeesContainer")
 upgrade_offer_vbox = NodePath("ScrollContainer/ShopVBox/Upgrades/UpgradesContainer")
-offer_list = Array[ExtResource("2_4qhf5")]([ExtResource("3_eeyqd"), ExtResource("4_sar1i"), ExtResource("5_l4q0s"), ExtResource("6_pagdw")])
+offer_list = Array[ExtResource("2_4qhf5")]([ExtResource("4_sar1i"), ExtResource("5_l4q0s"), ExtResource("6_pagdw"), ExtResource("7_pagdw")])
 
 [node name="ToggleShopButton" type="TextureButton" parent="." unique_id=1024432911]
 custom_minimum_size = Vector2(24, 24)

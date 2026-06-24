@@ -32,16 +32,13 @@ func _on_buy_button_pressed():
 
 
 func effect():
-	
+
 	if offer is FoodOffer:
 		fridge_control.add_food(offer.food_resource)
 	elif offer is DrinkOffer:
 		drink_control.add_drink(offer.drink_resource)
 	elif offer is EmployeeOffer:
 		employee_control.add_employee(offer.employee_name)
-	else:
-		match offer.offer_name:
-			"Test":
-				print("test")
-			_:
-				print("No offer effect defined, ", offer.offer_name)
+	elif offer is UpgradeOffer:
+		offer.execute_upgrade()
+		
