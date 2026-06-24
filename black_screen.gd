@@ -60,8 +60,7 @@ func win_screen():
 	sleep_label.text = "You payed off all your dept!"
 	wattage_label.text = "We hope you enjoyed this small game"
 	money_label.hide()
-	taxes_label.hide()
-	loan_label.text = "Keep spinning!"
+	taxes_label.text = "Keep spinning!"
 
 func _on_start_day_button():
 	fade_out(5)
