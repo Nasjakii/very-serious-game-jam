@@ -80,6 +80,7 @@ func reset_selection():
 func _on_food_action_pressed():
 	if food_selected == null: return
 	if food_count_dictionary[food_selected.consumable_name] <= 0: return
+	if eating: return
 	
 	food_count_dictionary[food_selected.consumable_name] -= 1
 	food_button_selected.set_count(food_count_dictionary[food_selected.consumable_name])

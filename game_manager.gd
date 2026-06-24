@@ -81,6 +81,7 @@ func _on_day_end():
 	
 	day += 1
 	
+	black_screen.sleep_label.text = ""
 	black_screen.set_money(money_made_today)
 	black_screen.set_wattage(wattage_produced_today)
 	black_screen.set_day(day)
@@ -153,6 +154,7 @@ func faint():
 		black_screen.sleep_label.text = "You almost starved, and slept poorly..."
 	if water_amount <= 0:
 		black_screen.sleep_label.text = "You almost died of thirst, and slept poorly..."
+	
 	
 	energy_amount = 30
 	food_amount = 15
