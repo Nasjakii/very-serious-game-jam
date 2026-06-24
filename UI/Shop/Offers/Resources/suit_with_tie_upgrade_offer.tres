@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_vm3mr")
+upgrade_type = 1
 offer_name = "Suit with Tie"
 offer_price = 300
 metadata/_custom_type_script = "uid://c4au0xncl22wh"
