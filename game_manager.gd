@@ -56,7 +56,7 @@ var sleep_start = 0
 var sleep_energy_increase = 1
 var sleep_social_increase = 1
 
-var loan_payback = 10000
+var loan_payback = 1000
 var loan_increase = 0.01
 var tax_rate = 0.1
 var tax_payback = 0
@@ -64,6 +64,8 @@ var tax_payback = 0
 var money_made_today = 0
 var wattage_produced_today = 0
 var week = 1
+
+var endscreen_shown = false
 
 func _ready() -> void:
 	sleep_control = get_tree().get_first_node_in_group("SleepController")
@@ -97,9 +99,14 @@ func _on_day_end():
 		if money > 0:
 			var payback_amount = min(money, loan_payback)
 			loan_payback -= payback_amount
-		
+				
 		loan_payback += loan_payback * loan_increase
 	
+		if loan_payback <= 0 and not endscreen_shown:
+			print("you win")
+			black_screen.win_screen()
+			endscreen_shown = true
+			
 	black_screen.set_loan_payback(loan_payback)
 	black_screen.set_tax_payback(tax_payback)
 	

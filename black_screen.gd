@@ -56,6 +56,13 @@ func set_tax_payback(amount : int):
 func set_loan_payback(amount : int):
 	loan_label.text = "Loan payback left: " + str(amount) + "(+1%/Week)"
 
+func win_screen():
+	sleep_label.text = "You payed off all your dept!"
+	wattage_label.text = "We hope you enjoyed this small game"
+	money_label.hide()
+	taxes_label.hide()
+	loan_label.text = "Keep spinning!"
+
 func _on_start_day_button():
 	fade_out(5)
 	await get_tree().create_timer(5).timeout
