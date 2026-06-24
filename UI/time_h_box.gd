@@ -11,7 +11,7 @@ var timer : float = 0
 var half_day_length : float = 150
 var stop_timer : bool = false
 
-var day : int = 0
+var day : int = 1
 var hour : float = 0
 var hour_before : float = 0
 var minute : float = 0

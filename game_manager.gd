@@ -91,6 +91,7 @@ func _on_day_end():
 		print("Pay day")
 		print(tax_payback)
 		money -= tax_payback
+		tax_payback = 0
 		week += 1
 		if money > 0:
 			var payback_amount = min(money, loan_payback)

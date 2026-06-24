@@ -7,6 +7,6 @@ script = ExtResource("1_26l4l")
 employee_name = "Bob"
 employee_production = 1.0
 motivation_needed = 10.0
-offer_name = "Bob (1W/H)"
+offer_name = "Bob (1W/h)"
 offer_price = 15
 metadata/_custom_type_script = "uid://bc3frjgdojjbd"
