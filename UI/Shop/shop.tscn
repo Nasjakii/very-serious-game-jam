@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/Scripts/offer.gd" id="2_4qhf5"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="2_vfljs"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_4qhf5"]
-[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/cabbage_offer.tres" id="4_sar1i"]
+[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/lettuce_offer.tres" id="4_sar1i"]
 [ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/Resources/energy_drink_offer.tres" id="5_l4q0s"]
 [ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="6_pagdw"]
 [ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/suit_upgrade_offer.tres" id="7_pagdw"]

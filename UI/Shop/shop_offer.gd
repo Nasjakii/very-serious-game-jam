@@ -38,7 +38,7 @@ func effect():
 	elif offer is DrinkOffer:
 		drink_control.add_drink(offer.drink_resource)
 	elif offer is EmployeeOffer:
-		employee_control.add_employee(offer.employee_name)
+		employee_control.add_employee(offer)
 	elif offer is UpgradeOffer:
 		offer.execute_upgrade()
 		

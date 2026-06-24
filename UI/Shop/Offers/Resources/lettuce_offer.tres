@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="FoodOffer" format=3 uid="uid://caddvjovjdwsf"]
+
+[ext_resource type="Resource" uid="uid://ca6cut07w6ef1" path="res://Consumables/Foods/lettuce.tres" id="1_mavd7"]
+[ext_resource type="Script" uid="uid://cbjvy6nxdenx5" path="res://UI/Shop/Offers/Scripts/food_offer.gd" id="2_rx3el"]
+
+[resource]
+script = ExtResource("2_rx3el")
+food_resource = ExtResource("1_mavd7")
+offer_name = "Lettuce"
+offer_price = 2
+offer_permanent = true
+metadata/_custom_type_script = "uid://cbjvy6nxdenx5"

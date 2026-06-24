@@ -1,6 +1,7 @@
 extends ProgressBar
 
 @export var stock_label: Label
+@export var day_label: Label
 
 
 

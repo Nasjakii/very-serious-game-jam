@@ -7,6 +7,6 @@
 script = ExtResource("2_k4dj5")
 consumable_name = "Pumpkin"
 consumable_texture = ExtResource("1_bic8d")
-consumable_effect_food = 20
+consumable_effect_food = 40
 consumable_effect_energy = 5
 metadata/_custom_type_script = "uid://d2g57w8pjmr55"

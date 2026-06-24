@@ -4,6 +4,7 @@ signal finished
 
 @export var day_label: Label 
 @export var start_day_button: Button
+@export var payday_label: Label
 
 @export var stat_container : VBoxContainer
 @export var sleep_label : Label
@@ -11,6 +12,7 @@ signal finished
 @export var money_label: Label
 @export var loan_label: Label
 @export var taxes_label: Label
+
 
 
 func _ready() -> void:
@@ -40,6 +42,7 @@ func fade_out(duration_secocnds : float):
 	
 func set_day(day : int):
 	day_label.text = "Day: " + str(day)
+	payday_label.text = "Days till payday: " + str(7 % day)
 	
 
 func _on_start_day_button():

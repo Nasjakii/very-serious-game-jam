@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://b8ab4tuporgcw"]
 
+[ext_resource type="Script" uid="uid://ds4kxqaxv20oc" path="res://UI/MiniCage/employee_panel.gd" id="1_he2eg"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_xt4x6"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w3nog"]
@@ -13,8 +14,12 @@ corner_radius_top_right = 4
 corner_radius_bottom_right = 4
 corner_radius_bottom_left = 4
 
-[node name="EmployeePanel" type="Panel" unique_id=1845382871]
+[node name="EmployeePanel" type="Panel" unique_id=1845382871 node_paths=PackedStringArray("motivate_button", "employee_name", "employee_production")]
 custom_minimum_size = Vector2(0, 32)
+script = ExtResource("1_he2eg")
+motivate_button = NodePath("HBoxContainer/MotivateButton")
+employee_name = NodePath("HBoxContainer/EmployeeName")
+employee_production = NodePath("HBoxContainer/EmployeeProduction")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=46560276]
 layout_mode = 1
@@ -38,7 +43,7 @@ theme_override_fonts/font = ExtResource("1_xt4x6")
 theme_override_font_sizes/font_size = 24
 text = "12W/h"
 
-[node name="Button" type="Button" parent="HBoxContainer" unique_id=2131278483]
+[node name="MotivateButton" type="Button" parent="HBoxContainer" unique_id=2131278483]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xt4x6")
 theme_override_font_sizes/font_size = 24

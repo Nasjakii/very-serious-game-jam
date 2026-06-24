@@ -3,13 +3,14 @@
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_hwe3c"]
 [ext_resource type="Script" uid="uid://illkm8bm8dsl" path="res://UI/stock_progress_bar.gd" id="2_sqihi"]
 
-[node name="StockProgressBar" type="ProgressBar" unique_id=879288012 node_paths=PackedStringArray("stock_label")]
+[node name="StockProgressBar" type="ProgressBar" unique_id=879288012 node_paths=PackedStringArray("stock_label", "day_label")]
 custom_minimum_size = Vector2(16, 90)
 theme_override_fonts/font = ExtResource("1_hwe3c")
 fill_mode = 3
 show_percentage = false
 script = ExtResource("2_sqihi")
 stock_label = NodePath("StockLabel")
+day_label = NodePath("DayLabel")
 
 [node name="StockLabel" type="Label" parent="." unique_id=1370390149]
 layout_mode = 0
@@ -19,5 +20,23 @@ theme_override_fonts/font = ExtResource("1_hwe3c")
 theme_override_font_sizes/font_size = 12
 text = "0"
 horizontal_alignment = 1
+
+[node name="DayLabel" type="Label" parent="." unique_id=1390927767]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -8.0
+offset_top = -23.0
+offset_right = 8.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_fonts/font = ExtResource("1_hwe3c")
+theme_override_font_sizes/font_size = 8
+text = "Day: 0"
+horizontal_alignment = 1
+vertical_alignment = 2
 
 [connection signal="value_changed" from="." to="." method="_on_value_changed"]

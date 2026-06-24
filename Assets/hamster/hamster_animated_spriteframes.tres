@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://vjyretn747aj"]
+
+[ext_resource type="Texture2D" uid="uid://bibbjmhia5pdi" path="res://Assets/hamster/hamster-running-bare.png" id="1_w8iti"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qcown"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(0, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrrtj"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(96, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_auioi"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(192, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xnkd0"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(288, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dg4rd"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(384, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s007c"]
+atlas = ExtResource("1_w8iti")
+region = Rect2(480, 0, 96, 58)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qcown")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrrtj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_auioi")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xnkd0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dg4rd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s007c")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

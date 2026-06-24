@@ -72,6 +72,7 @@ text = "Sleep for: "
 layout_mode = 2
 theme = SubResource("Theme_esev6")
 theme_override_constants/buttons_width = 30
+max_value = 10.0
 
 [node name="Label" type="Label" parent="." unique_id=787763082]
 layout_mode = 1

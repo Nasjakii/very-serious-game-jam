@@ -5,7 +5,7 @@ var food_amount = 100 :
 		food_amount = min(value, food_amount_max)
 		bar_container_manager.set_values(social_amount, energy_amount, water_amount, food_amount)
 var food_amount_max = 100
-var food_loss = 0.5
+var food_loss = 0.25
 
 var energy_amount = 100 :
 	set(value): 
@@ -51,6 +51,9 @@ var hamster_busy = false
 var sleep_control : Control
 var sleep_duration = 0
 var sleep_start = 0
+var sleep_energy_increase = 2
+var sleep_social_increase = 1
+
 
 func _ready() -> void:
 	sleep_control = get_tree().get_first_node_in_group("SleepController")
@@ -67,6 +70,9 @@ func _on_day_end():
 	time_hbox.stop_timer = true
 	
 	day += 1
+	
+	if day % 7 == 0:
+		print("Pay day")
 	
 	energy_selling.change_prices()
 	
@@ -95,8 +101,8 @@ func _process(delta: float) -> void:
 		if wheel.running:
 			energy_amount -= energy_loss * 5
 		if sleep_control.sleeping:
-			energy_amount += energy_loss * 4
-			social_amount += energy_loss * 3
+			energy_amount += (energy_loss + 1) * sleep_energy_increase
+			social_amount += energy_loss * sleep_social_increase
 			
 		water_amount -= water_loss
 	
@@ -109,10 +115,16 @@ func faint():
 	#fainting animation
 	time_hbox.timer = time_hbox.half_day_length * 2
 	energy_amount = 10
-	food_amount = 10
-	water_amount = 10
+	food_amount = 15
+	water_amount = 20
 	social_amount = 10
-	black_screen.sleep_label.text = "You fainted, and slept poorly..."
+	
+	if energy_amount <= 0:
+		black_screen.sleep_label.text = "You fainted, and slept poorly..."
+	if food_amount <= 0:
+		black_screen.sleep_label.text = "You almost starved, and slept poorly..."
+	if water_amount <= 0:
+		black_screen.sleep_label.text = "You almost died of thirst, and slept poorly..."
 	
 	#cancel sleep
 	sleep_duration = 0
@@ -132,5 +144,6 @@ func sleep(duration : int):
 	
 func suit():
 	print("here, have a suit")
+	wheel.suit()
 	
 	

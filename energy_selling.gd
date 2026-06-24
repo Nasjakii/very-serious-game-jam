@@ -12,6 +12,7 @@ var sell_price = 0
 var max_value = 0.5
 var min_value = 0.25
 
+
 func _ready() -> void:
 	wheel = get_tree().get_first_node_in_group("Wheel")
 	hide()
@@ -37,6 +38,7 @@ func change_prices():
 	
 	for bar_index in range(progress_bars.size() - 1):
 		progress_bars[bar_index].value = progress_bars[bar_index].value
+		progress_bars[bar_index].day_label.text = "Day:" + str(GameManager.day - progress_bars.size() + bar_index + 1)
 		
 	sell_price= randf_range(min_value, max_value)
 	progress_bars[-1].value = sell_price

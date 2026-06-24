@@ -1,6 +1,7 @@
 extends HBoxContainer
 
 signal day_end
+signal hour_end
 
 @export var day_rich_text_label: RichTextLabel
 @export var hour_label: Label
@@ -12,6 +13,7 @@ var stop_timer : bool = false
 
 var day : int = 0
 var hour : float = 0
+var hour_before : float = 0
 var minute : float = 0
 
 func _process(delta: float) -> void:
@@ -19,6 +21,9 @@ func _process(delta: float) -> void:
 		timer += delta
 		
 	hour = floor(timer / half_day_length * 12)  
+	if hour != hour_before:
+		hour_before = hour
+		hour_end.emit(hour)
 	if hour < 10 || (hour >= 12 and hour < 22):
 		hour_label.text = "0"
 	else:

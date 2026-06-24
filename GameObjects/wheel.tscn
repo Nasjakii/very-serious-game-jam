@@ -6,7 +6,7 @@
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="4_a4pml"]
 [ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="4_r2pkp"]
 [ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="5_qcown"]
-[ext_resource type="Texture2D" uid="uid://bibbjmhia5pdi" path="res://Assets/hamster/hamster-running-bare.png" id="7_r2pkp"]
+[ext_resource type="SpriteFrames" uid="uid://vjyretn747aj" path="res://Assets/hamster/hamster_animated_spriteframes.tres" id="7_r2pkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcown"]
 size = Vector2(95, 58)
@@ -54,56 +54,6 @@ animations = [{
 "loop": true,
 "name": &"default",
 "speed": 10.0
-}]
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_qcown"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(0, 0, 96, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xrrtj"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(96, 0, 96, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_auioi"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(192, 0, 96, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xnkd0"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(288, 0, 96, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dg4rd"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(384, 0, 96, 58)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_s007c"]
-atlas = ExtResource("7_r2pkp")
-region = Rect2(480, 0, 96, 58)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_0jg24"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_qcown")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xrrtj")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_auioi")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xnkd0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_dg4rd")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_s007c")
-}],
-"loop": true,
-"name": &"default",
-"speed": 5.0
 }]
 
 [node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("wheel_sprite_2d", "hamster_animated_sprite_2d", "rich_text_label", "wheel_area_2d", "display_area_2d", "wheel_display")]
@@ -159,5 +109,4 @@ frame_progress = 0.81932634
 [node name="HamsterAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1747238296]
 visible = false
 position = Vector2(-9, 35)
-sprite_frames = SubResource("SpriteFrames_0jg24")
-frame_progress = 0.19472912
+sprite_frames = ExtResource("7_r2pkp")

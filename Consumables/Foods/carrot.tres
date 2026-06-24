@@ -7,6 +7,7 @@
 script = ExtResource("2_gfyok")
 consumable_name = "Carrot"
 consumable_texture = ExtResource("1_kbt20")
-consumable_effect_food = 20
-consumable_effect_energy = 5
+consumable_effect_food = 25
+consumable_effect_drink = 2
+consumable_effect_energy = 8
 metadata/_custom_type_script = "uid://d2g57w8pjmr55"
