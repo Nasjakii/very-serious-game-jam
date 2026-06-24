@@ -8,7 +8,7 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 
-[node name="DrinkSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("drink_h_box_container", "exit_button", "drink_action_button") groups=["DrinkSelection"]]
+[node name="DrinkSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("drink_h_box_container", "exit_button", "drink_action_button", "progress_bar") groups=["DrinkSelection"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +20,7 @@ script = ExtResource("1_66hgh")
 drink_h_box_container = NodePath("Panel2/DrinkHBoxContainer")
 exit_button = NodePath("ExitButton")
 drink_action_button = NodePath("DrinkButton")
+progress_bar = NodePath("Panel2/ProgressBar")
 
 [node name="Panel" type="Panel" parent="." unique_id=153445910]
 layout_mode = 1
@@ -52,6 +53,19 @@ grow_horizontal = 2
 grow_vertical = 2
 alignment = 1
 
+[node name="ProgressBar" type="ProgressBar" parent="Panel2" unique_id=1733680442]
+modulate = Color(0, 0.46221274, 0.93866473, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+show_percentage = false
+
 [node name="Label" type="Label" parent="." unique_id=787763082]
 layout_mode = 1
 anchors_preset = 5
@@ -65,13 +79,17 @@ text = "Drink Selection"
 label_settings = ExtResource("3_c1ivd")
 
 [node name="DrinkButton" type="TextureButton" parent="." unique_id=2026320655]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(32, 24)
 layout_mode = 1
-anchors_preset = -1
+anchors_preset = 7
 anchor_left = 0.5
-anchor_top = 0.95
+anchor_top = 1.0
 anchor_right = 0.5
-anchor_bottom = 0.95
+anchor_bottom = 1.0
+offset_left = -21.0
+offset_top = -26.0
+offset_right = 26.0
+offset_bottom = -2.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3

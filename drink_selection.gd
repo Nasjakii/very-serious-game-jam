@@ -7,6 +7,7 @@ const WATER_BUTTON = preload("uid://cnappbbnr0uuh")
 @export var drink_h_box_container: HBoxContainer
 @export var exit_button: TextureButton
 @export var drink_action_button : TextureButton
+@export var progress_bar: ProgressBar
 
 var energy_count = 0
 var drink_buttons : Array[TextureButton]
@@ -17,6 +18,8 @@ var bar_container_manager : Control = null
 
 var drink_count_dictionary : Dictionary
 var drink_button_dictionary : Dictionary
+var drinking = false
+var drink_duration = 1.0
 
 func _ready() -> void:
 	bar_container_manager = get_tree().get_first_node_in_group("BarContainerManager")
@@ -86,6 +89,7 @@ func reset_selection():
 func _on_drink_action_pressed():
 	if drink_selected == null: return
 	if drink_count_dictionary[drink_selected.consumable_name] <= 0: return
+	if drinking: return
 	
 	drink_count_dictionary[drink_selected.consumable_name] -= 1
 	drink_button_selected.set_count(drink_count_dictionary[drink_selected.consumable_name])
@@ -94,3 +98,11 @@ func _on_drink_action_pressed():
 	GameManager.food_amount += drink_selected.consumable_effect_food
 	GameManager.water_amount += drink_selected.consumable_effect_drink
 	GameManager.social_amount += drink_selected.consumable_effect_social
+	
+	drinking = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(progress_bar, "value", 1.0, drink_duration)
+	tween.tween_callback(func(): 
+		progress_bar.value = 0
+		drinking = false
+	)
