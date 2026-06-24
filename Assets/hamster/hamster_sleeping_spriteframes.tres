@@ -1,0 +1,39 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://b6hxht43mnol2"]
+
+[ext_resource type="Texture2D" uid="uid://dlvociv0ktqdd" path="res://Assets/hamster/hamster-sleeping.png" id="1_gglpm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t7loc"]
+atlas = ExtResource("1_gglpm")
+region = Rect2(0, 0, 85, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ymlx0"]
+atlas = ExtResource("1_gglpm")
+region = Rect2(85, 0, 85, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_slm0e"]
+atlas = ExtResource("1_gglpm")
+region = Rect2(170, 0, 85, 50)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tw7ov"]
+atlas = ExtResource("1_gglpm")
+region = Rect2(255, 0, 85, 50)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_t7loc")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_ymlx0")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_slm0e")
+}, {
+"duration": 0.5,
+"texture": SubResource("AtlasTexture_tw7ov")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

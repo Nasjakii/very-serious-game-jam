@@ -1,0 +1,25 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://doaimv1v7fitr"]
+
+[ext_resource type="Texture2D" uid="uid://dtgg5dwgl8llx" path="res://Assets/hamster/hamster-drinking.png" id="1_1v15c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_yd6lx"]
+atlas = ExtResource("1_1v15c")
+region = Rect2(0, 0, 74, 78)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ngrfb"]
+atlas = ExtResource("1_1v15c")
+region = Rect2(74, 0, 74, 78)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_yd6lx")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ngrfb")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
