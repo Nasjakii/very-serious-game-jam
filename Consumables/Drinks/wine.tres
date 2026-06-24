@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Consumable" format=3 uid="uid://c36ihlt7kea80"]
+
+[ext_resource type="Texture2D" uid="uid://bu3xo2ken40gg" path="res://Assets/whine_bottle.png" id="1_6dl63"]
+[ext_resource type="Script" uid="uid://d2g57w8pjmr55" path="res://Consumables/consumables.gd" id="2_x4gxl"]
+
+[resource]
+script = ExtResource("2_x4gxl")
+consumable_name = "Wine"
+consumable_texture = ExtResource("1_6dl63")
+consumable_effect_social = 10
+consumable_effect_food = 2
+consumable_effect_drink = 10
+metadata/_custom_type_script = "uid://d2g57w8pjmr55"

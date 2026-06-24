@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="DrinkOffer" format=3 uid="uid://icuxv8p4pybx"]
+
+[ext_resource type="Resource" uid="uid://c36ihlt7kea80" path="res://Consumables/Drinks/wine.tres" id="1_0k1sd"]
+[ext_resource type="Script" uid="uid://n605mqkgftoh" path="res://UI/Shop/Offers/Scripts/drink_offer.gd" id="2_bs3d3"]
+
+[resource]
+script = ExtResource("2_bs3d3")
+drink_resource = ExtResource("1_0k1sd")
+offer_name = "Wine"
+offer_price = 10
+metadata/_custom_type_script = "uid://n605mqkgftoh"
