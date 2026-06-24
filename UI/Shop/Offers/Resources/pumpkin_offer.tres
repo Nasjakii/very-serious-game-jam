@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodOffer" format=3 uid="uid://bvyavnpx4fsie"]
+
+[ext_resource type="Resource" uid="uid://balarpefwogsa" path="res://Consumables/Foods/pumpkin.tres" id="1_m6w3h"]
+[ext_resource type="Script" uid="uid://cbjvy6nxdenx5" path="res://UI/Shop/Offers/Scripts/food_offer.gd" id="2_sl2xs"]
+
+[resource]
+script = ExtResource("2_sl2xs")
+food_resource = ExtResource("1_m6w3h")
+offer_name = "Pumpkin"
+metadata/_custom_type_script = "uid://cbjvy6nxdenx5"

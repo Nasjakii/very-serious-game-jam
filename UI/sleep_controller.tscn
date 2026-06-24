@@ -14,7 +14,7 @@ LineEdit/constants/minimum_character_width = 2
 LineEdit/font_sizes/font_size = 30
 LineEdit/fonts/font = ExtResource("2_rnbj1")
 
-[node name="SleepController" type="Control" unique_id=128030173 node_paths=PackedStringArray("exit_button", "spin_box")]
+[node name="SleepController" type="Control" unique_id=128030173 node_paths=PackedStringArray("exit_button", "spin_box", "sleep_button")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,6 +25,7 @@ mouse_filter = 2
 script = ExtResource("1_rnbj1")
 exit_button = NodePath("ExitButton")
 spin_box = NodePath("Panel2/HBoxContainer/SpinBox")
+sleep_button = NodePath("SleepButton")
 
 [node name="Panel" type="Panel" parent="." unique_id=153445910]
 layout_mode = 1

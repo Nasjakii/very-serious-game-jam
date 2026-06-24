@@ -1,15 +1,16 @@
 [gd_scene format=3 uid="uid://cl0536lvrph6h"]
 
 [ext_resource type="Script" uid="uid://dnqy1uiosjmhc" path="res://UI/shop.gd" id="1_l6lbb"]
-[ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/offer.gd" id="2_4qhf5"]
+[ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/Scripts/offer.gd" id="2_4qhf5"]
 [ext_resource type="Texture2D" uid="uid://cfrbg1du51qsy" path="res://Assets/shop_button.png" id="2_vfljs"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_4qhf5"]
 [ext_resource type="Resource" uid="uid://c3fjtdeydfrp5" path="res://UI/Shop/Offers/offer_test.tres" id="3_eeyqd"]
-[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/food_offer_test.tres" id="4_sar1i"]
-[ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/drink_offer_test.tres" id="5_l4q0s"]
+[ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/cabbage_offer.tres" id="4_sar1i"]
+[ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/Resources/energy_drink_offer.tres" id="5_l4q0s"]
 [ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/employee_offer_test.tres" id="6_pagdw"]
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="9_l4q0s"]
 
-[node name="Shop" type="Control" unique_id=1195036153 node_paths=PackedStringArray("toggle_shop_button", "shop_offer_vbox")]
+[node name="Shop" type="Control" unique_id=1195036153 node_paths=PackedStringArray("toggle_shop_button", "food_offer_vbox", "drink_offer_vbox", "employee_offer_vbox", "upgrade_offer_vbox")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -21,7 +22,10 @@ grow_vertical = 2
 mouse_force_pass_scroll_events = false
 script = ExtResource("1_l6lbb")
 toggle_shop_button = NodePath("ToggleShopButton")
-shop_offer_vbox = NodePath("ScrollContainer/ShopVBox")
+food_offer_vbox = NodePath("ScrollContainer/ShopVBox/Foods/FoodsContainer")
+drink_offer_vbox = NodePath("ScrollContainer/ShopVBox/Drinks/DrinksContainer")
+employee_offer_vbox = NodePath("ScrollContainer/ShopVBox/Employees/EmployeesContainer")
+upgrade_offer_vbox = NodePath("ScrollContainer/ShopVBox/Upgrades/UpgradesContainer")
 offer_list = Array[ExtResource("2_4qhf5")]([ExtResource("3_eeyqd"), ExtResource("4_sar1i"), ExtResource("5_l4q0s"), ExtResource("6_pagdw")])
 
 [node name="ToggleShopButton" type="TextureButton" parent="." unique_id=1024432911]
@@ -69,3 +73,35 @@ grow_vertical = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
+
+[node name="Foods" type="FoldableContainer" parent="ScrollContainer/ShopVBox" unique_id=59788719]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_l4q0s")
+title = "Foods"
+
+[node name="FoodsContainer" type="VBoxContainer" parent="ScrollContainer/ShopVBox/Foods" unique_id=1640581337]
+layout_mode = 2
+
+[node name="Drinks" type="FoldableContainer" parent="ScrollContainer/ShopVBox" unique_id=1382068704]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_l4q0s")
+title = "Drinks"
+
+[node name="DrinksContainer" type="VBoxContainer" parent="ScrollContainer/ShopVBox/Drinks" unique_id=1377068048]
+layout_mode = 2
+
+[node name="Employees" type="FoldableContainer" parent="ScrollContainer/ShopVBox" unique_id=1590278975]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_l4q0s")
+title = "Employees"
+
+[node name="EmployeesContainer" type="VBoxContainer" parent="ScrollContainer/ShopVBox/Employees" unique_id=1996892054]
+layout_mode = 2
+
+[node name="Upgrades" type="FoldableContainer" parent="ScrollContainer/ShopVBox" unique_id=1096239247]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("9_l4q0s")
+title = "Upgrades"
+
+[node name="UpgradesContainer" type="VBoxContainer" parent="ScrollContainer/ShopVBox/Upgrades" unique_id=312822979]
+layout_mode = 2

@@ -3,7 +3,10 @@ extends Control
 const SHOP_OFFER = preload("uid://dn2i0csms6cjk")
 
 @export var toggle_shop_button : TextureButton
-@export var shop_offer_vbox : VBoxContainer
+@export var food_offer_vbox : VBoxContainer
+@export var drink_offer_vbox : VBoxContainer
+@export var employee_offer_vbox : VBoxContainer
+@export var upgrade_offer_vbox : VBoxContainer
 
 @export var offer_list : Array[Offer]
 
@@ -20,4 +23,12 @@ func _ready() -> void:
 func create_offer(offer : Offer):
 	var offer_inst = SHOP_OFFER.instantiate()
 	offer_inst.offer = offer
-	shop_offer_vbox.add_child(offer_inst)
+	
+	if offer is DrinkOffer:
+		drink_offer_vbox.add_child(offer_inst)
+	if offer is FoodOffer:
+		food_offer_vbox.add_child(offer_inst)
+	if offer is EmployeeOffer:
+		employee_offer_vbox.add_child(offer_inst)
+	if offer is UpgradeOffer:
+		upgrade_offer_vbox.add_child(offer_inst)

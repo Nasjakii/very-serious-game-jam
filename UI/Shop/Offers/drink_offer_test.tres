@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="DrinkOffer" format=3 uid="uid://b1cgwedbpqdx4"]
-
-[ext_resource type="Script" uid="uid://n605mqkgftoh" path="res://UI/Shop/Offers/drink_offer.gd" id="1_bd756"]
-
-[resource]
-script = ExtResource("1_bd756")
-drink_name = "Drink Test"
-offer_name = "Drink Offer Test"
-metadata/_custom_type_script = "uid://n605mqkgftoh"

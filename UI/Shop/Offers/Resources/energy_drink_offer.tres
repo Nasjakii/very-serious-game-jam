@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="DrinkOffer" format=3 uid="uid://b1cgwedbpqdx4"]
+
+[ext_resource type="Resource" uid="uid://boewys4htf0iw" path="res://Consumables/Drinks/energy_drink.tres" id="1_1oej0"]
+[ext_resource type="Script" uid="uid://n605mqkgftoh" path="res://UI/Shop/Offers/Scripts/drink_offer.gd" id="1_nyjp3"]
+
+[resource]
+script = ExtResource("1_nyjp3")
+drink_resource = ExtResource("1_1oej0")
+offer_name = "Energy Drink"
+metadata/_custom_type_script = "uid://n605mqkgftoh"

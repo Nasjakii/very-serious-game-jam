@@ -25,16 +25,18 @@ func _on_buy_button_pressed():
 	if offer.offer_price <= GameManager.money:
 		GameManager.money -= offer.offer_price
 		effect()
-		queue_free()
+		
+		if not offer.offer_permanent:
+			queue_free()
 
 
 
 func effect():
 	
 	if offer is FoodOffer:
-		fridge_control.add_food(offer.food_name)
+		fridge_control.add_food(offer.food_resource)
 	elif offer is DrinkOffer:
-		drink_control.add_drink(offer.drink_name)
+		drink_control.add_drink(offer.drink_resource)
 	elif offer is EmployeeOffer:
 		employee_control.add_employee(offer.employee_name)
 	else:

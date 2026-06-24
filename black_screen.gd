@@ -5,7 +5,17 @@ signal finished
 @export var day_label: Label 
 @export var start_day_button: Button
 
+@export var stat_container : VBoxContainer
+@export var sleep_label : Label
+@export var wattage_label: Label
+@export var money_label: Label
+@export var loan_label: Label
+@export var taxes_label: Label
+
+
 func _ready() -> void:
+	stat_container.hide()
+	show()
 	start_day_button.pressed.connect(_on_start_day_button)
 
 func fade_in(duration_secocnds : float):
@@ -34,3 +44,7 @@ func set_day(day : int):
 
 func _on_start_day_button():
 	fade_out(5)
+	await get_tree().create_timer(5).timeout
+	stat_container.show() #just hide on day 0
+	GameManager.time_hbox.stop_timer = false
+	

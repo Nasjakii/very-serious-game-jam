@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FoodOffer" format=3 uid="uid://chbm4rf66belw"]
+
+[ext_resource type="Resource" uid="uid://dve406vgr8mpr" path="res://Consumables/Foods/carrot.tres" id="1_nqoxg"]
+[ext_resource type="Script" uid="uid://cbjvy6nxdenx5" path="res://UI/Shop/Offers/Scripts/food_offer.gd" id="2_ly3s5"]
+
+[resource]
+script = ExtResource("2_ly3s5")
+food_resource = ExtResource("1_nqoxg")
+offer_name = "Carrot"
+metadata/_custom_type_script = "uid://cbjvy6nxdenx5"

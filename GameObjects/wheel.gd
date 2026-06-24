@@ -53,7 +53,6 @@ func _ready() -> void:
 	update_screen()
 	
 func run_pressed():
-	if GameManager.hamster_busy and not running: return
 	
 	if running:
 		
@@ -115,9 +114,9 @@ func update_screen():
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.is_pressed() and event.button_index == MOUSE_BUTTON_LEFT:
-		if wheel_hovered:
+		if wheel_hovered and (not GameManager.hamster_busy or running):
 			run_pressed()
-		if display_hovered:
+		if display_hovered and (not GameManager.hamster_busy or running):
 			energy_selling.show()
 
 
