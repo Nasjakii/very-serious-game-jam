@@ -32,6 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
 [ext_resource type="Resource" uid="uid://6fvphaygjxhg" path="res://UI/Shop/Offers/Resources/Employees/hamilton_employee.tres" id="21_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://byjuqlk6dwomm" path="res://UI/fridge_selection.tscn" id="21_d13ii"]
+[ext_resource type="Resource" uid="uid://bvyavnpx4fsie" path="res://UI/Shop/Offers/Resources/pumpkin_offer.tres" id="22_4k2k6"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="23_1u8w0"]
 
 [node name="Main" type="Node2D" unique_id=1585207466]
@@ -117,7 +118,7 @@ mouse_filter = 2
 
 [node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p")])
+offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p"), ExtResource("22_4k2k6")])
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1
@@ -281,6 +282,7 @@ visible = false
 layout_mode = 1
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button", "payday_label", "stat_container", "sleep_label", "wattage_label", "money_label", "loan_label", "taxes_label") groups=["BlackScreen"]]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0

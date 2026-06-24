@@ -1,5 +1,6 @@
 extends Control
 
+signal offer_deleted(offer : Offer)
 
 @export var offer_name_label: RichTextLabel
 @export var price_rich_text_label: RichTextLabel
@@ -27,9 +28,8 @@ func _on_buy_button_pressed():
 		effect()
 		
 		if not offer.offer_permanent:
+			offer_deleted.emit(offer)
 			queue_free()
-
-
 
 func effect():
 
