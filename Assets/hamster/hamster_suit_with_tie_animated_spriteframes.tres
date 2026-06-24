@@ -1,0 +1,53 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://byhyqyb26dxlt"]
+
+[ext_resource type="Texture2D" uid="uid://bhtlbs3aaosgf" path="res://Assets/hamster/hamster-running-suit-tie.png" id="1_khc8s"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gia8w"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(0, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbxkg"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(96, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_e3phr"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(192, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2kret"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(288, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ttlk7"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(384, 0, 96, 58)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xb3bk"]
+atlas = ExtResource("1_khc8s")
+region = Rect2(480, 0, 96, 58)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gia8w")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbxkg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_e3phr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2kret")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ttlk7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xb3bk")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]

@@ -181,4 +181,6 @@ func suit():
 	print("here, have a suit")
 	wheel.suit()
 	
-	
+func suit_with_tie():
+	print("here, have a suit with tie")
+	wheel.suit_with_tie()

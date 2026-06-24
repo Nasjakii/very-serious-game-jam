@@ -29,6 +29,7 @@ func _on_day_end():
 	
 	for i in range(add_random_offers_daily):
 		var rand_offer = offer_list[randi_range(0, offer_list.size() - 1)]
+		if rand_offer is UpgradeOffer: continue
 		var in_list = false
 		for offer in all_offers:
 			if offer == rand_offer:

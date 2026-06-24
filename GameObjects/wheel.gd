@@ -4,6 +4,7 @@ extends Node2D
 const RUN_BUTTON = preload("uid://bj02jneehe67b")
 const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 const HAMSTER_SUIT_ANIMATED_SPRITEFRAMES = preload("uid://cqcex58wvifsl")
+const HAMSTER_SUIT_WITH_TIE_ANIMATED_SPRITEFRAMES = preload("uid://byhyqyb26dxlt")
 
 
 @export var wheel_sprite_2d: AnimatedSprite2D
@@ -135,4 +136,8 @@ func reset_wattage():
 	
 func suit():
 	hamster_animated_sprite_2d.sprite_frames = HAMSTER_SUIT_ANIMATED_SPRITEFRAMES
+	if running: hamster_animated_sprite_2d.play()
+
+func suit_with_tie():
+	hamster_animated_sprite_2d.sprite_frames = HAMSTER_SUIT_WITH_TIE_ANIMATED_SPRITEFRAMES
 	if running: hamster_animated_sprite_2d.play()
