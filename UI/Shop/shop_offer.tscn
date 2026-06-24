@@ -4,6 +4,18 @@
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="2_nq5db"]
 [ext_resource type="Texture2D" uid="uid://dwkcrfofubfny" path="res://Assets/tick-button.png" id="3_blnfd"]
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_2df4m"]
+atlas = ExtResource("3_blnfd")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nq5db"]
+atlas = ExtResource("3_blnfd")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_blnfd"]
+atlas = ExtResource("3_blnfd")
+region = Rect2(20, 0, 20, 22)
+
 [node name="ShopOffer" type="Control" unique_id=729491621 node_paths=PackedStringArray("offer_name_label", "price_rich_text_label", "texture_button")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 3
@@ -50,6 +62,8 @@ vertical_alignment = 1
 [node name="Buy" type="TextureButton" parent="HBoxContainer" unique_id=956031313]
 custom_minimum_size = Vector2(24, 24)
 layout_mode = 2
-texture_normal = ExtResource("3_blnfd")
+texture_normal = SubResource("AtlasTexture_2df4m")
+texture_pressed = SubResource("AtlasTexture_nq5db")
+texture_hover = SubResource("AtlasTexture_blnfd")
 ignore_texture_size = true
 stretch_mode = 4

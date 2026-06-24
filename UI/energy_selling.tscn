@@ -10,6 +10,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_5pawx"]
+atlas = ExtResource("6_7amh7")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sixme"]
+atlas = ExtResource("6_7amh7")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xhe4k"]
+atlas = ExtResource("6_7amh7")
+region = Rect2(20, 0, 20, 22)
+
 [node name="EnergySelling" type="Control" unique_id=273429697 node_paths=PackedStringArray("h_box_container", "exit_button", "sell_label", "sell_button") groups=["EnergySelling"]]
 layout_mode = 3
 anchors_preset = 15
@@ -132,4 +144,6 @@ anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.02
 grow_horizontal = 0
-texture_normal = ExtResource("6_7amh7")
+texture_normal = SubResource("AtlasTexture_5pawx")
+texture_pressed = SubResource("AtlasTexture_sixme")
+texture_hover = SubResource("AtlasTexture_xhe4k")

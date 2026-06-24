@@ -1,14 +1,38 @@
 [gd_scene format=3 uid="uid://byjuqlk6dwomm"]
 
 [ext_resource type="Script" uid="uid://drpsog5jvwyjv" path="res://UI/fridge_selection.gd" id="1_lfgoe"]
+[ext_resource type="Texture2D" uid="uid://fdeuyddwmr4e" path="res://Assets/eat_button-Sheet.png" id="3_ogmau"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="5_a0eaj"]
-[ext_resource type="Texture2D" uid="uid://df2r5ku71kwnp" path="res://Assets/eat_button.png" id="6_lfgoe"]
 [ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="7_t4l7c"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 
-[node name="FridgeSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("food_h_box_container", "exit_button", "food_action_button")]
+[sub_resource type="AtlasTexture" id="AtlasTexture_xjmrf"]
+atlas = ExtResource("3_ogmau")
+region = Rect2(0, 0, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_66yiu"]
+atlas = ExtResource("3_ogmau")
+region = Rect2(126, 0, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lfgoe"]
+atlas = ExtResource("3_ogmau")
+region = Rect2(63, 0, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogmau"]
+atlas = ExtResource("7_t4l7c")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6nudp"]
+atlas = ExtResource("7_t4l7c")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpppa"]
+atlas = ExtResource("7_t4l7c")
+region = Rect2(20, 0, 20, 22)
+
+[node name="FridgeSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("food_h_box_container", "exit_button", "food_action_button", "progress_bar")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,6 +44,7 @@ script = ExtResource("1_lfgoe")
 food_h_box_container = NodePath("Panel2/FoodHBoxContainer")
 exit_button = NodePath("ExitButton")
 food_action_button = NodePath("EatButton")
+progress_bar = NodePath("Panel2/ProgressBar")
 
 [node name="Panel" type="Panel" parent="." unique_id=153445910]
 layout_mode = 1
@@ -44,13 +69,23 @@ grow_vertical = 2
 [node name="FoodHBoxContainer" type="HBoxContainer" parent="Panel2" unique_id=1836402349]
 custom_minimum_size = Vector2(0, 64)
 layout_mode = 1
-anchors_preset = 14
-anchor_top = 0.5
+anchors_preset = 10
 anchor_right = 1.0
-anchor_bottom = 0.5
 grow_horizontal = 2
-grow_vertical = 2
 alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Panel2" unique_id=1602658651]
+modulate = Color(1, 0.30588236, 0.41568628, 1)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -27.0
+grow_horizontal = 2
+grow_vertical = 0
+max_value = 1.0
+show_percentage = false
 
 [node name="Label" type="Label" parent="." unique_id=787763082]
 layout_mode = 1
@@ -66,17 +101,23 @@ label_settings = ExtResource("5_a0eaj")
 horizontal_alignment = 1
 
 [node name="EatButton" type="TextureButton" parent="." unique_id=2026320655]
-custom_minimum_size = Vector2(64, 32)
+custom_minimum_size = Vector2(48, 24)
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.5
 anchor_top = 0.95
 anchor_right = 0.5
 anchor_bottom = 0.95
+offset_left = -17.0
+offset_top = -20.5
+offset_right = 31.0
+offset_bottom = 3.5
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
-texture_normal = ExtResource("6_lfgoe")
+texture_normal = SubResource("AtlasTexture_xjmrf")
+texture_pressed = SubResource("AtlasTexture_66yiu")
+texture_hover = SubResource("AtlasTexture_lfgoe")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -88,4 +129,6 @@ anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.02
 grow_horizontal = 0
-texture_normal = ExtResource("7_t4l7c")
+texture_normal = SubResource("AtlasTexture_ogmau")
+texture_pressed = SubResource("AtlasTexture_6nudp")
+texture_hover = SubResource("AtlasTexture_rpppa")

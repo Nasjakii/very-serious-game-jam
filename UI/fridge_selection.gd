@@ -6,6 +6,7 @@ const WATER_BUTTON = preload("uid://cnappbbnr0uuh")
 @export var food_h_box_container: HBoxContainer
 @export var exit_button: TextureButton
 @export var food_action_button : TextureButton
+@export var progress_bar: ProgressBar
 
 var energy_count = 0
 var food_buttons : Array[TextureButton]
@@ -17,6 +18,9 @@ var bar_container_manager : Control = null
 var food_count_dictionary : Dictionary
 var food_button_dictionary : Dictionary
 
+var eating = false
+var eat_duration = 2.0
+
 func _ready() -> void:
 	bar_container_manager = get_tree().get_first_node_in_group("BarContainerManager")
 	hide()
@@ -26,6 +30,7 @@ func _ready() -> void:
 
 
 func _on_exit_button_pressed():
+	if eating: return
 	reset_selection()
 	hide()
 	GameManager.hamster_busy = false
@@ -83,3 +88,11 @@ func _on_food_action_pressed():
 	GameManager.food_amount += food_selected.consumable_effect_food
 	GameManager.water_amount += food_selected.consumable_effect_drink
 	GameManager.social_amount += food_selected.consumable_effect_social
+	
+	eating = true
+	var tween = get_tree().create_tween()
+	tween.tween_property(progress_bar, "value", 1.0, eat_duration)
+	tween.tween_callback(func(): 
+		progress_bar.value = 0
+		eating = false
+	)

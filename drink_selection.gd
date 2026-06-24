@@ -37,6 +37,7 @@ func _ready() -> void:
 
 
 func _on_exit_button_pressed():
+	if drinking: return
 	reset_selection()
 	hide()
 	GameManager.hamster_busy = false

@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cn22hfac5smxg" path="res://UI/sleep_controller.gd" id="1_rnbj1"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="2_rnbj1"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_aufey"]
-[ext_resource type="Texture2D" uid="uid://bj02jneehe67b" path="res://Assets/run-button.png" id="4_75hg8"]
+[ext_resource type="Texture2D" uid="uid://cgvhrkhqvpooh" path="res://Assets/sleep_button.png" id="4_rnbj1"]
 [ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="5_4eaqd"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
@@ -13,6 +13,30 @@ bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 LineEdit/constants/minimum_character_width = 2
 LineEdit/font_sizes/font_size = 30
 LineEdit/fonts/font = ExtResource("2_rnbj1")
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_75hg8"]
+atlas = ExtResource("4_rnbj1")
+region = Rect2(0, 0, 63, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4eaqd"]
+atlas = ExtResource("4_rnbj1")
+region = Rect2(126, 0, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_guh3a"]
+atlas = ExtResource("4_rnbj1")
+region = Rect2(63, 0, 63, 31)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rnbj1"]
+atlas = ExtResource("5_4eaqd")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_esev6"]
+atlas = ExtResource("5_4eaqd")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aufey"]
+atlas = ExtResource("5_4eaqd")
+region = Rect2(20, 0, 20, 22)
 
 [node name="SleepController" type="Control" unique_id=128030173 node_paths=PackedStringArray("exit_button", "spin_box", "sleep_button")]
 layout_mode = 3
@@ -100,7 +124,9 @@ offset_right = 19.0
 grow_horizontal = 2
 grow_vertical = 0
 size_flags_horizontal = 3
-texture_normal = ExtResource("4_75hg8")
+texture_normal = SubResource("AtlasTexture_75hg8")
+texture_pressed = SubResource("AtlasTexture_4eaqd")
+texture_hover = SubResource("AtlasTexture_guh3a")
 ignore_texture_size = true
 stretch_mode = 4
 
@@ -112,4 +138,6 @@ anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.02
 grow_horizontal = 0
-texture_normal = ExtResource("5_4eaqd")
+texture_normal = SubResource("AtlasTexture_rnbj1")
+texture_pressed = SubResource("AtlasTexture_esev6")
+texture_hover = SubResource("AtlasTexture_aufey")

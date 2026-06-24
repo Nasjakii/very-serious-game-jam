@@ -7,6 +7,18 @@
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
 bg_color = Color(0.21960784, 0.21960784, 0.21960784, 0.8745098)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_ituai"]
+atlas = ExtResource("6_v0jeo")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w3nog"]
+atlas = ExtResource("6_v0jeo")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4sfyr"]
+atlas = ExtResource("6_v0jeo")
+region = Rect2(20, 0, 20, 22)
+
 [node name="MiniCageWindow" type="Control" unique_id=273429697 node_paths=PackedStringArray("exit_button", "v_box_container")]
 layout_mode = 3
 anchors_preset = 15
@@ -72,4 +84,6 @@ anchor_top = 0.02
 anchor_right = 0.98
 anchor_bottom = 0.02
 grow_horizontal = 0
-texture_normal = ExtResource("6_v0jeo")
+texture_normal = SubResource("AtlasTexture_ituai")
+texture_pressed = SubResource("AtlasTexture_w3nog")
+texture_hover = SubResource("AtlasTexture_4sfyr")
