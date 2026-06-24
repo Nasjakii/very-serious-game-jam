@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="EmployeeOffer" format=3 uid="uid://cpcxrrwe6f7pq"]
+
+[ext_resource type="Script" uid="uid://bc3frjgdojjbd" path="res://UI/Shop/Offers/Scripts/employee_offer.gd" id="1_nlcym"]
+
+[resource]
+script = ExtResource("1_nlcym")
+employee_name = "Chomiak"
+employee_production = 2.0
+motivation_needed = 20.0
+offer_name = "Chomiak (2W/h)"
+offer_price = 35
+metadata/_custom_type_script = "uid://bc3frjgdojjbd"

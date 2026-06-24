@@ -19,8 +19,14 @@ var running = false
 
 var speed = 0.0
 var speed_max = 1.0
-var time_until_max_speed = 10.0
-var wattage = 0.0
+var time_until_max_speed = 5.0
+var wattage : float = 0.0 : 
+	set(value):
+		if value > wattage:
+			GameManager.wattage_produced_today += value - wattage 
+		wattage = value
+		
+	
 var distance = 0.0
 var wattage_per_second = 0.0
 

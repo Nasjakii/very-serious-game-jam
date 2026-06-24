@@ -55,5 +55,6 @@ func _process(delta: float) -> void:
 	if timer >= half_day_length * 2:
 		timer -= half_day_length * 2
 		day += 1
+		day_rich_text_label.text = "Day: " + str(day)
 		day_end.emit()
 	

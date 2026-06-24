@@ -42,8 +42,19 @@ func fade_out(duration_secocnds : float):
 	
 func set_day(day : int):
 	day_label.text = "Day: " + str(day)
-	payday_label.text = "Days till payday: " + str(7 % day)
+	payday_label.text = "Days till payday: " + str(7 - day % 7)
+
+func set_wattage(amount : float):
+	wattage_label.text = "Wattage produced today: " + str(floor(amount * 100)/100) + "W"
+
+func set_money(amount : int):
+	money_label.text = "HamBucks earned today: " + str(amount) + "HB"
+
+func set_tax_payback(amount : int):
+	taxes_label.text = "Taxes to pay on day " + str(GameManager.week * 7) + ": " +  str(amount) + "HB"
 	
+func set_loan_payback(amount : int):
+	loan_label.text = "Loan payback left: " + str(amount) + "(+1%/Week)"
 
 func _on_start_day_button():
 	fade_out(5)

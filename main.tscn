@@ -26,8 +26,11 @@
 [ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="18_kq58d"]
 [ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/Resources/Employees/bob_employee.tres" id="18_seu75"]
 [ext_resource type="PackedScene" uid="uid://cp16riawxb10f" path="res://UI/drink_selection.tscn" id="19_getpj"]
+[ext_resource type="Resource" uid="uid://tgj83fycbrk0" path="res://UI/Shop/Offers/Resources/Employees/hammy_employee.tres" id="19_jq2sk"]
 [ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/suit_upgrade_offer.tres" id="19_kq58d"]
+[ext_resource type="Resource" uid="uid://cpcxrrwe6f7pq" path="res://UI/Shop/Offers/Resources/Employees/chomiak_employee.tres" id="20_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
+[ext_resource type="Resource" uid="uid://6fvphaygjxhg" path="res://UI/Shop/Offers/Resources/Employees/hamilton_employee.tres" id="21_0rl1p"]
 [ext_resource type="PackedScene" uid="uid://byjuqlk6dwomm" path="res://UI/fridge_selection.tscn" id="21_d13ii"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="23_1u8w0"]
 
@@ -114,7 +117,7 @@ mouse_filter = 2
 
 [node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75")])
+offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p")])
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1
@@ -278,7 +281,6 @@ visible = false
 layout_mode = 1
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button", "payday_label", "stat_container", "sleep_label", "wattage_label", "money_label", "loan_label", "taxes_label") groups=["BlackScreen"]]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -308,7 +310,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
 theme_override_font_sizes/font_size = 40
-text = "Day: 0"
+text = "Day: 1"
 horizontal_alignment = 1
 vertical_alignment = 1
 
@@ -325,7 +327,7 @@ offset_bottom = 32.0
 grow_horizontal = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
 theme_override_font_sizes/font_size = 40
-text = "Days till payday: 7"
+text = "Days till payday: 6"
 label_settings = ExtResource("23_1u8w0")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -365,16 +367,16 @@ horizontal_alignment = 1
 [node name="Label" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=1064937063]
 layout_mode = 2
 
-[node name="LoanLabel" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=697152112]
-layout_mode = 2
-theme_override_fonts/font = ExtResource("13_ycdy4")
-text = "Loans to pay on Day 7*X: 0HB"
-horizontal_alignment = 1
-
 [node name="TaxesLabel" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=1008534814]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
 text = "Taxes to pay on day 7*X: 0HB"
+horizontal_alignment = 1
+
+[node name="LoanLabel" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=697152112]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("13_ycdy4")
+text = "Loan payback left: X (+1%/Week)"
 horizontal_alignment = 1
 
 [node name="StartDayButton" type="Button" parent="UI/BlackScreen" unique_id=594889096]

@@ -35,11 +35,13 @@ var money : int = 0 :
 	get: 
 		return money 
 	set(value): 
+		if value > money:
+			money_made_today += value - money
 		money = value
 		money_rich_text_label.text = str(value)
 
 
-var day = 0
+var day = 1
 
 var black_screen : ColorRect
 var time_hbox : HBoxContainer
@@ -51,9 +53,17 @@ var hamster_busy = false
 var sleep_control : Control
 var sleep_duration = 0
 var sleep_start = 0
-var sleep_energy_increase = 2
+var sleep_energy_increase = 1
 var sleep_social_increase = 1
 
+var loan_payback = 10000
+var loan_increase = 0.01
+var tax_rate = 0.1
+var tax_payback = 0
+
+var money_made_today = 0
+var wattage_produced_today = 0
+var week = 1
 
 func _ready() -> void:
 	sleep_control = get_tree().get_first_node_in_group("SleepController")
@@ -71,13 +81,33 @@ func _on_day_end():
 	
 	day += 1
 	
-	if day % 7 == 0:
+	black_screen.set_money(money_made_today)
+	black_screen.set_wattage(wattage_produced_today)
+	black_screen.set_day(day)
+	
+	tax_payback += tax_rate * money_made_today
+	
+	if day % 7 == 0 and day > 6:
 		print("Pay day")
+		print(tax_payback)
+		money -= tax_payback
+		week += 1
+		if money > 0:
+			var payback_amount = min(money, loan_payback)
+			loan_payback -= payback_amount
+		
+		loan_payback += loan_payback * loan_increase
+	
+	black_screen.set_loan_payback(loan_payback)
+	black_screen.set_tax_payback(tax_payback)
 	
 	energy_selling.change_prices()
+	money_made_today = 0
+	wattage_produced_today = 0
 	
-	black_screen.set_day(day)
 	black_screen.fade_in(1)
+	
+	
 
 
 func _process(delta: float) -> void:
@@ -114,10 +144,7 @@ func faint():
 	time_hbox.stop_timer = true
 	#fainting animation
 	time_hbox.timer = time_hbox.half_day_length * 2
-	energy_amount = 10
-	food_amount = 15
-	water_amount = 20
-	social_amount = 10
+	
 	
 	if energy_amount <= 0:
 		black_screen.sleep_label.text = "You fainted, and slept poorly..."
@@ -125,6 +152,11 @@ func faint():
 		black_screen.sleep_label.text = "You almost starved, and slept poorly..."
 	if water_amount <= 0:
 		black_screen.sleep_label.text = "You almost died of thirst, and slept poorly..."
+	
+	energy_amount = 30
+	food_amount = 15
+	water_amount = 20
+	social_amount = 10
 	
 	#cancel sleep
 	sleep_duration = 0

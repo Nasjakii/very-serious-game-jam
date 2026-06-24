@@ -20,6 +20,7 @@ func _ready() -> void:
 func set_employee(employee_offer : EmployeeOffer):
 	employee_name.text = employee_offer.employee_name
 	employee_production.text = str(floor(employee_offer.employee_production * 100) / 100) + "W/h"
+	motivate_button.text = "Motivate: " + str(employee_offer.motivation_needed)
 	offer = employee_offer
 	
 func _on_hour_end(hour : float):

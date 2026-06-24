@@ -32,13 +32,13 @@ func _on_exit_button_pressed():
 func _on_sell_button_pressed():
 	var wattage = wheel.reset_wattage()
 	GameManager.money += sell_price * wattage
-
+	
 
 func change_prices():
 	
 	for bar_index in range(progress_bars.size() - 1):
 		progress_bars[bar_index].value = progress_bars[bar_index].value
-		progress_bars[bar_index].day_label.text = "Day:" + str(GameManager.day - progress_bars.size() + bar_index + 1)
+		progress_bars[bar_index].day_label.text = "Day:" + str(GameManager.day - progress_bars.size() + bar_index)
 		
 	sell_price= randf_range(min_value, max_value)
 	progress_bars[-1].value = sell_price
