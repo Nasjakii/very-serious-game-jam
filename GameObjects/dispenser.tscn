@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vbndxtiquuor" path="res://GameObjects/dispenser.gd" id="1_0fhxe"]
 [ext_resource type="Texture2D" uid="uid://dhecjk3yvo35r" path="res://Assets/drink_dispenser.png" id="1_273y3"]
 [ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="2_1f82u"]
+[ext_resource type="SpriteFrames" uid="uid://doaimv1v7fitr" path="res://Assets/hamster/hamster_drinking_spriteframes.tres" id="4_5e66e"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_5e66e"]
 shader = ExtResource("2_1f82u")
@@ -15,9 +16,10 @@ shader_parameter/add_margins = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_273y3"]
 size = Vector2(43, 82)
 
-[node name="Dispenser" type="Node2D" unique_id=1644741414 node_paths=PackedStringArray("dispenser_sprite_2d", "dispenser_area_2d")]
+[node name="Dispenser" type="Node2D" unique_id=1644741414 node_paths=PackedStringArray("dispenser_sprite_2d", "hamster_animated_sprite_2d", "dispenser_area_2d")]
 script = ExtResource("1_0fhxe")
 dispenser_sprite_2d = NodePath("DispenserSprite2D")
+hamster_animated_sprite_2d = NodePath("HamsterAnimatedSprite2D")
 dispenser_area_2d = NodePath("DispenserArea2D")
 
 [node name="DispenserSprite2D" type="Sprite2D" parent="." unique_id=892049412]
@@ -29,3 +31,8 @@ texture = ExtResource("1_273y3")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DispenserArea2D" unique_id=1514281838]
 position = Vector2(-1.5, -12)
 shape = SubResource("RectangleShape2D_273y3")
+
+[node name="HamsterAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=598449554]
+visible = false
+position = Vector2(50, 84)
+sprite_frames = ExtResource("4_5e66e")
