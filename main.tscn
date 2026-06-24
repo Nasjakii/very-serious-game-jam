@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://d01shy2avocvc" path="res://UI/bar_container_manager.gd" id="8_ryguw"]
 [ext_resource type="PackedScene" uid="uid://cf1145lyjxai0" path="res://bar_container_below.tscn" id="9_d13ii"]
 [ext_resource type="PackedScene" uid="uid://cl0536lvrph6h" path="res://UI/Shop/shop.tscn" id="10_074og"]
+[ext_resource type="PackedScene" uid="uid://tf8g20fp5tbm" path="res://UI/hint.tscn" id="10_facbu"]
 [ext_resource type="Script" uid="uid://bv85icdpo83co" path="res://UI/time_h_box.gd" id="13_2cqfq"]
 [ext_resource type="Script" uid="uid://dwxxhtr3801c0" path="res://UI/Shop/Offers/Scripts/offer.gd" id="13_xuqvo"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="13_ycdy4"]
@@ -80,6 +81,71 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+
+[node name="Tutorial" type="Control" parent="UI/Full" unique_id=2051311182]
+anchors_preset = 0
+offset_top = -1.0
+offset_right = 480.0
+offset_bottom = 271.0
+mouse_filter = 1
+
+[node name="RunHint" parent="UI/Full/Tutorial" unique_id=1762124979 node_paths=PackedStringArray("next_hint") instance=ExtResource("10_facbu")]
+layout_mode = 1
+offset_left = 84.0
+offset_top = 9.0
+offset_right = 83.95999
+offset_bottom = 9.029995
+next_hint = NodePath("../SellHint")
+hint_contents = "Start running by pressing on the wheel. You can stop in the same way."
+
+[node name="SellHint" parent="UI/Full/Tutorial" unique_id=1439990350 node_paths=PackedStringArray("next_hint") instance=ExtResource("10_facbu")]
+visible = false
+layout_mode = 1
+offset_left = 84.0
+offset_top = 9.0
+offset_right = 83.95999
+offset_bottom = 5.029999
+next_hint = NodePath("../ShopHint")
+hint_contents = "Press on the info panel inside the wheel to sell the electricity.."
+
+[node name="ShopHint" parent="UI/Full/Tutorial" unique_id=693595528 node_paths=PackedStringArray("next_hint") instance=ExtResource("10_facbu")]
+visible = false
+layout_mode = 1
+offset_left = 19.0
+offset_top = -2.0
+offset_right = 18.959991
+offset_bottom = -5.970005
+next_hint = NodePath("../NeedsHint")
+hint_contents = "You can buy consumables and upgrades in the shop in the top left corner."
+
+[node name="NeedsHint" parent="UI/Full/Tutorial" unique_id=1793371764 node_paths=PackedStringArray("next_hint") instance=ExtResource("10_facbu")]
+visible = false
+layout_mode = 1
+offset_left = 229.0
+offset_top = 158.0
+offset_right = 228.95999
+offset_bottom = 154.03
+next_hint = NodePath("../WorkersHint")
+hint_contents = "Take care of your needs by interacting with the furniture (water dispenser, hay pile, fridge)"
+
+[node name="WorkersHint" parent="UI/Full/Tutorial" unique_id=898904538 node_paths=PackedStringArray("next_hint") instance=ExtResource("10_facbu")]
+visible = false
+layout_mode = 1
+offset_left = 221.0
+offset_top = 50.0
+offset_right = 220.95999
+offset_bottom = 46.029995
+next_hint = NodePath("../EndingHint")
+hint_contents = "Check on your workers in the small hamster cage."
+
+[node name="EndingHint" parent="UI/Full/Tutorial" unique_id=1186329843 instance=ExtResource("10_facbu")]
+visible = false
+layout_mode = 1
+offset_left = 117.0
+offset_top = 10.0
+offset_right = 116.95999
+offset_bottom = 6.029995
+hint_contents = "That's it! Now work, earn money, and pay back your loan while also staying alive!"
 
 [node name="BottomRight" type="Control" parent="UI/Full" unique_id=913768737]
 layout_mode = 1

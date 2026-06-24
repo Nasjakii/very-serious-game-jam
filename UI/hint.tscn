@@ -1,0 +1,67 @@
+[gd_scene format=3 uid="uid://tf8g20fp5tbm"]
+
+[ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="1_ay17u"]
+[ext_resource type="Script" uid="uid://bsvild2rm2s4q" path="res://UI/hint.gd" id="1_ki3ck"]
+[ext_resource type="Texture2D" uid="uid://db1p1fergibli" path="res://Assets/next_button_sheet.png" id="2_g4ls5"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ki3ck"]
+content_margin_left = 10.0
+content_margin_top = 3.0
+content_margin_right = 20.0
+content_margin_bottom = 5.0
+bg_color = Color(0.23137255, 0.23137255, 0.23137255, 0.7529412)
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ebxmg"]
+atlas = ExtResource("2_g4ls5")
+region = Rect2(0, 0, 20, 22)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_74ffe"]
+load_path = "res://.godot/imported/next_button_sheet.png-28fdbafc9de8b75095cf4207d91f0534.ctex"
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6oy45"]
+atlas = SubResource("CompressedTexture2D_74ffe")
+region = Rect2(40, 0, 20, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v5tw0"]
+atlas = ExtResource("2_g4ls5")
+region = Rect2(20, 0, 20, 22)
+
+[node name="Hint" type="Control" unique_id=1762124979 node_paths=PackedStringArray("text_field", "button")]
+layout_mode = 3
+anchor_right = 0.47300002
+anchor_bottom = 0.21100001
+offset_right = -0.040008545
+offset_bottom = -3.9700012
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ki3ck")
+text_field = NodePath("RichTextLabel")
+button = NodePath("TextureButton")
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=1681721391]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 6.0
+offset_right = 223.0
+offset_bottom = 36.0
+pivot_offset = Vector2(187, 47)
+theme_override_fonts/normal_font = ExtResource("1_ay17u")
+theme_override_font_sizes/normal_font_size = 13
+theme_override_styles/normal = SubResource("StyleBoxFlat_ki3ck")
+text = "Start running by pressing on the wheel. You can stop in the same way."
+fit_content = true
+
+[node name="TextureButton" type="TextureButton" parent="." unique_id=1521346118]
+layout_mode = 0
+offset_left = 197.0
+offset_top = 11.0
+offset_right = 217.0
+offset_bottom = 33.0
+pivot_offset = Vector2(182, 64)
+texture_normal = SubResource("AtlasTexture_ebxmg")
+texture_pressed = SubResource("AtlasTexture_6oy45")
+texture_hover = SubResource("AtlasTexture_v5tw0")
