@@ -37,6 +37,10 @@
 [ext_resource type="Resource" uid="uid://icuxv8p4pybx" path="res://UI/Shop/Offers/Resources/wine_offer.tres" id="23_0rl1p"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="23_1u8w0"]
 [ext_resource type="Resource" uid="uid://bnifd4qhyd1yj" path="res://UI/Shop/Offers/Resources/suit_with_tie_upgrade_offer.tres" id="24_ok6jj"]
+[ext_resource type="Script" uid="uid://dnhfdperkevjt" path="res://Sound/Logic/ui_audio.gd" id="36_facbu"]
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_facbu"]
+random_pitch = 1.0049219
 
 [node name="Main" type="Node2D" unique_id=1585207466]
 
@@ -350,6 +354,7 @@ visible = false
 layout_mode = 1
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button", "payday_label", "stat_container", "sleep_label", "wattage_label", "money_label", "loan_label", "taxes_label") groups=["BlackScreen"]]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -460,6 +465,10 @@ grow_vertical = 2
 theme_override_fonts/font = ExtResource("13_ycdy4")
 theme_override_font_sizes/font_size = 20
 text = "Start Day"
+
+[node name="UIAudio" type="AudioStreamPlayer" parent="UI" unique_id=1622853060]
+stream = SubResource("AudioStreamRandomizer_facbu")
+script = ExtResource("36_facbu")
 
 [node name="Debug" type="CanvasLayer" parent="." unique_id=1727502898]
 visible = false

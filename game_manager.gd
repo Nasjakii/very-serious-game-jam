@@ -163,9 +163,9 @@ func faint():
 		black_screen.sleep_label.text = "You almost died of thirst, and slept poorly..."
 	
 	
-	energy_amount = 30
-	food_amount = 15
-	water_amount = 20
+	energy_amount = 40
+	food_amount = 17
+	water_amount = 25
 	social_amount = 10
 	
 	#cancel sleep
