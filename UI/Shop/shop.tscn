@@ -22,6 +22,15 @@ region = Rect2(40, 0, 20, 24)
 atlas = ExtResource("2_vfljs")
 region = Rect2(20, 0, 20, 24)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pagdw"]
+bg_color = Color(0.16453099, 0.13283804, 0.0616313, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l4q0s"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="Theme" id="Theme_l4q0s"]
+VScrollBar/styles/scroll = SubResource("StyleBoxFlat_l4q0s")
+
 [node name="Shop" type="Control" unique_id=1195036153 node_paths=PackedStringArray("toggle_shop_button", "food_offer_vbox", "drink_offer_vbox", "employee_offer_vbox", "upgrade_offer_vbox")]
 layout_mode = 3
 anchors_preset = 15
@@ -62,6 +71,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_pagdw")
 
 [node name="TitleLabel" type="Label" parent="." unique_id=1388907049]
 layout_mode = 1
@@ -82,6 +92,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_l4q0s")
+horizontal_scroll_mode = 0
 
 [node name="ShopVBox" type="VBoxContainer" parent="ScrollContainer" unique_id=1688464487]
 layout_mode = 2

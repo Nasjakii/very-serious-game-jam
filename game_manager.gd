@@ -177,6 +177,9 @@ func faint():
 	#cancel sleep
 	sleep_duration = 0
 	sleep_control.sleeping = false
+	#cancel running
+	wheel.finished_running()
+	
 	
 	
 	

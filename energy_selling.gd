@@ -36,9 +36,12 @@ func _on_sell_button_pressed():
 
 func change_prices():
 	
-	for bar_index in range(progress_bars.size() - 1):
-		progress_bars[bar_index].value = progress_bars[bar_index].value
-		progress_bars[bar_index].day_label.text = "Day:" + str(GameManager.day - progress_bars.size() + bar_index)
+	for bar_index in range(progress_bars.size()):
+		progress_bars[bar_index].day_label.text = "Day:" + str(GameManager.day - progress_bars.size() + bar_index + 1)
+		
+		if bar_index < progress_bars.size() - 1:
+			progress_bars[bar_index].value = progress_bars[bar_index + 1].value
+		
 		
 	sell_price= randf_range(min_value, max_value)
 	progress_bars[-1].value = sell_price
