@@ -9,7 +9,7 @@ signal hour_end
 
 var timer : float = 0
 var half_day_length : float = 150
-var stop_timer : bool = false
+var stop_timer : bool = true
 
 var day : int = 1
 var hour : float = 0
