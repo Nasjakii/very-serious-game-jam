@@ -6,6 +6,7 @@ const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 const HAMSTER_SUIT_ANIMATED_SPRITEFRAMES = preload("uid://cqcex58wvifsl")
 const HAMSTER_SUIT_WITH_TIE_ANIMATED_SPRITEFRAMES = preload("uid://byhyqyb26dxlt")
 const WHEEL_2_SPRITEFRAMES = preload("uid://b0xr4ptx1c3wl")
+const WHEEL_3_SPRITEFRAMES = preload("uid://csd5xiijbqth8")
 
 
 @export var wheel_sprite_2d: AnimatedSprite2D
@@ -150,5 +151,11 @@ func wheel_upgrade():
 	speed_max = 2.0
 	time_until_max_speed = 7.5
 	wheel_sprite_2d.sprite_frames = WHEEL_2_SPRITEFRAMES
+	if running: wheel_sprite_2d.play()
+	
+func wheel_upgrade_2():
+	speed_max = 4.0
+	time_until_max_speed = 10.0
+	wheel_sprite_2d.sprite_frames = WHEEL_3_SPRITEFRAMES
 	if running: wheel_sprite_2d.play()
 	

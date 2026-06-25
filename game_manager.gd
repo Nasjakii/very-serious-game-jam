@@ -201,3 +201,5 @@ func upgrade(upgrade_type : UpgradeOffer.UPGRADE_TYPES):
 			wheel.suit_with_tie()
 		UpgradeOffer.UPGRADE_TYPES.WHEEL:
 			wheel.wheel_upgrade()
+		UpgradeOffer.UPGRADE_TYPES.WHEEL2:
+			wheel.wheel_upgrade_2()

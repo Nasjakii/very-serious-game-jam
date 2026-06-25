@@ -23,7 +23,11 @@ func _ready() -> void:
 	toggle_shop_button.pressed.connect(ui_canvas.toggle_shop)
 	
 	for offer in offer_list:
-		create_offer(offer)
+		if offer is UpgradeOffer:
+			if offer.needed_upgrade == UpgradeOffer.UPGRADE_TYPES.NONE:
+				create_offer(offer)
+		else:
+			create_offer(offer)
 
 func _on_day_end():
 	
@@ -38,8 +42,15 @@ func _on_day_end():
 		if not in_list:
 			create_offer(rand_offer)
 
-func _on_offer_deleted(offer : Offer):
-	all_offers.erase(offer)
+func _on_offer_deleted(delete_offer : Offer):
+	
+	if delete_offer is UpgradeOffer:
+		for offer in offer_list:
+			if not offer is UpgradeOffer: continue
+			if offer.needed_upgrade == delete_offer.upgrade_type:
+				create_offer(offer)
+	
+	all_offers.erase(delete_offer)
 
 func create_offer(offer : Offer):
 	var offer_inst = SHOP_OFFER.instantiate()

@@ -38,6 +38,7 @@
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="23_1u8w0"]
 [ext_resource type="Resource" uid="uid://bnifd4qhyd1yj" path="res://UI/Shop/Offers/Resources/Upgrades/suit_with_tie_upgrade_offer.tres" id="24_ok6jj"]
 [ext_resource type="Resource" uid="uid://cyacp41fcoep0" path="res://UI/Shop/Offers/Resources/Upgrades/wheel_upgrade_offer.tres" id="26_come4"]
+[ext_resource type="Resource" uid="uid://c1v13aldhs6ec" path="res://UI/Shop/Offers/Resources/Upgrades/wheel_upgrade_2_offer.tres" id="27_h8e4i"]
 [ext_resource type="Script" uid="uid://dnhfdperkevjt" path="res://Sound/Logic/ui_audio.gd" id="36_facbu"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_facbu"]
@@ -191,7 +192,7 @@ mouse_filter = 2
 
 [node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p"), ExtResource("22_4k2k6"), ExtResource("23_0rl1p"), ExtResource("24_ok6jj"), ExtResource("26_come4")])
+offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p"), ExtResource("22_4k2k6"), ExtResource("23_0rl1p"), ExtResource("24_ok6jj"), ExtResource("26_come4"), ExtResource("27_h8e4i")])
 metadata/_edit_use_anchors_ = true
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
@@ -364,6 +365,7 @@ visible = false
 layout_mode = 1
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button", "payday_label", "stat_container", "sleep_label", "wattage_label", "money_label", "loan_label", "taxes_label") groups=["BlackScreen"]]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
