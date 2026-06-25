@@ -28,7 +28,7 @@
 [ext_resource type="Resource" uid="uid://bsksc02uqerlk" path="res://UI/Shop/Offers/Resources/Employees/bob_employee.tres" id="18_seu75"]
 [ext_resource type="PackedScene" uid="uid://cp16riawxb10f" path="res://UI/drink_selection.tscn" id="19_getpj"]
 [ext_resource type="Resource" uid="uid://tgj83fycbrk0" path="res://UI/Shop/Offers/Resources/Employees/hammy_employee.tres" id="19_jq2sk"]
-[ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/suit_upgrade_offer.tres" id="19_kq58d"]
+[ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/Upgrades/suit_upgrade_offer.tres" id="19_kq58d"]
 [ext_resource type="Resource" uid="uid://cpcxrrwe6f7pq" path="res://UI/Shop/Offers/Resources/Employees/chomiak_employee.tres" id="20_4k2k6"]
 [ext_resource type="PackedScene" uid="uid://bx02m4neawtx8" path="res://UI/sleep_controller.tscn" id="20_getpj"]
 [ext_resource type="Resource" uid="uid://6fvphaygjxhg" path="res://UI/Shop/Offers/Resources/Employees/hamilton_employee.tres" id="21_0rl1p"]
@@ -36,7 +36,8 @@
 [ext_resource type="Resource" uid="uid://bvyavnpx4fsie" path="res://UI/Shop/Offers/Resources/pumpkin_offer.tres" id="22_4k2k6"]
 [ext_resource type="Resource" uid="uid://icuxv8p4pybx" path="res://UI/Shop/Offers/Resources/wine_offer.tres" id="23_0rl1p"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="23_1u8w0"]
-[ext_resource type="Resource" uid="uid://bnifd4qhyd1yj" path="res://UI/Shop/Offers/Resources/suit_with_tie_upgrade_offer.tres" id="24_ok6jj"]
+[ext_resource type="Resource" uid="uid://bnifd4qhyd1yj" path="res://UI/Shop/Offers/Resources/Upgrades/suit_with_tie_upgrade_offer.tres" id="24_ok6jj"]
+[ext_resource type="Resource" uid="uid://cyacp41fcoep0" path="res://UI/Shop/Offers/Resources/Upgrades/wheel_upgrade_offer.tres" id="26_come4"]
 [ext_resource type="Script" uid="uid://dnhfdperkevjt" path="res://Sound/Logic/ui_audio.gd" id="36_facbu"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_facbu"]
@@ -190,7 +191,8 @@ mouse_filter = 2
 
 [node name="Shop" parent="UI/Full/Left" unique_id=1195036153 instance=ExtResource("10_074og")]
 layout_mode = 1
-offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p"), ExtResource("22_4k2k6"), ExtResource("23_0rl1p"), ExtResource("24_ok6jj")])
+offer_list = Array[ExtResource("13_xuqvo")]([ExtResource("14_qsp4k"), ExtResource("16_seu75"), ExtResource("18_kq58d"), ExtResource("19_kq58d"), ExtResource("18_seu75"), ExtResource("19_jq2sk"), ExtResource("20_4k2k6"), ExtResource("21_0rl1p"), ExtResource("22_4k2k6"), ExtResource("23_0rl1p"), ExtResource("24_ok6jj"), ExtResource("26_come4")])
+metadata/_edit_use_anchors_ = true
 
 [node name="TopRight" type="Control" parent="UI/Full" unique_id=572298084]
 layout_mode = 1
@@ -204,8 +206,8 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 5.0
-offset_bottom = -17.400002
+offset_left = 1.0
+offset_bottom = -19.400002
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -215,15 +217,19 @@ anchors_preset = -1
 anchor_left = 0.05
 anchor_right = 0.95
 anchor_bottom = 1.0
+offset_left = -0.7999878
+offset_top = 1.0
+offset_right = 1.8000183
 offset_bottom = -19.400002
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/separation = 0
+theme_override_constants/separation = -4
 
 [node name="TimeHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=1564317058 node_paths=PackedStringArray("day_rich_text_label", "hour_label", "minute_label") groups=["TimeHBox"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 theme_override_constants/separation = 0
+alignment = 1
 script = ExtResource("13_2cqfq")
 day_rich_text_label = NodePath("DayRichTextLabel")
 hour_label = NodePath("HourLabel")
@@ -250,6 +256,10 @@ theme_override_fonts/font = ExtResource("13_ycdy4")
 text = ":15"
 vertical_alignment = 1
 
+[node name="Control" type="Control" parent="UI/Full/TopRight/VBoxContainer" unique_id=1523353488]
+custom_minimum_size = Vector2(0, 5)
+layout_mode = 2
+
 [node name="MoneyHBox" type="HBoxContainer" parent="UI/Full/TopRight/VBoxContainer" unique_id=155621428]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
@@ -258,7 +268,7 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_fonts/normal_font = ExtResource("13_ycdy4")
-text = "20"
+text = "0"
 scroll_active = false
 horizontal_alignment = 2
 vertical_alignment = 1
@@ -354,7 +364,6 @@ visible = false
 layout_mode = 1
 
 [node name="BlackScreen" type="ColorRect" parent="UI" unique_id=1836293051 node_paths=PackedStringArray("day_label", "start_day_button", "payday_label", "stat_container", "sleep_label", "wattage_label", "money_label", "loan_label", "taxes_label") groups=["BlackScreen"]]
-visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -423,7 +432,9 @@ alignment = 1
 
 [node name="SleepLabel" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=1279016674]
 layout_mode = 2
+theme_override_colors/font_color = Color(1, 0.34901962, 0.43529412, 1)
 theme_override_fonts/font = ExtResource("13_ycdy4")
+text = "Fainted"
 horizontal_alignment = 1
 
 [node name="WattageLabel" type="Label" parent="UI/BlackScreen/StatVBoxContainer" unique_id=1104017422]

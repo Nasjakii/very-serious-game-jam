@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://crt7cm15ut6b4" path="res://Assets/WheelShadow.png" id="2_a4pml"]
 [ext_resource type="Texture2D" uid="uid://bi0277xlx3r3m" path="res://Assets/workout_display.png" id="3_6eiq6"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="4_a4pml"]
-[ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="4_r2pkp"]
 [ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="5_qcown"]
+[ext_resource type="SpriteFrames" uid="uid://cyhdavfr7gd8l" path="res://Assets/hamster/wheel_spriteframes.tres" id="6_r2pkp"]
 [ext_resource type="SpriteFrames" uid="uid://vjyretn747aj" path="res://Assets/hamster/hamster_animated_spriteframes.tres" id="7_r2pkp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcown"]
@@ -27,38 +27,9 @@ shader_parameter/pattern = 1
 shader_parameter/inside = true
 shader_parameter/add_margins = true
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0jg24"]
-atlas = ExtResource("4_r2pkp")
-region = Rect2(0, 0, 154, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_w10ud"]
-atlas = ExtResource("4_r2pkp")
-region = Rect2(154, 0, 154, 180)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_eai6e"]
-atlas = ExtResource("4_r2pkp")
-region = Rect2(308, 0, 154, 180)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_074og"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0jg24")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_w10ud")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_eai6e")
-}],
-"loop": true,
-"name": &"default",
-"speed": 10.0
-}]
-
 [node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("wheel_sprite_2d", "hamster_animated_sprite_2d", "rich_text_label", "wheel_area_2d", "display_area_2d", "wheel_display")]
 script = ExtResource("1_bx1x2")
-wheel_sprite_2d = NodePath("WheelSprite2D")
+wheel_sprite_2d = NodePath("WheelAnimatedSprite2D")
 hamster_animated_sprite_2d = NodePath("HamsterAnimatedSprite2D")
 rich_text_label = NodePath("WheelDisplay/RichTextLabel")
 wheel_area_2d = NodePath("WheelArea2D")
@@ -100,11 +71,9 @@ Production: 0 KWh
 Energy: 0 W
 "
 
-[node name="WheelSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730781370]
+[node name="WheelAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1730781370]
 material = SubResource("ShaderMaterial_xrrtj")
-sprite_frames = SubResource("SpriteFrames_074og")
-frame = 1
-frame_progress = 0.81932634
+sprite_frames = ExtResource("6_r2pkp")
 
 [node name="HamsterAnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1747238296]
 visible = false

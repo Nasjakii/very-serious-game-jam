@@ -5,6 +5,7 @@ const RUN_BUTTON = preload("uid://bj02jneehe67b")
 const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 const HAMSTER_SUIT_ANIMATED_SPRITEFRAMES = preload("uid://cqcex58wvifsl")
 const HAMSTER_SUIT_WITH_TIE_ANIMATED_SPRITEFRAMES = preload("uid://byhyqyb26dxlt")
+const WHEEL_2_SPRITEFRAMES = preload("uid://b0xr4ptx1c3wl")
 
 
 @export var wheel_sprite_2d: AnimatedSprite2D
@@ -18,7 +19,7 @@ var energy_selling : Control
 
 var running = false
 
-var speed = 0.0
+var speed : float = 0.0
 var speed_max = 1.0
 var time_until_max_speed = 5.0
 var wattage : float = 0.0 : 
@@ -36,10 +37,13 @@ var update_interval = 1.0
 
 var wheel_hovered = false
 var display_hovered = false
+var hour = 0
+var time_hbox : HBoxContainer
 
 func _ready() -> void:
 	energy_selling = get_tree().get_first_node_in_group("EnergySelling")
-	
+	time_hbox = get_tree().get_first_node_in_group("TimeHBox")
+	hour = time_hbox.half_day_length / 12
 	
 	wheel_area_2d.mouse_entered.connect(func(): 
 		wheel_hovered = true
@@ -117,7 +121,7 @@ func _process(delta: float) -> void:
 func update_screen():
 	rich_text_label.text = "Speed: " + str(floor(speed * 100) / 100) + "cm/s" + "\n"
 	rich_text_label.text += "Distance: " + str(floor(distance * 100) / 100) + "m" + "\n"
-	rich_text_label.text += "Production: " + str(floor(wattage_per_second * 100) / 100) + "KWh"  + "\n"
+	rich_text_label.text += "Production: " + str(floor(wattage_per_second * hour * 100) / 100) + "W/h"  + "\n"
 	rich_text_label.text += "Energy: " + str(floor(wattage*100)/100) + "W"
 
 func _input(event: InputEvent) -> void:
@@ -141,3 +145,10 @@ func suit():
 func suit_with_tie():
 	hamster_animated_sprite_2d.sprite_frames = HAMSTER_SUIT_WITH_TIE_ANIMATED_SPRITEFRAMES
 	if running: hamster_animated_sprite_2d.play()
+	
+func wheel_upgrade():
+	speed_max = 2.0
+	time_until_max_speed = 7.5
+	wheel_sprite_2d.sprite_frames = WHEEL_2_SPRITEFRAMES
+	if running: wheel_sprite_2d.play()
+	

@@ -64,6 +64,7 @@ var tax_payback = 0
 var money_made_today = 0
 var wattage_produced_today = 0
 var week = 1
+var fainted = false
 
 var endscreen_shown = false
 
@@ -83,7 +84,11 @@ func _on_day_end():
 	
 	day += 1
 	
-	black_screen.sleep_label.text = ""
+	if not fainted:
+		black_screen.set_sleep_label("")
+	else:
+		fainted = false
+	
 	black_screen.set_money(money_made_today)
 	black_screen.set_wattage(wattage_produced_today)
 	black_screen.set_day(day)
@@ -144,23 +149,24 @@ func _process(delta: float) -> void:
 			social_amount += energy_loss * sleep_social_increase
 			
 		water_amount -= water_loss
-	
+		
+		
 		if energy_amount <= 0 || food_amount <= 0 || water_amount <= 0:
 			faint()
 
 
 func faint():
 	time_hbox.stop_timer = true
+	fainted = true
 	#fainting animation
 	time_hbox.timer = time_hbox.half_day_length * 2
 	
-	
 	if energy_amount <= 0:
-		black_screen.sleep_label.text = "You fainted, and slept poorly..."
+		black_screen.set_sleep_label("You fainted, and slept poorly...")
 	if food_amount <= 0:
-		black_screen.sleep_label.text = "You almost starved, and slept poorly..."
+		black_screen.set_sleep_label("You almost starved, and slept poorly...")
 	if water_amount <= 0:
-		black_screen.sleep_label.text = "You almost died of thirst, and slept poorly..."
+		black_screen.set_sleep_label("You almost died of thirst, and slept poorly...")
 	
 	
 	energy_amount = 40
@@ -184,10 +190,14 @@ func sleep(duration : int):
 	var hour = time_hbox.half_day_length/12
 	sleep_duration = duration * hour
 	
-func suit():
-	print("here, have a suit")
-	wheel.suit()
 	
-func suit_with_tie():
-	print("here, have a suit with tie")
-	wheel.suit_with_tie()
+func upgrade(upgrade_type : UpgradeOffer.UPGRADE_TYPES):
+	match upgrade_type:
+		UpgradeOffer.UPGRADE_TYPES.SUIT:
+			print("here, have a suit")
+			wheel.suit()
+		UpgradeOffer.UPGRADE_TYPES.SUIT_WITH_TIE:
+			print("here, have a suit with tie")
+			wheel.suit_with_tie()
+		UpgradeOffer.UPGRADE_TYPES.WHEEL:
+			wheel.wheel_upgrade()

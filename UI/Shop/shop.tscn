@@ -7,7 +7,7 @@
 [ext_resource type="Resource" uid="uid://caddvjovjdwsf" path="res://UI/Shop/Offers/Resources/lettuce_offer.tres" id="4_sar1i"]
 [ext_resource type="Resource" uid="uid://b1cgwedbpqdx4" path="res://UI/Shop/Offers/Resources/energy_drink_offer.tres" id="5_l4q0s"]
 [ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="6_pagdw"]
-[ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/suit_upgrade_offer.tres" id="7_pagdw"]
+[ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/Upgrades/suit_upgrade_offer.tres" id="7_pagdw"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="9_l4q0s"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4q0s"]

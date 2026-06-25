@@ -1,0 +1,32 @@
+[gd_resource type="SpriteFrames" format=3 uid="uid://cyhdavfr7gd8l"]
+
+[ext_resource type="Texture2D" uid="uid://d3iswcexa5ivi" path="res://Assets/wheel.png" id="1_lu0dl"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0jg24"]
+atlas = ExtResource("1_lu0dl")
+region = Rect2(0, 0, 154, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w10ud"]
+atlas = ExtResource("1_lu0dl")
+region = Rect2(154, 0, 154, 180)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eai6e"]
+atlas = ExtResource("1_lu0dl")
+region = Rect2(308, 0, 154, 180)
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0jg24")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w10ud")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eai6e")
+}],
+"loop": true,
+"name": &"default",
+"speed": 10.0
+}]

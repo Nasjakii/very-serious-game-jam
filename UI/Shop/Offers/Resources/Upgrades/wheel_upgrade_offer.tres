@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="UpgradeOffer" format=3 uid="uid://cyacp41fcoep0"]
+
+[ext_resource type="Script" uid="uid://c4au0xncl22wh" path="res://UI/Shop/Offers/Scripts/upgrade_offer.gd" id="1_1c8rm"]
+
+[resource]
+script = ExtResource("1_1c8rm")
+upgrade_type = 2
+offer_name = "Wheel 2"
+offer_price = 90
+metadata/_custom_type_script = "uid://c4au0xncl22wh"

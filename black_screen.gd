@@ -40,6 +40,9 @@ func fade_out(duration_secocnds : float):
 		hide()
 	)
 	
+func set_sleep_label(text : String):
+	sleep_label.text = text
+	
 func set_day(day : int):
 	day_label.text = "Day: " + str(day)
 	payday_label.text = "Days till payday: " + str(7 - day % 7)
