@@ -101,6 +101,7 @@ offset_left = 84.0
 offset_top = 9.0
 offset_right = 83.95999
 offset_bottom = 9.029995
+mouse_filter = 2
 next_hint = NodePath("../SellHint")
 hint_contents = "Start running by pressing on the wheel. You can stop in the same way."
 
@@ -111,6 +112,7 @@ offset_left = 84.0
 offset_top = 9.0
 offset_right = 83.95999
 offset_bottom = 5.029999
+mouse_filter = 2
 next_hint = NodePath("../ShopHint")
 hint_contents = "Press on the info panel inside the wheel to sell the electricity.."
 
@@ -121,6 +123,7 @@ offset_left = 19.0
 offset_top = -2.0
 offset_right = 18.959991
 offset_bottom = -5.970005
+mouse_filter = 2
 next_hint = NodePath("../NeedsHint")
 hint_contents = "You can buy consumables and upgrades in the shop in the top left corner."
 
@@ -131,6 +134,7 @@ offset_left = 229.0
 offset_top = 158.0
 offset_right = 228.95999
 offset_bottom = 154.03
+mouse_filter = 2
 next_hint = NodePath("../WorkersHint")
 hint_contents = "Take care of your needs by interacting with the furniture (water dispenser, hay pile, fridge)"
 
@@ -141,6 +145,7 @@ offset_left = 221.0
 offset_top = 50.0
 offset_right = 220.95999
 offset_bottom = 46.029995
+mouse_filter = 2
 next_hint = NodePath("../EndingHint")
 hint_contents = "Check on your workers in the small hamster cage."
 
@@ -151,6 +156,7 @@ offset_left = 117.0
 offset_top = 10.0
 offset_right = 116.95999
 offset_bottom = 6.029995
+mouse_filter = 2
 hint_contents = "That's it! Now work, earn money, and pay back your loan while also staying alive!"
 
 [node name="BottomRight" type="Control" parent="UI/Full" unique_id=913768737]
