@@ -46,6 +46,6 @@ text = "12W/h"
 [node name="MotivateButton" type="Button" parent="HBoxContainer" unique_id=2131278483]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_xt4x6")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 14
 theme_override_styles/normal = SubResource("StyleBoxFlat_w3nog")
 text = "Motivate"

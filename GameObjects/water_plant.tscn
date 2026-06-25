@@ -12,10 +12,11 @@ shader_parameter/pattern = 2
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="WaterPlant" type="Node2D" unique_id=1463094653 node_paths=PackedStringArray("water_plant_sprite_2d", "water_plant_area_2d")]
+[node name="WaterPlant" type="Node2D" unique_id=1463094653 node_paths=PackedStringArray("water_plant_sprite_2d", "water_plant_area_2d", "progress_bar")]
 script = ExtResource("1_f6f4e")
 water_plant_sprite_2d = NodePath("WaterPlantSprite2D")
 water_plant_area_2d = NodePath("WaterPlantArea2D")
+progress_bar = NodePath("ProgressBar")
 
 [node name="WaterPlantSprite2D" type="Sprite2D" parent="." unique_id=1299396095]
 material = SubResource("ShaderMaterial_pdgow")
@@ -25,3 +26,12 @@ texture = ExtResource("1_p33mm")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="WaterPlantArea2D" unique_id=1353311332]
 polygon = PackedVector2Array(2, -8, -3, -22, -14, -26, -24, -12, -23, 17, -12, 22, 0, 19, 9, 27, 19, 24, 19, 16, 28, 4, 23, -2, 4, 0)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=584409861]
+modulate = Color(0, 0.7246811, 0.7261058, 1)
+offset_left = -29.0
+offset_top = 18.0
+offset_right = 27.0
+offset_bottom = 29.0
+max_value = 1.0
+show_percentage = false
