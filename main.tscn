@@ -40,6 +40,8 @@
 [ext_resource type="Resource" uid="uid://cyacp41fcoep0" path="res://UI/Shop/Offers/Resources/Upgrades/wheel_upgrade_offer.tres" id="26_come4"]
 [ext_resource type="Resource" uid="uid://c1v13aldhs6ec" path="res://UI/Shop/Offers/Resources/Upgrades/wheel_upgrade_2_offer.tres" id="27_h8e4i"]
 [ext_resource type="Script" uid="uid://dnhfdperkevjt" path="res://Sound/Logic/ui_audio.gd" id="36_facbu"]
+[ext_resource type="AudioStream" uid="uid://cm3pgx8omfndu" path="res://Sound/SFX/background_chill.mp3" id="41_0cp0l"]
+[ext_resource type="Script" uid="uid://ea50qv40frtx" path="res://Sound/Music/audio_stream_player_music.gd" id="42_d2t1y"]
 
 [sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_facbu"]
 random_pitch = 1.0049219
@@ -487,6 +489,7 @@ text = "Start Day"
 
 [node name="UIAudio" type="AudioStreamPlayer" parent="UI" unique_id=1622853060]
 stream = SubResource("AudioStreamRandomizer_facbu")
+bus = &"SFX"
 script = ExtResource("36_facbu")
 
 [node name="Debug" type="CanvasLayer" parent="." unique_id=1727502898]
@@ -506,3 +509,9 @@ layout_mode = 0
 offset_right = 40.0
 offset_bottom = 23.0
 script = ExtResource("18_074og")
+
+[node name="AudioStreamPlayerMusic" type="AudioStreamPlayer" parent="." unique_id=529335276]
+stream = ExtResource("41_0cp0l")
+volume_db = -10.0
+bus = &"Music"
+script = ExtResource("42_d2t1y")

@@ -1,6 +1,5 @@
 extends Node2D
 
-
 const RUN_BUTTON = preload("uid://bj02jneehe67b")
 const STOP_BUTTON = preload("uid://dt8psn66g00uv")
 const HAMSTER_SUIT_ANIMATED_SPRITEFRAMES = preload("uid://cqcex58wvifsl")
@@ -15,6 +14,8 @@ const WHEEL_3_SPRITEFRAMES = preload("uid://csd5xiijbqth8")
 @export var wheel_area_2d: Area2D
 @export var display_area_2d: Area2D
 @export var wheel_display: Sprite2D
+@export var audio_stream_player_wheel : AudioStreamPlayer
+@export var audio_stream_player_running : AudioStreamPlayer
 
 var energy_selling : Control
 
@@ -77,6 +78,11 @@ func run_pressed():
 		tween2.tween_property(hamster_animated_sprite_2d, "speed_scale", 0.0, slow_down_time)
 		var tween3 = get_tree().create_tween()
 		tween3.tween_property(wheel_sprite_2d, "speed_scale", 0.0, slow_down_time)
+		var tween4 = get_tree().create_tween()
+		tween4.tween_property(audio_stream_player_wheel, "pitch_scale", 0.1, slow_down_time)
+		tween4.tween_property(audio_stream_player_running, "pitch_scale", 1.0, slow_down_time)
+		tween4.tween_callback(audio_stream_player_wheel.stop)
+		tween4.tween_callback(audio_stream_player_running.stop)
 		
 	else:
 		GameManager.hamster_busy = true
@@ -90,6 +96,12 @@ func run_pressed():
 		tween2.tween_property(hamster_animated_sprite_2d, "speed_scale", 1.0, time_until_max_speed).from(0.0)
 		var tween3 = get_tree().create_tween()
 		tween3.tween_property(wheel_sprite_2d, "speed_scale", 1.0, time_until_max_speed).from(0.0)
+		var tween4 = get_tree().create_tween()
+		audio_stream_player_wheel.play()
+		audio_stream_player_running.play()
+		tween4.tween_property(audio_stream_player_wheel, "pitch_scale", 1, time_until_max_speed).from(0.1)
+		tween4.tween_property(audio_stream_player_running, "pitch_scale", 2, time_until_max_speed).from(1.0)
+
 		
 		running = true
 	

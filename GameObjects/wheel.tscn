@@ -7,6 +7,8 @@
 [ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="5_qcown"]
 [ext_resource type="SpriteFrames" uid="uid://cyhdavfr7gd8l" path="res://Assets/hamster/wheel_spriteframes.tres" id="6_r2pkp"]
 [ext_resource type="SpriteFrames" uid="uid://vjyretn747aj" path="res://Assets/hamster/hamster_animated_spriteframes.tres" id="7_r2pkp"]
+[ext_resource type="AudioStream" uid="uid://cjy3i41qelglr" path="res://Sound/SFX/wheel spnning.wav" id="8_qcown"]
+[ext_resource type="AudioStream" uid="uid://b8u8k4krpixhm" path="res://Sound/SFX/hamster_running.wav" id="9_xrrtj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_qcown"]
 size = Vector2(95, 58)
@@ -27,7 +29,7 @@ shader_parameter/pattern = 1
 shader_parameter/inside = true
 shader_parameter/add_margins = true
 
-[node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("wheel_sprite_2d", "hamster_animated_sprite_2d", "rich_text_label", "wheel_area_2d", "display_area_2d", "wheel_display")]
+[node name="Wheel" type="Node2D" unique_id=1378031939 node_paths=PackedStringArray("wheel_sprite_2d", "hamster_animated_sprite_2d", "rich_text_label", "wheel_area_2d", "display_area_2d", "wheel_display", "audio_stream_player_wheel", "audio_stream_player_running")]
 script = ExtResource("1_bx1x2")
 wheel_sprite_2d = NodePath("WheelAnimatedSprite2D")
 hamster_animated_sprite_2d = NodePath("HamsterAnimatedSprite2D")
@@ -35,6 +37,8 @@ rich_text_label = NodePath("WheelDisplay/RichTextLabel")
 wheel_area_2d = NodePath("WheelArea2D")
 display_area_2d = NodePath("DisplayArea2D")
 wheel_display = NodePath("WheelDisplay")
+audio_stream_player_wheel = NodePath("AudioStreamPlayerWheel")
+audio_stream_player_running = NodePath("AudioStreamPlayerRunning")
 
 [node name="DisplayArea2D" type="Area2D" parent="." unique_id=134031655]
 
@@ -79,3 +83,16 @@ sprite_frames = ExtResource("6_r2pkp")
 visible = false
 position = Vector2(-9, 35)
 sprite_frames = ExtResource("7_r2pkp")
+
+[node name="AudioStreamPlayerWheel" type="AudioStreamPlayer" parent="." unique_id=1636265780]
+stream = ExtResource("8_qcown")
+volume_db = -10.0
+max_polyphony = 2
+bus = &"SFX"
+
+[node name="AudioStreamPlayerRunning" type="AudioStreamPlayer" parent="." unique_id=2068983331]
+stream = ExtResource("9_xrrtj")
+volume_db = 15.0
+pitch_scale = 2.0
+max_polyphony = 2
+bus = &"SFX"
