@@ -12,7 +12,7 @@ signal finished
 @export var money_label: Label
 @export var loan_label: Label
 @export var taxes_label: Label
-
+@export var screen_block : Control
 
 
 func _ready() -> void:
@@ -27,7 +27,8 @@ func fade_in(duration_secocnds : float):
 	var tween = get_tree().create_tween()
 	tween.tween_property(self, "modulate:a", 1.0, duration_secocnds).set_trans(Tween.TRANS_CUBIC)
 	tween.tween_callback(finished.emit)
-	
+	screen_block.position.x = 0
+	print("blocking")
 	
 func fade_out(duration_secocnds : float):
 	show()
@@ -39,6 +40,8 @@ func fade_out(duration_secocnds : float):
 		finished.emit()
 		hide()
 	)
+	screen_block.position.x = size.x
+	print("stop blocking")
 	
 func set_sleep_label(text : String):
 	sleep_label.text = text

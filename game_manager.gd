@@ -83,6 +83,7 @@ func _ready() -> void:
 	money_rich_text_label.text = str(money)
 	
 func _on_day_end():
+	
 	time_hbox.stop_timer = true
 	
 	day += 1
