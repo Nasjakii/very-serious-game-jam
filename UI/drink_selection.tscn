@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://vk8jmk037oww" path="res://drink_selection.gd" id="1_66hgh"]
 [ext_resource type="LabelSettings" uid="uid://dx7tsokkpufn7" path="res://Settings/Label Settings/title_label_settings.tres" id="3_c1ivd"]
 [ext_resource type="Texture2D" uid="uid://bcjav43tdxl00" path="res://Assets/drink_button.png" id="4_66hgh"]
+[ext_resource type="AudioStream" uid="uid://vcibsj7uevk5" path="res://Sound/SFX/hamster_drinking.wav" id="5_66hgh"]
 [ext_resource type="Texture2D" uid="uid://d18pi0ah81qs1" path="res://Assets/exit_button.png" id="5_u62gj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_074og"]
@@ -32,7 +33,7 @@ region = Rect2(40, 0, 20, 22)
 atlas = ExtResource("5_u62gj")
 region = Rect2(20, 0, 20, 22)
 
-[node name="DrinkSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("drink_h_box_container", "exit_button", "drink_action_button", "progress_bar") groups=["DrinkSelection"]]
+[node name="DrinkSelection" type="Control" unique_id=128030173 node_paths=PackedStringArray("drink_h_box_container", "exit_button", "drink_action_button", "progress_bar", "audio_stream_player") groups=["DrinkSelection"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -45,6 +46,7 @@ drink_h_box_container = NodePath("Panel2/DrinkHBoxContainer")
 exit_button = NodePath("ExitButton")
 drink_action_button = NodePath("DrinkButton")
 progress_bar = NodePath("Panel2/ProgressBar")
+audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="Panel" type="Panel" parent="." unique_id=153445910]
 layout_mode = 1
@@ -131,3 +133,7 @@ grow_horizontal = 0
 texture_normal = SubResource("AtlasTexture_yvqjw")
 texture_pressed = SubResource("AtlasTexture_c1ivd")
 texture_hover = SubResource("AtlasTexture_kqgxd")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1913434273]
+stream = ExtResource("5_66hgh")
+volume_db = 15.0

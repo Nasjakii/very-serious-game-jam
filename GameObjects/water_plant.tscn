@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://duqkjeyn2e2xi" path="res://GameObjects/water_plant.gd" id="1_f6f4e"]
 [ext_resource type="Texture2D" uid="uid://csyl7fshv51e0" path="res://Assets/water_plant.png" id="1_p33mm"]
 [ext_resource type="Shader" uid="uid://bacqf0r4ck8dx" path="res://Shader/outline_shader.gdshader" id="2_mbpav"]
+[ext_resource type="AudioStream" uid="uid://bwyr5mnsjpwt0" path="res://Sound/SFX/watering.wav" id="4_pdgow"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_pdgow"]
 shader = ExtResource("2_mbpav")
@@ -12,11 +13,12 @@ shader_parameter/pattern = 2
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="WaterPlant" type="Node2D" unique_id=1463094653 node_paths=PackedStringArray("water_plant_sprite_2d", "water_plant_area_2d", "progress_bar")]
+[node name="WaterPlant" type="Node2D" unique_id=1463094653 node_paths=PackedStringArray("water_plant_sprite_2d", "water_plant_area_2d", "progress_bar", "audio_stream_player")]
 script = ExtResource("1_f6f4e")
 water_plant_sprite_2d = NodePath("WaterPlantSprite2D")
 water_plant_area_2d = NodePath("WaterPlantArea2D")
 progress_bar = NodePath("ProgressBar")
+audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="WaterPlantSprite2D" type="Sprite2D" parent="." unique_id=1299396095]
 material = SubResource("ShaderMaterial_pdgow")
@@ -35,3 +37,7 @@ offset_right = 27.0
 offset_bottom = 29.0
 max_value = 1.0
 show_percentage = false
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1875730335]
+stream = ExtResource("4_pdgow")
+bus = &"SFX"

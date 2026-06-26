@@ -1,6 +1,6 @@
 extends AudioStreamPlayer
 
-var fade_in_time = 3
+var fade_in_time = 4
 
 func _ready() -> void:
 	finished.connect(_on_music_finished)

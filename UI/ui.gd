@@ -1,6 +1,7 @@
 extends CanvasLayer
 
 @export var shop: Control
+@export var ui_audio: AudioStreamPlayer
 
 
 var shop_open = false 
@@ -13,6 +14,9 @@ func _input(event: InputEvent) -> void:
 
 
 func toggle_shop():
+	
+	ui_audio.toggle_shop()
+	
 	if shop_open:
 		var tween = get_tree().create_tween()
 		tween.tween_property(shop, "position:x", -shop.size.x, 0.2).from(0)

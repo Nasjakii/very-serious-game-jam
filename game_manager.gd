@@ -1,5 +1,8 @@
 extends Node
 
+signal fainting
+signal finished_sleep
+
 var food_amount = 100 :
 	set(value): 
 		food_amount = min(value, food_amount_max)
@@ -133,6 +136,7 @@ func _process(delta: float) -> void:
 			time_hbox.timer += delta * 4
 		elif sleep_control.sleeping:
 			sleep_control.sleeping = false
+			finished_sleep.emit()
 			
 		update_timer += delta
 		
@@ -156,6 +160,7 @@ func _process(delta: float) -> void:
 
 
 func faint():
+	fainting.emit()
 	time_hbox.stop_timer = true
 	fainted = true
 	#fainting animation

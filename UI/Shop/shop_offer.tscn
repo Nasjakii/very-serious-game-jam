@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://bwep6hcwep3lh" path="res://UI/Shop/shop_offer.gd" id="1_2df4m"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="2_nq5db"]
 [ext_resource type="Texture2D" uid="uid://dwkcrfofubfny" path="res://Assets/tick-button.png" id="3_blnfd"]
+[ext_resource type="AudioStream" uid="uid://jpev3m8r6rf2" path="res://Sound/SFX/coins.mp3" id="4_nq5db"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_2df4m"]
 atlas = ExtResource("3_blnfd")
@@ -16,7 +17,7 @@ region = Rect2(40, 0, 20, 22)
 atlas = ExtResource("3_blnfd")
 region = Rect2(20, 0, 20, 22)
 
-[node name="ShopOffer" type="Control" unique_id=729491621 node_paths=PackedStringArray("offer_name_label", "price_rich_text_label", "texture_button")]
+[node name="ShopOffer" type="Control" unique_id=729491621 node_paths=PackedStringArray("offer_name_label", "price_rich_text_label", "texture_button", "audio_stream_player")]
 custom_minimum_size = Vector2(0, 24)
 layout_mode = 3
 anchors_preset = 0
@@ -24,6 +25,7 @@ script = ExtResource("1_2df4m")
 offer_name_label = NodePath("HBoxContainer/OfferNameLabel")
 price_rich_text_label = NodePath("HBoxContainer/PriceRichTextLabel")
 texture_button = NodePath("HBoxContainer/Buy")
+audio_stream_player = NodePath("AudioStreamPlayer")
 
 [node name="Panel" type="Panel" parent="." unique_id=1289255165]
 layout_mode = 1
@@ -67,3 +69,6 @@ texture_pressed = SubResource("AtlasTexture_nq5db")
 texture_hover = SubResource("AtlasTexture_blnfd")
 ignore_texture_size = true
 stretch_mode = 4
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=438735837]
+stream = ExtResource("4_nq5db")

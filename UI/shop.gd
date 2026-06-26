@@ -21,13 +21,14 @@ func _ready() -> void:
 	ui_canvas = get_tree().get_first_node_in_group("UI")
 	
 	toggle_shop_button.pressed.connect(ui_canvas.toggle_shop)
-	
+
 	for offer in offer_list:
 		if offer is UpgradeOffer:
 			if offer.needed_upgrade == UpgradeOffer.UPGRADE_TYPES.NONE:
 				create_offer(offer)
 		else:
 			create_offer(offer)
+
 
 func _on_day_end():
 	

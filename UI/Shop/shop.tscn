@@ -9,6 +9,7 @@
 [ext_resource type="Resource" uid="uid://chbm4rf66belw" path="res://UI/Shop/Offers/Resources/carrot_offer.tres" id="6_pagdw"]
 [ext_resource type="Resource" uid="uid://wvfiy1rvkxlj" path="res://UI/Shop/Offers/Resources/Upgrades/suit_upgrade_offer.tres" id="7_pagdw"]
 [ext_resource type="FontFile" uid="uid://blrhywbdtuxc1" path="res://Fonts/m5x7.ttf" id="9_l4q0s"]
+[ext_resource type="AudioStream" uid="uid://cwngijxkhsnik" path="res://Sound/SFX/whoosh.wav" id="10_pagdw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_l4q0s"]
 atlas = ExtResource("2_vfljs")
@@ -132,3 +133,6 @@ title = "Upgrades"
 
 [node name="UpgradesContainer" type="VBoxContainer" parent="ScrollContainer/ShopVBox/Upgrades" unique_id=312822979]
 layout_mode = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=204825348]
+stream = ExtResource("10_pagdw")

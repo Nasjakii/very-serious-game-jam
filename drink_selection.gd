@@ -8,6 +8,7 @@ const WATER_BUTTON = preload("uid://cnappbbnr0uuh")
 @export var exit_button: TextureButton
 @export var drink_action_button : TextureButton
 @export var progress_bar: ProgressBar
+@export var audio_stream_player : AudioStreamPlayer
 
 var energy_count = 0
 var drink_buttons : Array[TextureButton]
@@ -101,9 +102,11 @@ func _on_drink_action_pressed():
 	GameManager.social_amount += drink_selected.consumable_effect_social
 	
 	drinking = true
+	audio_stream_player.play()
 	var tween = get_tree().create_tween()
 	tween.tween_property(progress_bar, "value", 1.0, drink_duration)
 	tween.tween_callback(func(): 
 		progress_bar.value = 0
 		drinking = false
+		audio_stream_player.stop()
 	)

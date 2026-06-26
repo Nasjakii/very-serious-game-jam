@@ -2,7 +2,6 @@ extends Control
 
 
 signal sleep_started
-signal sleep_finished
 
 
 @export var exit_button: TextureButton
@@ -36,7 +35,6 @@ func _on_exit_button_pressed():
 	hide()
 	reset_selection()
 	GameManager.hamster_busy = false
-	sleep_finished.emit()
 
 func _on_spin_box_value_changed(val : int):
 	reset_selection()

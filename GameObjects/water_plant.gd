@@ -3,7 +3,7 @@ extends Node2D
 @export var water_plant_sprite_2d: Sprite2D
 @export var water_plant_area_2d: Area2D 
 @export var progress_bar: ProgressBar
-
+@export var audio_stream_player : AudioStreamPlayer
 
 var plant_hovered = false
 
@@ -30,5 +30,7 @@ func _input(event: InputEvent) -> void:
 			var tween2 = get_tree().create_tween()
 			tween2.tween_property(progress_bar, "value", 1, 4).from(0)
 			tween2.tween_callback(func(): progress_bar.value = 0)
+			
+			audio_stream_player.play()
 			await get_tree().create_timer(4).timeout
 			GameManager.hamster_busy = false

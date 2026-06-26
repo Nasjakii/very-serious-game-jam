@@ -5,7 +5,7 @@ signal offer_deleted(offer : Offer)
 @export var offer_name_label: RichTextLabel
 @export var price_rich_text_label: RichTextLabel
 @export var texture_button: TextureButton
-
+@export var audio_stream_player : AudioStreamPlayer
 @export var offer : Offer
 
 var fridge_control : Control
@@ -24,6 +24,7 @@ func _ready() -> void:
 
 func _on_buy_button_pressed():
 	if offer.offer_price <= GameManager.money:
+		audio_stream_player.play()
 		GameManager.money -= offer.offer_price
 		effect()
 		
